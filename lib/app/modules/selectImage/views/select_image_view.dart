@@ -5,15 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
-
-import '../widgets/crop_image_view.dart';
-
 import '../widgets/example_view.dart';
 import '../widgets/gallary_view.dart';
+import '../widgets/imageCroper.dart';
 import '../widgets/suggested_view.dart';
 
 class SelectImageView extends StatelessWidget {
@@ -34,12 +31,14 @@ class SelectImageView extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.camera_alt),
-            onPressed: () {
-
-              // _getImage(ImageSource.camera); // Open camera to capture image
-            },
-          ),
+              icon: const Icon(Icons.camera_alt),
+              onPressed: () async {
+                final XFile? image =
+                    await ImagePicker().pickImage(source: ImageSource.camera);
+                if (image != null) {
+                  Get.to(ImageCroperScreen(image: File(image.path)));
+                }
+              }),
         ],
       ),
       body: DefaultTabController(
@@ -98,28 +97,6 @@ class SelectImageView extends StatelessWidget {
                   ],
                 ),
               ),
-
-              Get.back();
-            },
-          ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.camera_alt),
-              onPressed: () async {
-                final XFile? image =
-                    await ImagePicker().pickImage(source: ImageSource.camera);
-                if (image != null) {
-                  Get.to(CropImageScreen(image: File(image.path)));
-                }
-              },
-            ),
-          ],
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'Suggested'),
-              Tab(text: 'Gallery'),
-              Tab(text: 'Example'),
-
             ],
           ),
         ),

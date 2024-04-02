@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ImageCroperScreen extends StatelessWidget {
-  const ImageCroperScreen({Key? key}) : super(key: key);
+  final File image;
+  const ImageCroperScreen({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +35,7 @@ class ImageCroperScreen extends StatelessWidget {
               builder: (controller) {
                 return Image.file(
                   controller.croppedImage.value ??
-                      File(
-                          'assets/your_image.jpg'), // Display the cropped image
+                      File(image.path), // Display the cropped image
                   width: 200,
                   height: 200,
                 );
