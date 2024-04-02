@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 
@@ -39,12 +40,12 @@ class ImageCroperScreen extends StatelessWidget {
                 return Image.file(
                   controller.croppedImage.value ??
                       File(image.path), // Display the cropped image
-                  width: 450,
-                  height: 450,
+                  width: 450.w,
+                  height: 450.h,
                 );
               },
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             ElevatedButton(
               onPressed: () {
                 // Add functionality for the start button here
