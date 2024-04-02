@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 class ExampleView extends StatefulWidget {
   const ExampleView({super.key});
@@ -10,6 +11,6 @@ class ExampleView extends StatefulWidget {
 class _ExampleViewState extends State<ExampleView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return appScaffold();
   }
 }

@@ -13,6 +13,7 @@ class GalleryView extends StatefulWidget {
 class _GalleryViewState extends State<GalleryView> {
   final ImagePicker _picker = ImagePicker();
   List<File> _imageFiles = [];
+
   @override
   void initState() {
     _getImageFromGallery();
