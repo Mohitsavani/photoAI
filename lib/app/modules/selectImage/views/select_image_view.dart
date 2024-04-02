@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
+import '../widgets/crop_image_view.dart';
 import '../widgets/example_view.dart';
 import '../widgets/gallary_view.dart';
 import '../widgets/suggested_view.dart';
@@ -19,14 +23,18 @@ class SelectImageView extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Get.back(); // Navigate back to the previous screen
+              Get.back();
             },
           ),
           actions: [
             IconButton(
               icon: const Icon(Icons.camera_alt),
-              onPressed: () {
-                // _getImage(ImageSource.camera); // Open camera to capture image
+              onPressed: () async {
+                final XFile? image =
+                    await ImagePicker().pickImage(source: ImageSource.camera);
+                if (image != null) {
+                  Get.to(CropImageScreen(image: File(image.path)));
+                }
               },
             ),
           ],
