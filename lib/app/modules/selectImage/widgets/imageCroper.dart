@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 class ImageCroperScreen extends StatelessWidget {
   final File image;
@@ -11,6 +12,8 @@ class ImageCroperScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Image Preview"),
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -21,7 +24,7 @@ class ImageCroperScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.crop),
             onPressed: () {
-              // _cropImage();
+              _cropImage();
             },
           ),
         ],
@@ -36,8 +39,8 @@ class ImageCroperScreen extends StatelessWidget {
                 return Image.file(
                   controller.croppedImage.value ??
                       File(image.path), // Display the cropped image
-                  width: 200,
-                  height: 200,
+                  width: 450,
+                  height: 450,
                 );
               },
             ),
@@ -54,31 +57,22 @@ class ImageCroperScreen extends StatelessWidget {
     );
   }
 
-  // Future<void> _cropImage() async {
-  //   File? croppedFile = await ImageCropper.cropImage(
-  //     sourcePath: 'assets/your_image.jpg', // Replace with your image path
-  //     aspectRatioPresets: [
-  //       CropAspectRatioPreset.square,
-  //       CropAspectRatioPreset.ratio3x2,
-  //       CropAspectRatioPreset.original,
-  //       CropAspectRatioPreset.ratio4x3,
-  //       CropAspectRatioPreset.ratio16x9
-  //     ],
-  //     androidUiSettings: AndroidUiSettings(
-  //         toolbarTitle: 'Crop Image',
-  //         toolbarColor: Colors.deepOrange,
-  //         toolbarWidgetColor: Colors.white,
-  //         initAspectRatio: CropAspectRatioPreset.original,
-  //         lockAspectRatio: false),
-  //     iosUiSettings: IOSUiSettings(
-  //       minimumAspectRatio: 1.0,
-  //     ),
-  //   );
-  //   if (croppedFile != null) {
-  //     Get.find<ImageCroperController>().croppedImage.value =
-  //         croppedFile; // Update cropped image value
-  //   }
-  // }
+  Future<void> _cropImage() async {
+    final CroppedFile? croppedFile = await ImageCropper().cropImage(
+      sourcePath: image.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+    );
+    if (croppedFile != null) {
+      Get.find<ImageCroperController>().croppedImage.value =
+          File(croppedFile.path); // Update cropped image value
+    }
+  }
 }
 
 class ImageCroperController extends GetxController {
