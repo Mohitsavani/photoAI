@@ -1,12 +1,9 @@
 import 'package:get/get.dart';
 
-class VaultController extends GetxController {
-  var selectedIndex = 0.obs;
+class FreetabController extends GetxController {
+  //TODO: Implement FreetabController
 
-  void changeTabIndex(int index) {
-    selectedIndex.value = index;
-  }
-
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -21,4 +18,6 @@ class VaultController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  void increment() => count.value++;
 }

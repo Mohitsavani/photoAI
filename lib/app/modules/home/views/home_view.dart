@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
   Widget _buildListItem(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => SelectImageView()); // Navigate to SelectImage page
+        Get.to(() => const SelectImageView()); // Navigate to SelectImage page
       },
       child: SizedBox(
         height: 250, // Set the height of the card

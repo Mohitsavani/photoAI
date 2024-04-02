@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class LocalString {
-  static String title = "Fastiva Poster Maker";
+  static String title = "Photo AI";
   static String home = "Home";
   static String picture = "Picture";
   static String profile = "Profile";
@@ -9,7 +9,7 @@ class LocalString {
   static String selectProfile = "Select Profile";
   static String viewAll = "View All";
   static String noInternet = "No Internet";
-  static String noData = "No Data";
+  static String noBeautificationPictures = "No Beautification Pictures";
   static String noProfile = "No Profile";
   static String noProfileDes =
       "There is no profile available for now. please add your profile for better experience.";
@@ -21,7 +21,9 @@ class LocalString {
 
   static String updateProfile = "Update Profile";
   static String update = "Update";
-  static String festivaCropper = 'Festiva Cropper';
+  static String free = "Free";
+  static String aieffect = "AI Effect";
+
   static String uploadLogo = "Upload Logo";
   static String download = "Download";
   static String uploadFirmLogo = "Upload Firm Logo";
@@ -159,7 +161,7 @@ class Local extends Translations {
           LocalString.selectProfile: "Select Profile",
           LocalString.viewAll: "View All",
           LocalString.noInternet: "No Internet",
-          LocalString.noData: "No Data",
+          LocalString.noBeautificationPictures: "No Beautification Pictures",
           LocalString.noProfile: "No Profile",
           LocalString.noProfileDes:
               "There is no profile available for now. please add your profile for better experience.",
@@ -172,7 +174,6 @@ class Local extends Translations {
           LocalString.addProfile: "Add Profile",
           LocalString.updateProfile: "Update Profile",
           LocalString.update: "Update",
-          LocalString.festivaCropper: 'Festiva Cropper',
           LocalString.uploadLogo: "Upload Logo",
           LocalString.download: "Download",
           LocalString.uploadFirmLogo: "Upload Firm Logo",
@@ -303,7 +304,6 @@ class Local extends Translations {
           LocalString.selectProfile: "प्रोफ़ाइल चुनें",
           LocalString.viewAll: "सभी को देखें",
           LocalString.noInternet: "कोई इंटरनेट नहीं",
-          LocalString.noData: "कोई डेटा नहीं",
           LocalString.noProfile: "कोई प्रोफ़ाइल नहीं",
           LocalString.noProfileDes:
               "फिलहाल कोई प्रोफ़ाइल उपलब्ध नहीं है. बेहतर अनुभव के लिए कृपया अपनी प्रोफ़ाइल जोड़ें।",
@@ -316,7 +316,6 @@ class Local extends Translations {
           LocalString.addProfile: "प्रोफ़ाइल जोड़ें",
           LocalString.updateProfile: "अपडेट प्रोफ़ाइल",
           LocalString.update: "अपडेट",
-          LocalString.festivaCropper: 'फेस्टिवा क्रॉपर',
           LocalString.uploadLogo: "अपलोड लोगो",
           LocalString.download: "डाउनलोड",
           LocalString.uploadFirmLogo: "अपलोड फर्म लोगो",
@@ -446,7 +445,6 @@ class Local extends Translations {
           LocalString.selectProfile: "પ્રોફાઇલ પસંદ કરો",
           LocalString.viewAll: "બધુજ જુઓ",
           LocalString.noInternet: "ઇન્ટરનેટ નથી",
-          LocalString.noData: "કોઈ ડેટા નથી",
           LocalString.noProfile: "કોઈ પ્રોફાઇલ નથી",
           LocalString.noProfileDes:
               "અત્યારે કોઈ પ્રોફાઇલ ઉપલબ્ધ નથી. વધુ સારા અનુભવ માટે કૃપા કરીને તમારી પ્રોફાઇલ ઉમેરો.",
@@ -459,7 +457,6 @@ class Local extends Translations {
           LocalString.addProfile: "પ્રોફાઇલ ઉમેરો",
           LocalString.updateProfile: "પ્રોફાઇલ અપડેટ",
           LocalString.update: "અપડેટ",
-          LocalString.festivaCropper: 'ફેસ્ટિવ પાક',
           LocalString.uploadLogo: "લોગો અપલોડ કરો",
           LocalString.download: "ડાઉનલોડ",
           LocalString.uploadFirmLogo: "અપલોડ ફર્મ લોગો",

@@ -19,6 +19,8 @@ dependencies:
   photo_manager: ^3.0.0
   image_gallery_saver: ^2.0.3
   path_provider: ^2.1.1
+  lottie: ^2.6.0
+
 
 
 

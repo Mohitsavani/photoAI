@@ -1,12 +1,7 @@
 import 'package:get/get.dart';
 
-class VaultController extends GetxController {
-  var selectedIndex = 0.obs;
-
-  void changeTabIndex(int index) {
-    selectedIndex.value = index;
-  }
-
+class AiEffectTabController extends GetxController {
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -21,4 +16,6 @@ class VaultController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  void increment() => count.value++;
 }

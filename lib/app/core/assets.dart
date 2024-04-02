@@ -8,8 +8,10 @@ class AppIcons {
   static const String rateApp = "assets/icons/rate.png";
   static const String share = "assets/icons/share.png";
   static const String help = "assets/icons/help.png";
+  static const String noBox = "assets/icons/noBox.png";
 }
 
 class AppImages {
   static const String appBg = "assets/images/bg.jpg";
+  static const String loader = "assets/images/loader.json";
 }

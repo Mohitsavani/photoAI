@@ -11,6 +11,8 @@ abstract class Routes {
   static const POSTER_PROFILES = _Paths.POSTER_PROFILES;
   static const ADD_PROFILE = _Paths.ADD_PROFILE;
   static const SELECT_IMAGE = _Paths.SELECT_IMAGE;
+  static const FREETAB = _Paths.FREETAB;
+  static const AI_EFFECT_TAB = _Paths.AI_EFFECT_TAB;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const POSTER_PROFILES = '/poster-profiles';
   static const ADD_PROFILE = '/add-profile';
   static const SELECT_IMAGE = '/select-image';
+  static const FREETAB = '/freetab';
+  static const AI_EFFECT_TAB = '/ai-effect-tab';
 }
