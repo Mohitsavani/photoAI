@@ -212,12 +212,6 @@ packages:
     dependency: "direct main"
     description:
       name: image_cropper
-
-      sha256: "60542ffd03436e6f80a1d7c9839f75b6a62b0a290cd98624fa29d150fdf672c8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.1"
-
       sha256: f4bad5ed2dfff5a7ce0dfbad545b46a945c702bb6182a921488ef01ba7693111
       url: "https://pub.dev"
     source: hosted
@@ -238,7 +232,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
-
   image_gallery_saver:
     dependency: "direct main"
     description:
