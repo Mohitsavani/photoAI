@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:posteriya/app/core/typography.dart';
 
-import '../../core/assets.dart';
 import '../../core/colors.dart';
 import '../global_widget.dart';
 
@@ -46,16 +44,11 @@ class AppButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(radius ?? 15),
               color: backGroundColor ?? AppColors.appColor,
             ),
-            child: loader == true
-                ? Padding(
-                    padding: EdgeInsets.symmetric(vertical: 0.8.h),
-                    child: Lottie.asset(AppImages.loader),
-                  )
-                : Center(
-                    child: AppText(
-                    title,
-                    style: ubuntu.bold.get11.white,
-                  )),
+            child: Center(
+                child: AppText(
+              title,
+              style: ubuntu.bold.get11.white,
+            )),
           ),
         ),
       ),
