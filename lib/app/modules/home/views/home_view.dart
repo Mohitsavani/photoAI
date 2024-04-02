@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
       child: SizedBox(
         height: 250, // Set the height of the card
         child: Card(
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
               bottom: 10, left: 20, right: 20, top: 50), // Adjust margins
           shape: RoundedRectangleBorder(
             borderRadius:
@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
                   fit: BoxFit.cover, // Adjust image fit
                 ),
               ),
-              Positioned(
+              const Positioned(
                 bottom:
                     10, // Adjust the vertical position of the title and subtitle
                 left:
@@ -79,7 +79,7 @@ class HomeView extends StatelessWidget {
                   onPressed: () {
                     Get.to(() => SelectImageView());
                   },
-                  child: Text(
+                  child: const Text(
                     'Start',
                     style: TextStyle(color: AppColors.black),
                   ),

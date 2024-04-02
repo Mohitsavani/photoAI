@@ -48,7 +48,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SELECT_IMAGE,
-      page: () => const SelectImageView(),
+      page: () => SelectImageView(),
       binding: SelectImageBinding(),
     ),
   ];
