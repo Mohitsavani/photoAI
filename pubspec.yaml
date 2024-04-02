@@ -1,0 +1,54 @@
+name: posteriya
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  get: 4.6.6
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  flutter_screenutil: ^5.9.0
+  url_launcher: ^6.1.14
+  share_plus: ^7.1.0
+  store_redirect: ^2.0.1
+  image_picker: ^0.8.4+4
+  photo_manager: ^3.0.0
+  image_gallery_saver: ^2.0.3
+  path_provider: ^2.1.1
+
+
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+
+  fonts:
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/ubuntu/Ubuntu-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ubuntu/Ubuntu-Light.ttf
+          weight: 300
+        - asset: assets/fonts/ubuntu/Ubuntu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ubuntu/Ubuntu-Regular.ttf
+          weight: 400
