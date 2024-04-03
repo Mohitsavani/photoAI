@@ -9,6 +9,8 @@ class AppIcons {
   static const String share = "assets/icons/share.png";
   static const String help = "assets/icons/help.png";
   static const String noBox = "assets/icons/noBox.png";
+  static const String camera = "assets/icons/camera.png";
+  static const String cropIcon = "assets/icons/crop.png";
 }
 
 class AppImages {

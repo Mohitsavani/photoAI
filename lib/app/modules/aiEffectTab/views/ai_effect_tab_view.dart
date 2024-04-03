@@ -8,6 +8,6 @@ class AiEffectTabView extends GetView<AiEffectTabController> {
   const AiEffectTabView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return NoData();
+    return const NoData();
   }
 }

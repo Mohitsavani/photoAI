@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'imageCroper.dart';
 
 class GalleryView extends StatefulWidget {
   const GalleryView({super.key});
@@ -31,6 +34,7 @@ class _GalleryViewState extends State<GalleryView> {
       setState(() {
         _imageFiles.add(File(pickedFile.path));
       });
+      Get.to(ImageCropScreen(image: File(pickedFile.path)));
     }
   }
 }

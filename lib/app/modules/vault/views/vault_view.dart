@@ -39,19 +39,23 @@ class VaultView extends GetView<VaultController> {
                             ? null
                             : Colors.transparent;
                       }),
-                      unselectedLabelColor: AppColors.grey,
+                      unselectedLabelColor: AppColors.black,
                       unselectedLabelStyle: ubuntu.get13.w700,
                       labelStyle: ubuntu.get13.w700,
-                      labelColor: AppColors.color1,
+                      labelColor: AppColors.black,
                       indicatorSize: TabBarIndicatorSize.tab,
                       dividerColor: AppColors.trans,
                       indicatorPadding: EdgeInsets.symmetric(
                           horizontal: 3.w, vertical: 0.2.h),
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: AppColors.white,
-                        border: Border.all(
-                          color: AppColors.grey.withOpacity(0.2),
+                        gradient: const LinearGradient(
+                          colors: [
+                            AppColors.color1, // Start color of the gradient
+                            AppColors.white, // End color of the gradient
+                          ],
+                          // begin: Alignment.topLeft,
+                          // end: Alignment.topRight,
                         ),
                       ),
                       onTap: (index) {},
