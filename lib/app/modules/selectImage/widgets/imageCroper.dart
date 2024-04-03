@@ -1,8 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:posteriya/app/core/assets.dart';
+import 'package:posteriya/app/core/colors.dart';
+import 'package:posteriya/app/core/typography.dart';
+
+import '../../../reusable/generated_scaffold.dart';
 
 class ImageCropScreen extends StatelessWidget {
   final File image;
@@ -11,22 +17,29 @@ class ImageCropScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return appScaffold(
       appBar: AppBar(
-        title: const Text("Image Preview"),
+        backgroundColor: AppColors.trans,
+        title: Text("Image Preview", style: ubuntu.white),
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: AppColors.white,
+          ),
           onPressed: () {
             Get.back();
           },
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.crop),
-            onPressed: () {
-              _cropImage();
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+                onTap: () {
+                  _cropImage();
+                },
+                child: Image.asset(AppIcons.cropIcon,
+                    color: AppColors.white, height: 20.h)),
           ),
         ],
       ),

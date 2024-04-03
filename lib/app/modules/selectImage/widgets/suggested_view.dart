@@ -69,16 +69,16 @@ class _SuggestViewState extends State<SuggestView> {
               child: Column(
                 children: [
                   Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 1.h, vertical: 3.h),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: 10.h, vertical: 10.h),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
-                            childAspectRatio: 9 / 9,
-                            crossAxisSpacing: 1.5.h,
-                            mainAxisSpacing: 1.5.h),
+                            childAspectRatio: 9 / 12,
+                            crossAxisSpacing: 6.5.h,
+                            mainAxisSpacing: 6.5.h),
                         itemCount: imageList.length,
                         itemBuilder: (BuildContext context, int index) {
                           final String imgPath = imageList[index];

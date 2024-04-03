@@ -8,6 +8,6 @@ class FreetabView extends GetView<FreetabController> {
   const FreetabView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return NoData();
+    return const NoData();
   }
 }

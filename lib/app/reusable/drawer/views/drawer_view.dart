@@ -14,8 +14,8 @@ Drawer appDrawer() {
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.zero,
     ),
-    backgroundColor: AppColors.white,
-    child: DrawerView(),
+    backgroundColor: AppColors.trans,
+    child: const DrawerView(),
   );
 }
 
@@ -28,7 +28,17 @@ class DrawerView extends StatelessWidget {
       init: ProfileController(),
       builder: (controller) {
         return Container(
-          color: AppColors.white,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            gradient: const LinearGradient(
+              colors: [
+                AppColors.color1,
+                AppColors.white,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Padding(
             padding: EdgeInsets.only(left: 3.w),
             child: Column(
