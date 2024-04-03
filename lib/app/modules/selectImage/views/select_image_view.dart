@@ -36,7 +36,8 @@ class SelectImageView extends StatelessWidget {
                 final XFile? image =
                     await ImagePicker().pickImage(source: ImageSource.camera);
                 if (image != null) {
-                  Get.to(ImageCroperScreen(image: File(image.path)));
+                  await _saveImage(image.path);
+                  Get.to(ImageCropScreen(image: File(image.path)));
                 }
               }),
         ],
@@ -80,7 +81,7 @@ class SelectImageView extends StatelessWidget {
                       ),
                     ),
                     onTap: (index) {},
-                    tabs: [
+                    tabs: const [
                       Tab(text: 'Suggested'),
                       Tab(text: 'Gallery'),
                       Tab(text: 'Example'),
@@ -102,5 +103,21 @@ class SelectImageView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _saveImage(String imagePath) async {
+    try {
+      const String destFolder = '/storage/emulated/0/DCIM/Camera';
+      final Directory destDir = Directory(destFolder);
+      if (!destDir.existsSync()) {
+        destDir.createSync(recursive: true);
+      }
+      final String fileName = imagePath.split('/').last;
+      final File copiedImage =
+          await File(imagePath).copy('$destFolder/$fileName');
+      print('Image saved successfully at: ${copiedImage.path}');
+    } catch (e) {
+      print('Error saving image: $e');
+    }
   }
 }

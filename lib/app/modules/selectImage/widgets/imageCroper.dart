@@ -4,25 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 
-class ImageCroperScreen extends StatelessWidget {
+class ImageCropScreen extends StatelessWidget {
   final File image;
-  const ImageCroperScreen({Key? key, required this.image}) : super(key: key);
+
+  const ImageCropScreen({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Image Preview"),
+        title: const Text("Image Preview"),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Get.back(); // Navigate back to previous screen
+            Get.back();
           },
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.crop),
+            icon: const Icon(Icons.crop),
             onPressed: () {
               _cropImage();
             },
@@ -33,23 +34,22 @@ class ImageCroperScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<ImageCroperController>(
-              init: ImageCroperController(), // Initialize GetX controller
+            GetBuilder<ImageCropperController>(
+              init: ImageCropperController(),
               builder: (controller) {
                 return Image.file(
-                  controller.croppedImage.value ??
-                      File(image.path), // Display the cropped image
+                  controller.croppedImage.value ?? File(image.path),
                   width: 450,
                   height: 450,
                 );
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Add functionality for the start button here
               },
-              child: Text('Start'),
+              child: const Text('Start'),
             ),
           ],
         ),
@@ -69,13 +69,12 @@ class ImageCroperScreen extends StatelessWidget {
       ],
     );
     if (croppedFile != null) {
-      Get.find<ImageCroperController>().croppedImage.value =
-          File(croppedFile.path); // Update cropped image value
+      Get.find<ImageCropperController>().croppedImage.value =
+          File(croppedFile.path);
     }
   }
 }
 
-class ImageCroperController extends GetxController {
-  Rx<File?> croppedImage =
-      Rx<File?>(null); // Reactive variable to hold cropped image file
+class ImageCropperController extends GetxController {
+  Rx<File?> croppedImage = Rx<File?>(null);
 }

@@ -1,7 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+import 'imageCroper.dart';
 
 class SuggestView extends StatefulWidget {
   const SuggestView({super.key});
@@ -11,68 +15,100 @@ class SuggestView extends StatefulWidget {
 }
 
 class _SuggestViewState extends State<SuggestView> {
-  List<File> _imageList = [];
-  bool _isLoading = true;
-  bool noImagesFound = false;
+  final Directory photoDirectory = Directory('/storage/emulated/0/DCIM/Camera');
+  RxList<String> imageList = <String>[].obs;
+  var isLoaded = false.obs;
+
   @override
   void initState() {
     super.initState();
-    _fetchImages();
+    _checkPermissionAndLoadImages();
   }
 
-  Future<void> _fetchImages() async {
-    try {
-      final Directory cameraFolder = await _getCameraFolder();
-      final List<FileSystemEntity> files = cameraFolder.listSync();
-      setState(() {
-        _imageList = files.whereType<File>().toList();
-        _isLoading = false;
-        noImagesFound = _imageList.isEmpty;
-      });
-    } catch (e) {
-      print('Error fetching images: $e');
-      setState(() {
-        _isLoading = false;
-        noImagesFound = true;
-      });
+  Future<void> _checkPermissionAndLoadImages() async {
+    var status = await Permission.storage.status;
+    if (!status.isGranted) {
+      status = await Permission.storage.request();
+    }
+    if (status.isGranted) {
+      await getStatusData();
+    } else {
+      // Handle when permission is denied
     }
   }
 
-  Future<Directory> _getCameraFolder() async {
-    final Directory? appDocDir = await getExternalStorageDirectory();
-    return Directory('${appDocDir?.path}/DCIM/Camera');
+  Future<void> getStatusData() async {
+    if (Directory(photoDirectory.path).existsSync()) {
+      isLoaded(false);
+      imageList.value = photoDirectory
+          .listSync()
+          .map((item) => item.path)
+          .where((item) => item.endsWith('.jpg'))
+          .toList(growable: false)
+        ..sort((a, b) => b.compareTo(a)); // Sort in descending order
+      isLoaded(true);
+    }
+  }
+
+  bool isSuggest() {
+    if (!Directory(photoDirectory.path).existsSync()) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 250,
-          child: _isLoading
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : noImagesFound
-                  ? Center(
-                      child: Text('No images found'),
-                    )
-                  : GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 4.0,
-                        mainAxisSpacing: 4.0,
-                      ),
-                      itemCount: _imageList.length,
-                      itemBuilder: (context, index) {
-                        return Image.file(
-                          _imageList[index],
-                          fit: BoxFit.cover,
-                        );
-                      },
-                    ),
-        ),
-      ],
-    );
+    if (isSuggest()) {
+      return Obx(() {
+        if (isLoaded.isTrue) {
+          if (imageList.isNotEmpty) {
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 1.h, vertical: 3.h),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            childAspectRatio: 9 / 9,
+                            crossAxisSpacing: 1.5.h,
+                            mainAxisSpacing: 1.5.h),
+                        itemCount: imageList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final String imgPath = imageList[index];
+                          return GestureDetector(
+                            onTap: () {
+                              Get.to(ImageCropScreen(image: File(imgPath)));
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.file(
+                                File(imgPath),
+                                fit: BoxFit.cover,
+                                filterQuality: FilterQuality.low,
+                              ),
+                            ),
+                          );
+                        },
+                      )),
+                ],
+              ),
+            );
+          } else {
+            return const Center(child: Text("No Data Found"));
+          }
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      });
+    } else {
+      return const Center(child: Text("No Data Found"));
+    }
   }
 }
