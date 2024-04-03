@@ -9,6 +9,7 @@ import 'package:posteriya/app/core/assets.dart';
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../widgets/camera_view.dart';
 import '../widgets/example_view.dart';
 import '../widgets/gallary_view.dart';
 import '../widgets/suggested_view.dart';
@@ -46,7 +47,7 @@ class SelectImageView extends StatelessWidget {
                       await ImagePicker().pickImage(source: ImageSource.camera);
                   if (image != null) {
                     await _saveImage(image.path);
-                    Get.to(ImageCropScreen(image: File(image.path)));
+                    Get.to(CameraView(image: File(image.path)));
                   }
                 },
                 child: Image.asset(

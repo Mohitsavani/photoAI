@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'imageCroper.dart';
+import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
   const SuggestView({super.key});
@@ -84,7 +84,7 @@ class _SuggestViewState extends State<SuggestView> {
                           final String imgPath = imageList[index];
                           return GestureDetector(
                             onTap: () {
-                              Get.to(ImageCropScreen(image: File(imgPath)));
+                              Get.to(CameraView(image: File(imgPath)));
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
