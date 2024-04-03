@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:posteriya/app/modules/selectImage/widgets/camera_view.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../widgets/example_view.dart';
 import '../widgets/gallary_view.dart';
-import '../widgets/imageCroper.dart';
 import '../widgets/suggested_view.dart';
 
 class SelectImageView extends StatelessWidget {
   const SelectImageView({Key? key}) : super(key: key);
+
+  // Function to crop the selected image
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,7 @@ class SelectImageView extends StatelessWidget {
               onPressed: () async {
                 final XFile? image =
                     await ImagePicker().pickImage(source: ImageSource.camera);
-                if (image != null) {
-                  Get.to(ImageCroperScreen(image: File(image.path)));
-                }
+                Get.to(CameraView(image: File(image!.path)));
               }),
         ],
       ),
