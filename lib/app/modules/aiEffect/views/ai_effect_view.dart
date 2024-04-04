@@ -13,11 +13,14 @@ class AiEffectView extends GetView<AiEffectController> {
   @override
   Widget build(BuildContext context) {
     return appScaffold(
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return _buildListItem(context);
-        },
+      body: Padding(
+        padding: EdgeInsets.only(bottom: 25.h),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return _buildListItem(context);
+          },
+        ),
       ),
     );
   }

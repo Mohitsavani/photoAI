@@ -15,7 +15,7 @@ class GalleryView extends StatefulWidget {
 
 class _GalleryViewState extends State<GalleryView> {
   final ImagePicker _picker = ImagePicker();
-  List<File> _imageFiles = [];
+  List<File> imageFiles = [];
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class _GalleryViewState extends State<GalleryView> {
     final pickedFile = await _picker.getImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
-        _imageFiles.add(File(pickedFile.path));
+        imageFiles.add(File(pickedFile.path));
       });
       Get.to(CameraView(image: File(pickedFile.path)));
     }

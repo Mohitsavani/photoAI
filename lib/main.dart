@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/modules/dashboard/bindings/dashboard_binding.dart';
 
 import 'app/core/material_theme.dart';
 import 'app/routes/app_pages.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         title: "Application",
         initialRoute: AppPages.INITIAL,
         getPages: AppPages.routes,
+        transitionDuration: const Duration(milliseconds: 300),
+        defaultTransition: Transition.rightToLeft,
+        initialBinding: DashboardBinding(),
         theme: customTheme,
       ),
     );

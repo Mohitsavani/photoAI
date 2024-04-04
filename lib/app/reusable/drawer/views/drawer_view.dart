@@ -45,7 +45,7 @@ class DrawerView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 40.h),
+                  padding: EdgeInsets.only(top: 20.h),
                   child: Column(
                     children: List.generate(
                       controller.drawerItem.length,
@@ -71,7 +71,8 @@ class DrawerView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                             color: AppColors.appBG.withOpacity(0.3),
                           ),
-                          margin: EdgeInsets.only(right: 5.w, bottom: 1.5.h),
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 5, vertical: 5),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 1.w),
                             child: Row(
@@ -83,11 +84,12 @@ class DrawerView extends StatelessWidget {
                                     controller.drawerItem[index].icon,
                                     width: 20.h,
                                     height: 20.h,
+                                    color: AppColors.white,
                                   ),
                                 ),
                                 AppText(
                                   controller.drawerItem[index].title,
-                                  style: ubuntu.get14,
+                                  style: ubuntu.get14.white,
                                 ),
                               ],
                             ),

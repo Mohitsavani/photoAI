@@ -3,10 +3,11 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const HOME = _Paths.HOME;
   static const DASHBOARD = _Paths.DASHBOARD;
+  static const HOME = _Paths.HOME;
   static const AI_EFFECT = _Paths.AI_EFFECT;
   static const VAULT = _Paths.VAULT;
+  static const SPLASH = _Paths.SPLASH;
   static const PROFILE = _Paths.PROFILE;
   static const POSTER_PROFILES = _Paths.POSTER_PROFILES;
   static const ADD_PROFILE = _Paths.ADD_PROFILE;
@@ -17,9 +18,10 @@ abstract class Routes {
 
 abstract class _Paths {
   _Paths._();
-  static const HOME = '/home';
   static const DASHBOARD = '/dashboard';
+  static const HOME = '/home';
   static const AI_EFFECT = '/ai-effect';
+  static const SPLASH = '/splash';
   static const VAULT = '/vault';
   static const PROFILE = '/profile';
   static const POSTER_PROFILES = '/poster-profiles';

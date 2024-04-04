@@ -96,8 +96,6 @@ class SelectImageView extends StatelessWidget {
                           AppColors.color1,
                           AppColors.white,
                         ],
-                        // begin: Alignment.topLeft,
-                        // end: Alignment.topRight,
                       ),
                     ),
                     onTap: (index) {},

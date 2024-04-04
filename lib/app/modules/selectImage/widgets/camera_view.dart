@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart'; // Import image_cropper package
+import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/core/colors.dart';
+import 'package:posteriya/app/core/typography.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 class CameraView extends StatefulWidget {
@@ -13,7 +15,7 @@ class CameraView extends StatefulWidget {
   const CameraView({Key? key, this.image}) : super(key: key);
 
   @override
-  _CameraViewState createState() => _CameraViewState();
+  State<CameraView> createState() => _CameraViewState();
 }
 
 class _CameraViewState extends State<CameraView> {
@@ -24,64 +26,70 @@ class _CameraViewState extends State<CameraView> {
     return appScaffold(
       appBar: AppBar(
         backgroundColor: AppColors.trans,
-        title: Text("Image Preview"),
+        title: Text(
+          "Image Preview",
+          style: ubuntu.white,
+        ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.black,
+            color: AppColors.white,
           ),
           onPressed: () {
             Get.back();
           },
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              _cropImage(); // Call the image cropping function when icon button is pressed
-            },
-            icon: Icon(
-              Icons.crop_rounded,
-            ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+                onTap: () {
+                  _cropImage();
+                },
+                child: Image.asset(AppIcons.cropIcon,
+                    color: AppColors.white, height: 20.h)),
           ),
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _croppedImage != null
-                ? Image.file(
-                    File(_croppedImage!
-                        .path), // Display the cropped image if available
-                    width: 450.w,
-                    height: 450.h,
-                  )
-                : (widget.image != null
-                    ? Image.file(
-                        widget.image!,
-                        width: 450.w,
-                        height: 450.h,
-                      )
-                    : Text('No image selected')),
-            SizedBox(height: 20.h),
-            Padding(
-              padding: EdgeInsets.all(10.h),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Add functionality for the start button here
-                },
-                style: ElevatedButton.styleFrom(primary: AppColors.color2),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.h),
-                  child: Text(
-                    'Start',
-                    style: TextStyle(color: AppColors.black),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _croppedImage != null
+                  ? Image.file(
+                      File(_croppedImage!
+                          .path), // Display the cropped image if available
+                      width: 300.w,
+                      height: 350.h,
+                    )
+                  : (widget.image != null
+                      ? Image.file(
+                          widget.image!,
+                          width: 300.w,
+                          height: 350.h,
+                        )
+                      : const Text('No image selected')),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.all(10.h),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.color2),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.h),
+                    child: const Text(
+                      'Start',
+                      style: TextStyle(color: AppColors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
