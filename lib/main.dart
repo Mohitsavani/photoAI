@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return ConnectivityWidgetWrapper(
               disableInteraction: true,
-              offlineWidget: ConnectionWrapper(),
+              offlineWidget: const ConnectionWrapper(),
               child: child!,
             );
           },
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           theme: customTheme,
+          initialBinding: DashboardBinding(),
         ),
       ),
     );
