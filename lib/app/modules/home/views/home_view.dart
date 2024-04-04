@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:posteriya/app/core/colors.dart';
 import 'package:posteriya/app/modules/selectImage/views/select_image_view.dart';
 
 import '../../../core/typography.dart';
+import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
 
 class HomeView extends StatelessWidget {
@@ -44,7 +43,7 @@ class HomeView extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  'https://images.unsplash.com/photo-1571816119607-57e48af1caa9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                  'https://images.unsplash.com/photo-1524230572899-a752b3835840?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,41 +67,11 @@ class HomeView extends StatelessWidget {
               Positioned(
                 bottom: 10,
                 right: 0,
-                child: ElevatedButton(
+                child: AppButton(
+                  'Start',
                   onPressed: () {
                     Get.to(() => const SelectImageView());
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors
-                        .transparent, // Make button background transparent
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(20), // Adjust border radius
-                    ),
-                    elevation: 0, // Set elevation to 0 to remove shadow
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          AppColors.color1,
-                          AppColors.white
-                        ], // Adjust gradient colors
-                      ),
-                      borderRadius:
-                          BorderRadius.circular(20), // Adjust border radius
-                    ),
-                    child: Container(
-                      constraints: const BoxConstraints(
-                          minWidth: 88,
-                          minHeight: 36), // Set minimum button size
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Start',
-                        style: ubuntu.black,
-                      ),
-                    ),
-                  ),
                 ),
               ),
             ],

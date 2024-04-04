@@ -9,6 +9,8 @@ import 'package:posteriya/app/core/colors.dart';
 import 'package:posteriya/app/core/typography.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
+import '../../../reusable/app_button/app_button.dart';
+
 class CameraView extends StatefulWidget {
   final File? image;
 

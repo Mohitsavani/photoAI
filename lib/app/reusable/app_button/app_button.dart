@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:posteriya/app/core/typography.dart';
 
 import '../../core/colors.dart';
-import '../global_widget.dart';
 
-//==============================================================================
-// ** Elevated Button **
-//==============================================================================
 class AppButton extends StatelessWidget {
   final String title;
   final Function() onPressed;
@@ -20,35 +14,43 @@ class AppButton extends StatelessWidget {
 
   const AppButton(
     this.title, {
-    super.key,
+    Key? key,
     required this.onPressed,
     this.height,
     this.radius,
     this.width,
     this.loader = false,
     this.backGroundColor,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 3.h, bottom: 3.h),
-      child: GestureDetector(
-        onTap: loader == true ? () {} : onPressed,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 2.w),
+    return Center(
+      // Center the button horizontally
+      child: Padding(
+        padding: EdgeInsets.only(top: 3.h, bottom: 3.h, right: 10.w),
+        child: GestureDetector(
+          onTap: loader == true ? () {} : onPressed,
           child: Container(
-            height: height ?? 5.5.h,
-            width: width ?? Get.width,
+            height: height ?? 36, // Adjust height as needed
+            width: width ?? 88, // Adjust width as needed
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius ?? 15),
-              color: backGroundColor ?? AppColors.appColor,
+              border: Border.all(color: AppColors.color1.withOpacity(0.3)),
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.color1,
+                  AppColors.white,
+                ],
+              ),
+              borderRadius:
+                  BorderRadius.circular(radius ?? 20), // Add this line
             ),
             child: Center(
-                child: AppText(
-              title,
-              style: ubuntu.bold.get11.white,
-            )),
+              child: Text(
+                title,
+                style: TextStyle(color: AppColors.black), // Adjust text color
+              ),
+            ),
           ),
         ),
       ),
