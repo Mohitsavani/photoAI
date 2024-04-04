@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart'; // Import image_cropper package
+import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/core/colors.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
+
+import '../../../reusable/app_button/app_button.dart';
 
 class CameraView extends StatefulWidget {
   final File? image;
@@ -37,13 +40,13 @@ class _CameraViewState extends State<CameraView> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              _cropImage(); // Call the image cropping function when icon button is pressed
-            },
-            icon: Icon(
-              Icons.crop_rounded,
-            ),
-          ),
+              onPressed: () {
+                _cropImage(); // Call the image cropping function when icon button is pressed
+              },
+              icon: Image.asset(
+                AppIcons.cropIcon,
+                height: 20.h,
+              )),
         ],
       ),
       body: Center(
@@ -67,18 +70,9 @@ class _CameraViewState extends State<CameraView> {
             SizedBox(height: 20.h),
             Padding(
               padding: EdgeInsets.all(10.h),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Add functionality for the start button here
-                },
-                style: ElevatedButton.styleFrom(primary: AppColors.color2),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.h),
-                  child: Text(
-                    'Start',
-                    style: TextStyle(color: AppColors.black),
-                  ),
-                ),
+              child: AppButton(
+                'Start',
+                onPressed: () {},
               ),
             ),
           ],

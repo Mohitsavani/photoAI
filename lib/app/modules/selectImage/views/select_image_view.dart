@@ -111,6 +111,7 @@ class SelectImageView extends StatelessWidget {
               ),
               const Expanded(
                 child: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
                   children: [
                     SuggestView(),
                     GalleryView(),

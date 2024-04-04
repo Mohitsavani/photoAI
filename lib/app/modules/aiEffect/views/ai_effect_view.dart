@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../core/colors.dart';
 import '../../../core/typography.dart';
+import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
@@ -46,7 +45,7 @@ class AiEffectView extends GetView<AiEffectController> {
                 ),
               ),
               Positioned(
-                bottom: 10,
+                bottom: 5,
                 left: 10,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,43 +62,13 @@ class AiEffectView extends GetView<AiEffectController> {
                 ),
               ),
               Positioned(
-                bottom: 10,
+                bottom: 5,
                 right: 0,
-                child: ElevatedButton(
+                child: AppButton(
+                  'Start',
                   onPressed: () {
                     Get.to(() => const SelectImageView());
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors
-                        .transparent, // Make button background transparent
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(20), // Adjust border radius
-                    ),
-                    elevation: 0, // Set elevation to 0 to remove shadow
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          AppColors.color1,
-                          AppColors.white
-                        ], // Adjust gradient colors
-                      ),
-                      borderRadius:
-                          BorderRadius.circular(20), // Adjust border radius
-                    ),
-                    child: Container(
-                      constraints: const BoxConstraints(
-                          minWidth: 88,
-                          minHeight: 36), // Set minimum button size
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Start',
-                        style: ubuntu.black,
-                      ),
-                    ),
-                  ),
                 ),
               ),
             ],

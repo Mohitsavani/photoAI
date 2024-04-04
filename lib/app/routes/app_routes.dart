@@ -3,6 +3,7 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
+
   static const HOME = _Paths.HOME;
   static const DASHBOARD = _Paths.DASHBOARD;
   static const AI_EFFECT = _Paths.AI_EFFECT;
@@ -17,6 +18,7 @@ abstract class Routes {
 
 abstract class _Paths {
   _Paths._();
+
   static const HOME = '/home';
   static const DASHBOARD = '/dashboard';
   static const AI_EFFECT = '/ai-effect';
