@@ -9,8 +9,14 @@ import '../../home/views/home_view.dart';
 import '../../vault/bindings/vault_binding.dart';
 import '../../vault/views/vault_view.dart';
 
+class DashBordItem{
+  final String icon;
+  final String title;
+  DashBordItem({required this.icon, required this.title});
+}
+
 class DashboardController extends GetxController {
-  var currentPageIndex = 0.obs;
+  var currentIndex = 0.obs;
   late PageController pageController = PageController();
 
   @override
@@ -27,6 +33,15 @@ class DashboardController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+
+  List<DashBordItem> dashBordItemList =[
+    DashBordItem(icon: "assets/icons/Effects.png" ,title: "AI Effects"),
+    DashBordItem(icon: "assets/icons/free.png" ,title: "Free"),
+    DashBordItem(icon: "assets/icons/vault.png" ,title: "Vault")
+
+
+  ];
 
   List<Widget> screenWidgets = [
     Navigator(

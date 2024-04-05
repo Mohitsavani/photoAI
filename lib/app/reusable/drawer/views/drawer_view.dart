@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
-import '../../../modules/profile/controllers/profile_controller.dart';
 import '../../global_widget.dart';
 import '../../images/default_images.dart';
+import '../controllers/drawer_controller.dart';
 
 Drawer appDrawer() {
   return Drawer(
@@ -25,20 +24,10 @@ class DrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: ProfileController(),
+      init: AppDrawerController(),
       builder: (controller) {
         return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: const LinearGradient(
-              colors: [
-                AppColors.color1,
-                AppColors.white,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+          color: AppColors.white,
           child: Padding(
             padding: EdgeInsets.only(left: 3.w),
             child: Column(
@@ -66,33 +55,34 @@ class DrawerView extends StatelessWidget {
                         splashColor: AppColors.trans,
                         highlightColor: AppColors.trans,
                         child: Container(
-                          height: 50.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColors.appBG.withOpacity(0.3),
-                          ),
+
                           margin: const EdgeInsets.symmetric(
                               horizontal: 5, vertical: 5),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 30.w),
-                                  child: DefaultImage(
-                                    controller.drawerItem[index].icon,
-                                    width: 20.h,
-                                    height: 20.h,
-                                    color: AppColors.white,
-                                  ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 10.w),
+                                      child: DefaultImage(
+                                        controller.drawerItem[index].icon,
+                                        width: 18.h,
+                                        height: 18.h,
+                                        color: AppColors.appColor,
+                                      ),
+                                    ),
+                                    AppText(
+                                      controller.drawerItem[index].title,
+                                      style: ubuntu.get12.appColor.w500.w500,
+                                    ),
+                                  ],
                                 ),
-                                AppText(
-                                  controller.drawerItem[index].title,
-                                  style: ubuntu.get14.white,
-                                ),
-                              ],
-                            ),
+                              ),
+                              Divider(height: 20.h,endIndent: 30.w,color: AppColors.xfff9f5fc,)
+                            ],
                           ),
                         ),
                       ),

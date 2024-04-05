@@ -10,8 +10,7 @@ import '../modules/freetab/bindings/freetab_binding.dart';
 import '../modules/freetab/views/freetab_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/profile/bindings/profile_binding.dart';
-import '../modules/profile/views/profile_view.dart';
+
 import '../modules/selectImage/bindings/select_image_binding.dart';
 import '../modules/selectImage/views/select_image_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -24,7 +23,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.DASHBOARD;
 
   static final routes = [
     GetPage(
@@ -34,7 +33,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -53,11 +52,7 @@ class AppPages {
       page: () => const VaultView(),
       binding: VaultBinding(),
     ),
-    GetPage(
-      name: _Paths.PROFILE,
-      page: () => const ProfileView(),
-      binding: ProfileBinding(),
-    ),
+
     GetPage(
       name: _Paths.SELECT_IMAGE,
       page: () => SelectImageView(),

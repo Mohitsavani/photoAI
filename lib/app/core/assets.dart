@@ -4,8 +4,8 @@ class AppIcons {
   static const String profile = "assets/icons/profile.png";
   static const String vault = "assets/icons/vault.png";
   static const String privacy = "assets/icons/privacy.png";
-  static const String termAndCondi = "assets/icons/terms-and-conditions.png";
-  static const String rateApp = "assets/icons/rate.png";
+  static const String term = "assets/icons/term.png";
+  static const String rateApp = "assets/icons/star.png";
   static const String share = "assets/icons/share.png";
   static const String help = "assets/icons/help.png";
   static const String noBox = "assets/icons/noBox.png";

@@ -33,12 +33,14 @@ abstract class AppColors {
   static const Color red = Colors.red;
   static const Color grey = Colors.grey;
   static const Color white = Colors.white;
-  static const Color appColor = Color(0xff4d3aa5);
-  static const Color appBG = Color(0xfff9f5fc);
+  static const Color appColor = Color(0xff0c0908);
+
 
   // Custom Colors
-  static const Color color1 = Color(0xff014871);
+  static const Color color1 = Color(0xff0c0908);
   static const Color color2 = Color(0xff4CA7D6);
+  static const Color xffB6B6B4 = Color(0xffB6B6B4);
+  static const Color xfff9f5fc = Color(0xfff9f5fc);
   static const Color color3 = Color(0xffD7EDE2);
 }
 
