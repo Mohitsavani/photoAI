@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:posteriya/app/core/local_string.dart';
 
+import '../../../../reusable/global_widget.dart';
 import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
@@ -101,14 +103,14 @@ class _SuggestViewState extends State<SuggestView> {
               ),
             );
           } else {
-            return const Center(child: Text("No Data Found"));
+            return Center(child: AppText(LocalString.noDataFound));
           }
         } else {
           return const Center(child: CircularProgressIndicator());
         }
       });
     } else {
-      return const Center(child: Text("No Data Found"));
+      return Center(child: AppText(LocalString.noDataFound));
     }
   }
 }

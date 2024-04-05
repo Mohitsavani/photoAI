@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
+import '../../../core/local_string.dart';
+import '../../../reusable/global_widget.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
@@ -10,12 +11,12 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ProfileView'),
+        title: AppText(LocalString.profileView),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'ProfileView is working',
+      body: Center(
+        child: AppText(
+          LocalString.profileIsWorking,
           style: TextStyle(fontSize: 20),
         ),
       ),

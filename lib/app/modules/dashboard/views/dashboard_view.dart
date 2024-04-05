@@ -6,6 +6,7 @@ import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/bottomBar/posteriya_nav_bar.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../../../reusable/global_widget.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -14,7 +15,7 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return appScaffold(
       appBar: AppBar(
-        title: Obx(() => Text(
+        title: Obx(() => AppText(
               controller.titles[controller.currentPageIndex.value],
               style: ubuntu.thin.appBg,
             )),

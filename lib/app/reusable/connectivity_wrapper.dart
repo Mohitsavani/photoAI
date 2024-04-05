@@ -8,7 +8,9 @@ import 'package:posteriya/app/core/typography.dart';
 
 import '../core/assets.dart';
 import '../core/colors.dart';
+import '../core/local_string.dart';
 import 'app_button/app_button.dart';
+import 'global_widget.dart';
 
 class ConnectionWrapper extends StatefulWidget {
   const ConnectionWrapper({
@@ -81,23 +83,22 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 5.h),
-                            child: Text(
-                              "No Internet",
+                            child: AppText(
+                              LocalString.noInternet,
                               style: ubuntu.get20.black.space09.w700,
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 5.h, horizontal: 2.w),
-                            child: Text(
-                                "Check your internet connection and try again.",
+                            child: AppText(LocalString.checkConnection,
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
                                 style: ubuntu.get9.w400.space09),
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 10.h),
-                            child: Text("PLEASE TURN ON",
+                            child: AppText(LocalString.pleaseTurnOn,
                                 style: ubuntu.get12.black.w500),
                           ),
                           Padding(
@@ -111,7 +112,7 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Expanded(
-                                    child: AppButton('Wi-Fi',
+                                    child: AppButton(LocalString.wifi,
                                         height: 35.h,
                                         width: 100.h, onPressed: () {
                                       AppSettings.openAppSettings(
@@ -119,7 +120,7 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                                     }),
                                   ),
                                   Expanded(
-                                      child: AppButton('Mobile Data',
+                                      child: AppButton(LocalString.mobileData,
                                           height: 35.h,
                                           width: 100.h, onPressed: () {
                                     AppSettings.openAppSettings(

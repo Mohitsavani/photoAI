@@ -6,8 +6,6 @@ import '../modules/aiEffectTab/bindings/ai_effect_tab_binding.dart';
 import '../modules/aiEffectTab/views/ai_effect_tab_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
-import '../modules/edit_picture/bindings/edit_picture_binding.dart';
-import '../modules/edit_picture/views/edit_picture_view.dart';
 import '../modules/freetab/bindings/freetab_binding.dart';
 import '../modules/freetab/views/freetab_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -28,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.DASHBOARD;
 
   static final routes = [
     GetPage(
@@ -76,11 +74,6 @@ class AppPages {
       name: _Paths.AI_EFFECT_TAB,
       page: () => const AiEffectTabView(),
       binding: AiEffectTabBinding(),
-    ),
-    GetPage(
-      name: _Paths.EDIT_PICTURE,
-      page: () => const EditPictureView(),
-      binding: EditPictureBinding(),
     ),
     GetPage(
       name: _Paths.RESULT,

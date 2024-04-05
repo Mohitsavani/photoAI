@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../../../reusable/global_widget.dart';
 import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
 
@@ -54,12 +56,12 @@ class AiEffectView extends GetView<AiEffectController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Title",
+                    AppText(
+                      LocalString.title,
                       style: ubuntu.get15.black.bold,
                     ),
-                    Text(
-                      "Subtitle",
+                    AppText(
+                      LocalString.subtitle,
                       style: ubuntu.black.get12.w500,
                     ),
                   ],
@@ -69,7 +71,7 @@ class AiEffectView extends GetView<AiEffectController> {
                 bottom: 5,
                 right: 0,
                 child: AppButton(
-                  'Start',
+                  LocalString.start,
                   onPressed: () {
                     Get.to(() => const SelectImageView());
                   },

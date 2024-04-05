@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:posteriya/app/modules/selectImage/views/select_image_view.dart';
 
+import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../../../reusable/global_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -54,12 +56,12 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Title",
+                    AppText(
+                      LocalString.title,
                       style: ubuntu.get15.black.bold,
                     ),
-                    Text(
-                      "Subtitle",
+                    AppText(
+                      LocalString.subtitle,
                       style: ubuntu.black.get12.w500,
                     ),
                   ],
@@ -69,7 +71,7 @@ class HomeView extends StatelessWidget {
                 bottom: 10,
                 right: 0,
                 child: AppButton(
-                  'Start',
+                  LocalString.start,
                   onPressed: () {
                     Get.to(() => const SelectImageView());
                   },
