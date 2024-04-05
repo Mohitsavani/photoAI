@@ -8,7 +8,7 @@ import '../core/colors.dart';
 import '../core/local_string.dart';
 import 'generated_scaffold.dart';
 import 'global_widget.dart';
-import 'images/default_images.dart';
+import 'images/default_image.dart';
 
 class NoData extends StatelessWidget {
   final String? logo;
@@ -32,7 +32,7 @@ class NoData extends StatelessWidget {
     return appScaffold(
       body: Container(
         width: Get.width,
-        color: AppColors.appBG,
+        color: AppColors.xfff9f5fc,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

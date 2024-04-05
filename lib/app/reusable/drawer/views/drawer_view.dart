@@ -6,7 +6,7 @@ import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../modules/profile/controllers/profile_controller.dart';
 import '../../global_widget.dart';
-import '../../images/default_images.dart';
+import '../../images/default_image.dart';
 
 Drawer appDrawer() {
   return Drawer(
@@ -32,7 +32,7 @@ class DrawerView extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             gradient: const LinearGradient(
               colors: [
-                AppColors.color1,
+                AppColors.appColor,
                 AppColors.white,
               ],
               begin: Alignment.topCenter,
@@ -69,7 +69,7 @@ class DrawerView extends StatelessWidget {
                           height: 50.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: AppColors.appBG.withOpacity(0.3),
+                            color: AppColors.xfff9f5fc.withOpacity(0.3),
                           ),
                           margin: const EdgeInsets.symmetric(
                               horizontal: 5, vertical: 5),

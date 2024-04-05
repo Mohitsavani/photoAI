@@ -41,7 +41,7 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              AppColors.color1,
+                              AppColors.appColor,
                               AppColors.white,
                             ],
                           ),
@@ -67,12 +67,12 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border:
-                                        Border.all(color: AppColors.color1)),
+                                        Border.all(color: AppColors.appColor)),
                                 child: Padding(
                                   padding: EdgeInsets.all(7.h),
                                   child: Image.asset(
                                     AppIcons.wifi,
-                                    color: AppColors.color1,
+                                    color: AppColors.appColor,
                                     height: 20,
                                   ),
                                 ),

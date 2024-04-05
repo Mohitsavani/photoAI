@@ -35,10 +35,10 @@ class AppButton extends StatelessWidget {
             height: height ?? 36, // Adjust height as needed
             width: width ?? 88, // Adjust width as needed
             decoration: BoxDecoration(
-              border: Border.all(color: AppColors.color1.withOpacity(0.3)),
+              border: Border.all(color: AppColors.appColor.withOpacity(0.3)),
               gradient: LinearGradient(
                 colors: [
-                  AppColors.color1,
+                  AppColors.appColor,
                   AppColors.white,
                 ],
               ),

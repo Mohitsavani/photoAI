@@ -9,12 +9,13 @@ import 'package:posteriya/app/core/assets.dart';
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../controllers/select_image_controller.dart';
 import '../widgets/camera_view.dart';
 import '../widgets/example_view.dart';
 import '../widgets/gallary_view.dart';
 import '../widgets/suggested_view.dart';
 
-class SelectImageView extends StatelessWidget {
+class SelectImageView extends GetView<SelectImageController> {
   const SelectImageView({Key? key}) : super(key: key);
 
   // Function to crop the selected image
@@ -35,7 +36,7 @@ class SelectImageView extends StatelessWidget {
             color: AppColors.white,
           ),
           onPressed: () {
-            Get.back(); // Navigate back to the previous screen
+            Get.back();
           },
         ),
         actions: [
@@ -46,7 +47,7 @@ class SelectImageView extends StatelessWidget {
                   final XFile? image =
                       await ImagePicker().pickImage(source: ImageSource.camera);
                   if (image != null) {
-                    await _saveImage(image.path);
+                    await controller.saveImage(image.path);
                     Get.to(CameraView(image: File(image.path)));
                   }
                 },
@@ -93,7 +94,7 @@ class SelectImageView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       gradient: const LinearGradient(
                         colors: [
-                          AppColors.color1,
+                          AppColors.appColor,
                           AppColors.white,
                         ],
                       ),
@@ -122,21 +123,5 @@ class SelectImageView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _saveImage(String imagePath) async {
-    try {
-      const String destFolder = '/storage/emulated/0/DCIM/Camera';
-      final Directory destDir = Directory(destFolder);
-      if (!destDir.existsSync()) {
-        destDir.createSync(recursive: true);
-      }
-      final String fileName = imagePath.split('/').last;
-      final File copiedImage =
-          await File(imagePath).copy('$destFolder/$fileName');
-      print('Image saved successfully at: ${copiedImage.path}');
-    } catch (e) {
-      print('Error saving image: $e');
-    }
   }
 }

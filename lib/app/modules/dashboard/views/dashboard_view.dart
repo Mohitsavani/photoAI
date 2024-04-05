@@ -55,9 +55,9 @@ class DashboardView extends GetView<DashboardController> {
         controller.changePage(index);
       },
       style: const PosteriyaNavBarStyle(
-          iconBackgroundColor: AppColors.color1,
+          iconBackgroundColor: AppColors.appColor,
           iconSelectedForegroundColor: AppColors.white,
-          iconUnselectedForegroundColor: AppColors.color3),
+          iconUnselectedForegroundColor: AppColors.xffD7EDE2),
     );
   }
 }

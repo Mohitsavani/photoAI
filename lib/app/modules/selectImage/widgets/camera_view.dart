@@ -7,9 +7,9 @@ import 'package:image_cropper/image_cropper.dart'; // Import image_cropper packa
 import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/core/colors.dart';
 import 'package:posteriya/app/core/typography.dart';
+import 'package:posteriya/app/modules/selectImage/widgets/result_view.dart';
+import 'package:posteriya/app/reusable/app_button/app_button.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
-
-import '../../../reusable/app_button/app_button.dart';
 
 class CameraView extends StatefulWidget {
   final File? image;
@@ -74,22 +74,12 @@ class _CameraViewState extends State<CameraView> {
                           height: 350.h,
                         )
                       : const Text('No image selected')),
-              SizedBox(height: 20.h),
-              Padding(
-                padding: EdgeInsets.all(10.h),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.color2),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.h),
-                    child: const Text(
-                      'Start',
-                      style: TextStyle(color: AppColors.black),
-                    ),
-                  ),
-                ),
-              ),
+              AppButton("Start", onPressed: () {
+                Get.to(ResultView(
+                    image: File(_croppedImage != null
+                        ? _croppedImage!.path
+                        : widget.image!.path)));
+              }),
             ],
           ),
         ),

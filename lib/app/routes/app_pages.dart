@@ -14,8 +14,6 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
-import '../modules/result/bindings/result_binding.dart';
-import '../modules/result/views/result_view.dart';
 import '../modules/selectImage/bindings/select_image_binding.dart';
 import '../modules/selectImage/views/select_image_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -28,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.DASHBOARD;
 
   static final routes = [
     GetPage(
@@ -69,7 +67,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FREETAB,
-      page: () => const FreetabView(),
+      page: () => const FreeTabView(),
       binding: FreetabBinding(),
     ),
     GetPage(
@@ -81,11 +79,6 @@ class AppPages {
       name: _Paths.EDIT_PICTURE,
       page: () => const EditPictureView(),
       binding: EditPictureBinding(),
-    ),
-    GetPage(
-      name: _Paths.RESULT,
-      page: () => const ResultView(),
-      binding: ResultBinding(),
     ),
   ];
 }

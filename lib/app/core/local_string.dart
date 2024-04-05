@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+String emptyString = "";
+
 class LocalString {
   static String title = "Photo AI";
   static String home = "Home";

@@ -24,6 +24,9 @@ dependencies:
   cr_file_saver: ^0.0.2+1
   connectivity_wrapper: ^1.1.4
   app_settings: ^5.1.1
+  fluttertoast: ^8.2.4
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
 
 
 

@@ -6,6 +6,7 @@ import 'package:posteriya/app/modules/selectImage/views/select_image_view.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
+import '../../../reusable/images/default_image.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class HomeView extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.network(
+                child: const NetWorkImage(
                   'https://images.unsplash.com/photo-1524230572899-a752b3835840?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                   fit: BoxFit.cover,
                 ),
