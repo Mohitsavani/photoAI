@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:posteriya/app/core/local_string.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/assets.dart';
@@ -30,8 +31,8 @@ class _ResultViewState extends State<ResultView> {
     return appScaffold(
       appBar: AppBar(
         backgroundColor: AppColors.trans,
-        title: Text(
-          "Result",
+        title: AppText(
+          LocalString.result,
           style: ubuntu.white,
         ),
         centerTitle: true,

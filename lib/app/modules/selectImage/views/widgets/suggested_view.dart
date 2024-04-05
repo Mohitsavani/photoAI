@@ -27,6 +27,10 @@ class _SuggestViewState extends State<SuggestView> {
     _checkPermissionAndLoadImages();
   }
 
+//==============================================================================
+// ** Functions **
+//==============================================================================
+
   Future<void> _checkPermissionAndLoadImages() async {
     var status = await Permission.storage.status;
     if (!status.isGranted) {

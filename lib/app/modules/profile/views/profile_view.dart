@@ -17,7 +17,7 @@ class ProfileView extends GetView<ProfileController> {
       body: Center(
         child: AppText(
           LocalString.profileIsWorking,
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
