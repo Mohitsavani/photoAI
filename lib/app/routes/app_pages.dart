@@ -6,12 +6,16 @@ import '../modules/aiEffectTab/bindings/ai_effect_tab_binding.dart';
 import '../modules/aiEffectTab/views/ai_effect_tab_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/edit_picture/bindings/edit_picture_binding.dart';
+import '../modules/edit_picture/views/edit_picture_view.dart';
 import '../modules/freetab/bindings/freetab_binding.dart';
 import '../modules/freetab/views/freetab_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/result/bindings/result_binding.dart';
+import '../modules/result/views/result_view.dart';
 import '../modules/selectImage/bindings/select_image_binding.dart';
 import '../modules/selectImage/views/select_image_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -72,6 +76,16 @@ class AppPages {
       name: _Paths.AI_EFFECT_TAB,
       page: () => const AiEffectTabView(),
       binding: AiEffectTabBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PICTURE,
+      page: () => const EditPictureView(),
+      binding: EditPictureBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESULT,
+      page: () => const ResultView(),
+      binding: ResultBinding(),
     ),
   ];
 }
