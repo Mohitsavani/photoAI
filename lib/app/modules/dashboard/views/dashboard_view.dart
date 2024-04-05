@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/reusable/drawer/views/drawer_view.dart';
 
 import '../../../core/colors.dart';
@@ -47,9 +48,9 @@ class DashboardView extends GetView<DashboardController> {
   Widget _bottomBar() {
     return PosteriyaNavBar(
       icons: [
-        PosteriyaNavBarIcon(assetPath: "assets/icons/AI_image.png"),
-        PosteriyaNavBarIcon(assetPath: "assets/icons/home.png"),
-        PosteriyaNavBarIcon(assetPath: "assets/icons/vault.png"),
+        PosteriyaNavBarIcon(assetPath: AppIcons.AIEffect),
+        PosteriyaNavBarIcon(assetPath: AppIcons.home),
+        PosteriyaNavBarIcon(assetPath: AppIcons.vault),
       ],
       onChange: (index) {
         controller.currentPageIndex(index);

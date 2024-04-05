@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../reusable/global_widget.dart';
 import 'camera_view.dart';
 
 class GalleryView extends StatefulWidget {
@@ -25,7 +26,7 @@ class _GalleryViewState extends State<GalleryView> {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return const Empty();
   }
 
   Future<void> _getImageFromGallery() async {

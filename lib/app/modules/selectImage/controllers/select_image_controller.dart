@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:posteriya/app/uttils/globle_uttils.dart';
 
 class SelectImageController extends GetxController {
   RxList<String> imagePaths = <String>[].obs;
@@ -28,9 +29,9 @@ class SelectImageController extends GetxController {
       final String fileName = imagePath.split('/').last;
       final File copiedImage =
           await File(imagePath).copy('$destFolder/$fileName');
-      print('Image saved successfully at: ${copiedImage.path}');
+      appPrint('Image saved successfully at: ${copiedImage.path}');
     } catch (e) {
-      print('Error saving image: $e');
+      appPrint('Error saving image: $e');
     }
   }
 

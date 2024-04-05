@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:posteriya/app/core/local_string.dart';
+import 'package:posteriya/app/modules/selectImage/views/widgets/result_view.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/colors.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/images/default_image.dart';
 
 class EditPictureView extends StatefulWidget {
   final File image;
@@ -46,20 +48,21 @@ class _EditPictureViewState extends State<EditPictureView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.file(
-                File(widget.image!.path),
+              DefaultImage(
+                widget.image.path,
                 width: 320.w,
                 height: 380.h,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 20.h),
               Padding(
-                padding: EdgeInsets.all(10.h),
+                padding: EdgeInsets.symmetric(vertical: 15.h),
                 child: AppButton(
                   LocalString.done,
                   height: 40,
                   width: 200,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(ResultView(image: File(widget.image.path)));
+                  },
                 ),
               ),
             ],

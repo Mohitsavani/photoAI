@@ -15,6 +15,7 @@ import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
+import '../../../reusable/images/default_image.dart';
 import '../controllers/select_image_controller.dart';
 
 class SelectImageView extends GetView<SelectImageController> {
@@ -53,10 +54,11 @@ class SelectImageView extends GetView<SelectImageController> {
                     Get.to(CameraView(image: File(image.path)));
                   }
                 },
-                child: Image.asset(
+                child: DefaultImage(
                   AppIcons.camera,
                   color: AppColors.white,
                   height: 20.h,
+                  width: 22.w,
                 ),
               ),
             )

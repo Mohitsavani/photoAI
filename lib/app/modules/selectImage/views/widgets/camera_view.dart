@@ -12,6 +12,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/local_string.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/images/default_image.dart';
 import 'edit_picture_view.dart';
 
 class CameraView extends StatelessWidget {
@@ -46,10 +47,11 @@ class CameraView extends StatelessWidget {
               onTap: () {
                 controller.cropImage(image);
               },
-              child: Image.asset(
+              child: DefaultImage(
                 AppIcons.cropIcon,
                 color: AppColors.white,
                 height: 20.h,
+                width: 23.w,
               ),
             ),
           ),
@@ -63,22 +65,21 @@ class CameraView extends StatelessWidget {
             children: [
               Obx(() {
                 return controller.croppedImage.value != null
-                    ? Image.file(
-                        File(controller.croppedImage.value!.path),
+                    ? DefaultImage(
+                        controller.croppedImage.value!.path,
                         width: 300.w,
                         height: 350.h,
                       )
                     : (image != null
-                        ? Image.file(
-                            image!,
+                        ? DefaultImage(
+                            image!.path,
                             width: 300.w,
                             height: 350.h,
                           )
                         : AppText(LocalString.noImageSelected));
               }),
-              SizedBox(height: 20.h),
               Padding(
-                padding: EdgeInsets.all(10.h),
+                padding: EdgeInsets.symmetric(vertical: 15.h),
                 child: AppButton(
                   LocalString.start,
                   onPressed: () {

@@ -31,12 +31,6 @@ class SplashView extends GetView<SplashController> {
           children: [
             const FadeWidget(
               child: Empty(),
-              // child: Image.asset(
-              //   AppIcons.home,
-              //   height: height / 1.95,
-              //   width: width,
-              //   fit: BoxFit.fill,
-              // ),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: height * 0.02),

@@ -11,6 +11,7 @@ import '../core/colors.dart';
 import '../core/local_string.dart';
 import 'app_button/app_button.dart';
 import 'global_widget.dart';
+import 'images/default_image.dart';
 
 class ConnectionWrapper extends StatefulWidget {
   const ConnectionWrapper({
@@ -72,10 +73,11 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                                         Border.all(color: AppColors.appColor)),
                                 child: Padding(
                                   padding: EdgeInsets.all(7.h),
-                                  child: Image.asset(
+                                  child: DefaultImage(
                                     AppIcons.wifi,
                                     color: AppColors.appColor,
                                     height: 20,
+                                    width: 23.w,
                                   ),
                                 ),
                               ),

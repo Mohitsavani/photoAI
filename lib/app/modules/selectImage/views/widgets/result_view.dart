@@ -14,6 +14,7 @@ import '../../../../core/colors.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/images/default_image.dart';
 import '../../../../routes/app_pages.dart';
 
 class ResultView extends StatefulWidget {
@@ -51,8 +52,12 @@ class _ResultViewState extends State<ResultView> {
                 onTap: () {
                   Get.offAllNamed(Routes.DASHBOARD);
                 },
-                child: Image.asset(AppIcons.home,
-                    color: AppColors.white, height: 20.h)),
+                child: DefaultImage(
+                  AppIcons.home,
+                  color: AppColors.white,
+                  height: 20.h,
+                  width: 23.w,
+                )),
           ),
         ],
       ),
@@ -62,8 +67,8 @@ class _ResultViewState extends State<ResultView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.file(
-                File(widget.image!.path),
+              DefaultImage(
+                widget.image!.path,
                 width: 320.w,
                 height: 380.h,
                 fit: BoxFit.contain,
@@ -91,20 +96,22 @@ class _ResultViewState extends State<ResultView> {
                         onTap: () {
                           downloadImage(widget.image!.path, context);
                         },
-                        child: Image.asset(
+                        child: DefaultImage(
                           AppIcons.download,
                           color: AppColors.white,
                           height: 20.h,
+                          width: 23.w,
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
                           shareOn(widget.image!.path);
                         },
-                        child: Image.asset(
+                        child: DefaultImage(
                           AppIcons.share,
                           color: AppColors.appColor,
                           height: 25.h,
+                          width: 23.w,
                         ),
                       ),
                     ],
