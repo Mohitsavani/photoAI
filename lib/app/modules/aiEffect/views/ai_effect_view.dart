@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/assets.dart';
+import 'package:posteriya/app/core/colors.dart';
 
 import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
-import '../../../reusable/app_button/app_button.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
+import '../../../reusable/images/default_image.dart';
 import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
 
@@ -68,15 +70,14 @@ class AiEffectView extends GetView<AiEffectController> {
                 ),
               ),
               Positioned(
-                bottom: 5,
-                right: 0,
-                child: AppButton(
-                  LocalString.start,
-                  onPressed: () {
-                    Get.to(() => const SelectImageView());
-                  },
-                ),
-              ),
+                  top: 12,
+                  right: 8,
+                  child: DefaultImage(
+                    AppIcons.forWordIcon,
+                    color: AppColors.white,
+                    height: 20.h,
+                    width: 22.w,
+                  )),
             ],
           ),
         ),

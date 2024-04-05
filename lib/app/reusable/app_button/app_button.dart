@@ -38,19 +38,14 @@ class AppButton extends StatelessWidget {
             width: width ?? 88, // Adjust width as needed
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.appColor.withOpacity(0.3)),
-              gradient: const LinearGradient(
-                colors: [
-                  AppColors.appColor,
-                  AppColors.white,
-                ],
-              ),
+              color: AppColors.appColor,
               borderRadius:
                   BorderRadius.circular(radius ?? 20), // Add this line
             ),
             child: Center(
               child: AppText(
                 title,
-                style: ubuntu.black, // Adjust text color
+                style: ubuntu.white, // Adjust text color
               ),
             ),
           ),

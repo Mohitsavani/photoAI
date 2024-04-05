@@ -13,6 +13,8 @@ class AppIcons {
   static const String cropIcon = "assets/icons/crop.png";
   static const String wifi = "assets/icons/wifi.png";
   static const String download = "assets/icons/download.png";
+  static const String backIcon = "assets/icons/back.png";
+  static const String forWordIcon = "assets/icons/forword.png";
 }
 
 class AppImages {

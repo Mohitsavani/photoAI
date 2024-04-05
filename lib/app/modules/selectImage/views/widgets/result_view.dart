@@ -33,13 +33,13 @@ class _ResultViewState extends State<ResultView> {
         backgroundColor: AppColors.trans,
         title: Text(
           "Result",
-          style: ubuntu.white,
+          style: ubuntu.appColor,
         ),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.white,
+            color: AppColors.appColor,
           ),
           onPressed: () {
             Get.back();
@@ -54,72 +54,59 @@ class _ResultViewState extends State<ResultView> {
                 },
                 child: DefaultImage(
                   AppIcons.home,
-                  color: AppColors.white,
-                  height: 20.h,
-                  width: 23.w,
+                  color: AppColors.appColor,
+                  height: 22.h,
+                  width: 26.w,
                 )),
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              DefaultImage(
-                widget.image!.path,
-                width: 320.w,
-                height: 380.h,
-                fit: BoxFit.contain,
+      bottomNavigationBar: Container(
+        height: Get.height * 0.08,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.appColor.withOpacity(0.3)),
+          color: AppColors.appColor,
+          // borderRadius: BorderRadius.circular(40), // Add this line
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                downloadImage(widget.image!.path, context);
+              },
+              child: DefaultImage(
+                AppIcons.download,
+                color: AppColors.white,
+                height: 25.h,
+                width: 28.w,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.h),
-                child: Container(
-                  height: Get.height * 0.07,
-                  width: Get.width * 0.50,
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(color: AppColors.appColor.withOpacity(0.3)),
-                    gradient: const LinearGradient(
-                      colors: [
-                        AppColors.appColor,
-                        AppColors.white,
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(40), // Add this line
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          downloadImage(widget.image!.path, context);
-                        },
-                        child: DefaultImage(
-                          AppIcons.download,
-                          color: AppColors.white,
-                          height: 20.h,
-                          width: 23.w,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          shareOn(widget.image!.path);
-                        },
-                        child: DefaultImage(
-                          AppIcons.share,
-                          color: AppColors.appColor,
-                          height: 25.h,
-                          width: 23.w,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+            ),
+            GestureDetector(
+              onTap: () {
+                shareOn(widget.image!.path);
+              },
+              child: DefaultImage(
+                AppIcons.share,
+                color: AppColors.white,
+                height: 25.h,
+                width: 27.w,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DefaultImage(
+              widget.image!.path,
+              width: 320.w,
+              height: 380.h,
+              fit: BoxFit.contain,
+            ),
+          ],
         ),
       ),
     );

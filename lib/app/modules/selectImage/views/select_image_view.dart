@@ -30,17 +30,11 @@ class SelectImageView extends GetView<SelectImageController> {
           backgroundColor: AppColors.trans,
           title: AppText(
             LocalString.selectImage,
-            style: ubuntu.white,
+            style: ubuntu.appColor,
           ),
           centerTitle: true,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back,
-              color: AppColors.white,
-            ),
-            onPressed: () {
-              Get.back(); // Navigate back to the previous screen
-            },
+          leading: DefaultImage(
+            AppIcons.backIcon,
           ),
           actions: [
             Padding(
@@ -56,9 +50,9 @@ class SelectImageView extends GetView<SelectImageController> {
                 },
                 child: DefaultImage(
                   AppIcons.camera,
-                  color: AppColors.white,
-                  height: 20.h,
-                  width: 22.w,
+                  color: AppColors.appColor,
+                  height: 25.h,
+                  width: 28.w,
                 ),
               ),
             )
@@ -89,20 +83,14 @@ class SelectImageView extends GetView<SelectImageController> {
                       unselectedLabelColor: AppColors.black,
                       unselectedLabelStyle: ubuntu.get13.w700,
                       labelStyle: ubuntu.get13.w700,
-                      labelColor: AppColors.black,
+                      labelColor: AppColors.white,
                       indicatorSize: TabBarIndicatorSize.tab,
                       dividerColor: AppColors.trans,
                       indicatorPadding: EdgeInsets.symmetric(
                           horizontal: 3.w, vertical: 0.2.h),
                       indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          colors: [
-                            AppColors.appColor,
-                            AppColors.white,
-                          ],
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.appColor),
                       onTap: (index) {},
                       tabs: [
                         Tab(text: LocalString.suggested),

@@ -28,13 +28,14 @@ class CameraView extends StatelessWidget {
         backgroundColor: AppColors.trans,
         title: AppText(
           LocalString.imagePreview,
-          style: ubuntu.white,
+          style: ubuntu.appColor,
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.white,
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.appColor,
+            weight: 20.w,
           ),
           onPressed: () {
             Get.back();
@@ -49,9 +50,9 @@ class CameraView extends StatelessWidget {
               },
               child: DefaultImage(
                 AppIcons.cropIcon,
-                color: AppColors.white,
-                height: 20.h,
-                width: 23.w,
+                color: AppColors.appColor,
+                height: 22.h,
+                width: 24.w,
               ),
             ),
           ),
@@ -61,7 +62,7 @@ class CameraView extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Obx(() {
                 return controller.croppedImage.value != null
@@ -78,18 +79,17 @@ class CameraView extends StatelessWidget {
                           )
                         : AppText(LocalString.noImageSelected));
               }),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.h),
-                child: AppButton(
-                  LocalString.start,
-                  onPressed: () {
-                    Get.to(EditPictureView(
-                      image: File(controller.croppedImage.value != null
-                          ? controller.croppedImage.value!.path
-                          : image!.path),
-                    ));
-                  },
-                ),
+              AppButton(
+                width: Get.width * 0.45,
+                height: Get.height * 0.06,
+                LocalString.start,
+                onPressed: () {
+                  Get.to(EditPictureView(
+                    image: File(controller.croppedImage.value != null
+                        ? controller.croppedImage.value!.path
+                        : image!.path),
+                  ));
+                },
               ),
             ],
           ),

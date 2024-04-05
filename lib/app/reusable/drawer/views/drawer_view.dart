@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
 import '../../global_widget.dart';
-import '../../images/default_images.dart';
+import '../../images/default_image.dart';
 import '../controllers/drawer_controller.dart';
 
 Drawer appDrawer() {
@@ -64,8 +65,8 @@ class DrawerView extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 10.w),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.w),
                                       child: DefaultImage(
                                         controller.drawerItem[index].icon,
                                         width: 18.h,
@@ -80,7 +81,11 @@ class DrawerView extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Divider(height: 20.h,endIndent: 30.w,color: AppColors.xfff9f5fc,)
+                              Divider(
+                                height: 20.h,
+                                endIndent: 30.w,
+                                color: AppColors.xfff9f5fc,
+                              )
                             ],
                           ),
                         ),

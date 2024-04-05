@@ -29,13 +29,13 @@ class _EditPictureViewState extends State<EditPictureView> {
         backgroundColor: AppColors.trans,
         title: AppText(
           LocalString.editPicture,
-          style: ubuntu.white,
+          style: ubuntu.appColor,
         ),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.white,
+            color: AppColors.appColor,
           ),
           onPressed: () {
             Get.back();
@@ -46,7 +46,7 @@ class _EditPictureViewState extends State<EditPictureView> {
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               DefaultImage(
                 widget.image.path,
