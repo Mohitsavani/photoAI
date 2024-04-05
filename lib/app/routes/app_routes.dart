@@ -8,7 +8,7 @@ abstract class Routes {
   static const AI_EFFECT = _Paths.AI_EFFECT;
   static const VAULT = _Paths.VAULT;
   static const SPLASH = _Paths.SPLASH;
-  static const PROFILE = _Paths.PROFILE;
+
   static const POSTER_PROFILES = _Paths.POSTER_PROFILES;
   static const ADD_PROFILE = _Paths.ADD_PROFILE;
   static const SELECT_IMAGE = _Paths.SELECT_IMAGE;
@@ -24,7 +24,6 @@ abstract class _Paths {
   static const AI_EFFECT = '/ai-effect';
   static const SPLASH = '/splash';
   static const VAULT = '/vault';
-  static const PROFILE = '/profile';
   static const POSTER_PROFILES = '/poster-profiles';
   static const ADD_PROFILE = '/add-profile';
   static const SELECT_IMAGE = '/select-image';
