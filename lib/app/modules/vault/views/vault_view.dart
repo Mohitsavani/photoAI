@@ -51,7 +51,7 @@ class VaultView extends GetView<VaultController> {
                         borderRadius: BorderRadius.circular(10),
                         gradient: const LinearGradient(
                           colors: [
-                            AppColors.color1, // Start color of the gradient
+                            AppColors.appColor, // Start color of the gradient
                             AppColors.white, // End color of the gradient
                           ],
                           // begin: Alignment.topLeft,
@@ -77,7 +77,7 @@ class VaultView extends GetView<VaultController> {
               ),
               const Expanded(
                 child: TabBarView(
-                  children: [FreetabView(), AiEffectTabView()],
+                  children: [FreeTabView(), AiEffectTabView()],
                 ),
               ),
             ],

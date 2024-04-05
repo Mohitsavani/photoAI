@@ -16,8 +16,13 @@ import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
 import '../controllers/select_image_controller.dart';
+import '../controllers/select_image_controller.dart';
+import '../widgets/camera_view.dart';
+import '../widgets/example_view.dart';
+import '../widgets/gallary_view.dart';
+import '../widgets/suggested_view.dart';
 
-class SelectImageView extends StatelessWidget {
+class SelectImageView extends GetView<SelectImageController> {
   const SelectImageView({Key? key}) : super(key: key);
 
   @override
@@ -49,7 +54,7 @@ class SelectImageView extends StatelessWidget {
                   final XFile? image =
                       await ImagePicker().pickImage(source: ImageSource.camera);
                   if (image != null) {
-                    Get.find<SelectImageController>().saveImage(image.path);
+                    await controller.saveImage(image.path);
                     Get.to(CameraView(image: File(image.path)));
                   }
                 },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/colors.dart';
+import '../../../reusable/global_widget.dart';
 import '../../../uttils/fade_widget.dart';
 import '../controllers/splash_controller.dart';
 
@@ -21,7 +22,7 @@ class SplashView extends GetView<SplashController> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                AppColors.color1,
+                AppColors.appColor,
                 AppColors.white,
               ])),
         ),
@@ -29,7 +30,7 @@ class SplashView extends GetView<SplashController> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const FadeWidget(
-              child: SizedBox(),
+              child: Empty(),
               // child: Image.asset(
               //   AppIcons.home,
               //   height: height / 1.95,
@@ -47,7 +48,7 @@ class SplashView extends GetView<SplashController> {
                     child: LinearProgressIndicator(
                       minHeight: 5,
                       borderRadius: BorderRadius.circular(10),
-                      backgroundColor: AppColors.color1,
+                      backgroundColor: AppColors.appColor,
                       valueColor:
                           const AlwaysStoppedAnimation<Color>(AppColors.white),
                     ),

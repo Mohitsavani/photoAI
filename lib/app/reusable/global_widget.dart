@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
+
+import '../core/colors.dart';
+
+//==============================================================================
+// ** App Empty Widget **
+//==============================================================================
 
 class Empty extends StatelessWidget {
   const Empty({super.key});
@@ -64,6 +73,65 @@ class AppText extends StatelessWidget {
       textHeightBehavior: textHeightBehavior,
       textScaleFactor: textScaleFactor,
       textWidthBasis: textWidthBasis,
+    );
+  }
+}
+
+//==============================================================================
+// ** Global SnackBar **
+//==============================================================================
+
+showToast(String message) {
+  Fluttertoast.showToast(
+    msg: message.tr,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    textColor: AppColors.white,
+    fontSize: 25.h,
+    backgroundColor: AppColors.black,
+  );
+}
+//==============================================================================
+// ** App Simmer Loader **
+//==============================================================================
+
+class SimmerLoader extends StatelessWidget {
+  final double? height;
+  final double? width;
+  final double? radius;
+  final Color? baseColor;
+  final Color? highlightColor;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final Color? decorationColor;
+
+  const SimmerLoader({
+    Key? key,
+    this.height,
+    this.width,
+    this.radius,
+    this.baseColor,
+    this.highlightColor,
+    this.padding,
+    this.margin,
+    this.decorationColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: baseColor ?? AppColors.grey.withOpacity(0.1),
+      highlightColor: highlightColor ?? AppColors.white.withOpacity(0.5),
+      child: Container(
+        margin: margin,
+        width: width ?? Get.width,
+        height: Get.height < 700 ? height ?? 150 : height ?? Get.height * 0.205,
+        decoration: BoxDecoration(
+          color: decorationColor ?? AppColors.white,
+          borderRadius: BorderRadius.circular(radius ?? 5),
+        ),
+      ),
     );
   }
 }
