@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 
-import '../../../uttils/globle_uttils.dart';
-
 class SelectImageController extends GetxController {
   RxList<String> imagePaths = <String>[].obs;
   RxString selectedImagePath = ''.obs;
@@ -20,7 +18,7 @@ class SelectImageController extends GetxController {
     galleryImages.add(path);
   }
 
-  void saveImage(String imagePath) async {
+  saveImage(String imagePath) async {
     try {
       const String destFolder = '/storage/emulated/0/DCIM/Camera';
       final Directory destDir = Directory(destFolder);
@@ -68,21 +66,5 @@ class SelectImageController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-
-  Future<void> saveImage(String imagePath) async {
-    try {
-      const String destFolder = '/storage/emulated/0/DCIM/Camera';
-      final Directory destDir = Directory(destFolder);
-      if (!destDir.existsSync()) {
-        destDir.createSync(recursive: true);
-      }
-      final String fileName = imagePath.split('/').last;
-      final File copiedImage =
-          await File(imagePath).copy('$destFolder/$fileName');
-      appPrint('Image saved successfully at: ${copiedImage.path}');
-    } catch (e) {
-      appPrint('Error saving image: $e');
-    }
   }
 }

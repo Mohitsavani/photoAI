@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
-import '../../../core/constant.dart';
+import '../../../../core/constant.dart';
 
 class ExampleView extends StatefulWidget {
   const ExampleView({super.key});

@@ -9,12 +9,12 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../../core/assets.dart';
-import '../../../core/colors.dart';
-import '../../../core/typography.dart';
-import '../../../reusable/generated_scaffold.dart';
-import '../../../reusable/global_widget.dart';
-import '../../../routes/app_pages.dart';
+import '../../../../core/assets.dart';
+import '../../../../core/colors.dart';
+import '../../../../core/typography.dart';
+import '../../../../reusable/generated_scaffold.dart';
+import '../../../../reusable/global_widget.dart';
+import '../../../../routes/app_pages.dart';
 
 class ResultView extends StatefulWidget {
   final File? image;

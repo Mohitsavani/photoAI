@@ -73,10 +73,5 @@ class AppPages {
       page: () => const AiEffectTabView(),
       binding: AiEffectTabBinding(),
     ),
-    GetPage(
-      name: _Paths.EDIT_PICTURE,
-      page: () => const EditPictureView(),
-      binding: EditPictureBinding(),
-    ),
   ];
 }
