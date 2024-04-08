@@ -42,14 +42,9 @@ class _ConnectionWrapperState extends State<ConnectionWrapper> {
                     Container(
                       height: 60.h,
                       decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              AppColors.appColor,
-                              AppColors.white,
-                            ],
-                          ),
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(10))),
+                          color: AppColors.appColor,
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(10))),
                     ),
                     SizedBox(
                       width: Get.width,

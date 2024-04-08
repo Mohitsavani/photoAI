@@ -12,6 +12,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
+import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
@@ -41,11 +42,8 @@ class _ResultViewState extends State<ResultView> {
           onTap: () {
             Get.back();
           },
-          child: const Padding(
-            padding: EdgeInsets.all(13.0),
-            child: DefaultImage(
-              AppIcons.backIcon,
-            ),
+          child: const DefaultImage(
+            AppIcons.backIcon,
           ),
         ),
         actions: [
@@ -82,7 +80,7 @@ class _ResultViewState extends State<ResultView> {
                 AppIcons.download,
                 color: AppColors.white,
                 height: 20.h,
-                width: 22.w,
+                width: 24.w,
               ),
             ),
             GestureDetector(
@@ -92,8 +90,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 21.h,
-                width: 21.w,
+                height: 22.h,
+                width: 24.w,
               ),
             ),
           ],
@@ -108,6 +106,7 @@ class _ResultViewState extends State<ResultView> {
               width: 320.w,
               height: 380.h,
               fit: BoxFit.contain,
+              borderRadius: BorderRadius.circular(15),
             ),
           ],
         ),
@@ -124,7 +123,7 @@ class _ResultViewState extends State<ResultView> {
         final newImagePath = '${directory.path}/$imageFileName';
         await file.copy(newImagePath);
 
-        const chatMsg = "Photo AI";
+        const chatMsg = "Posteriya AI Generator";
         Share.shareFiles([newImagePath], text: chatMsg);
       } else {
         showToast("Image file not found");

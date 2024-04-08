@@ -56,6 +56,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                 width: 320.w,
                 height: 380.h,
                 fit: BoxFit.contain,
+                borderRadius: BorderRadius.circular(15),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 15.h),

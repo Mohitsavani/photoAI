@@ -88,7 +88,7 @@ showToast(String message) {
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
     textColor: AppColors.white,
-    fontSize: 25.h,
+    fontSize: 10.h,
     backgroundColor: AppColors.black,
   );
 }

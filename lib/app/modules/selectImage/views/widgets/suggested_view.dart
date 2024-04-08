@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -25,22 +26,28 @@ class _SuggestViewState extends State<SuggestView> {
   @override
   void initState() {
     super.initState();
-    _checkPermissionAndLoadImages();
+    requestPermission();
   }
 
-//==============================================================================
-// ** Functions **
-//==============================================================================
-
-  Future<void> _checkPermissionAndLoadImages() async {
-    var status = await Permission.storage.status;
-    if (!status.isGranted) {
-      status = await Permission.storage.request();
-    }
-    if (status.isGranted) {
-      await getStatusData();
+  Future<int> requestPermission() async {
+    final androidInfo = await DeviceInfoPlugin().androidInfo;
+    if (androidInfo.version.sdkInt >= 30) {
+      final requestStatusManaged =
+          await Permission.manageExternalStorage.request();
+      if (requestStatusManaged.isGranted) {
+        await getStatusData();
+        return 1;
+      } else {
+        return 0;
+      }
     } else {
-      // Handle when permission is denied
+      final requestStatusStorage = await Permission.storage.request();
+      if (requestStatusStorage.isGranted) {
+        await getStatusData();
+        return 1;
+      } else {
+        return 0;
+      }
     }
   }
 
