@@ -42,22 +42,14 @@ class VaultView extends GetView<VaultController> {
                       unselectedLabelColor: AppColors.black,
                       unselectedLabelStyle: ubuntu.get13.w700,
                       labelStyle: ubuntu.get13.w700,
-                      labelColor: AppColors.black,
+                      labelColor: AppColors.white,
                       indicatorSize: TabBarIndicatorSize.tab,
                       dividerColor: AppColors.trans,
                       indicatorPadding: EdgeInsets.symmetric(
                           horizontal: 3.w, vertical: 0.2.h),
                       indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: const LinearGradient(
-                          colors: [
-                            AppColors.appColor, // Start color of the gradient
-                            AppColors.white, // End color of the gradient
-                          ],
-                          // begin: Alignment.topLeft,
-                          // end: Alignment.topRight,
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.appColor),
                       onTap: (index) {},
                       tabs: [
                         Tab(

@@ -12,6 +12,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/local_string.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/images/default_image.dart';
 import 'edit_picture_view.dart';
 
 class CameraView extends StatelessWidget {
@@ -27,13 +28,14 @@ class CameraView extends StatelessWidget {
         backgroundColor: AppColors.trans,
         title: AppText(
           LocalString.imagePreview,
-          style: ubuntu.white,
+          style: ubuntu.appColor,
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.white,
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.appColor,
+            weight: 20.w,
           ),
           onPressed: () {
             Get.back();
@@ -46,10 +48,11 @@ class CameraView extends StatelessWidget {
               onTap: () {
                 controller.cropImage(image);
               },
-              child: Image.asset(
+              child: DefaultImage(
                 AppIcons.cropIcon,
-                color: AppColors.white,
-                height: 20.h,
+                color: AppColors.appColor,
+                height: 22.h,
+                width: 24.w,
               ),
             ),
           ),
@@ -59,36 +62,34 @@ class CameraView extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Obx(() {
                 return controller.croppedImage.value != null
-                    ? Image.file(
-                        File(controller.croppedImage.value!.path),
+                    ? DefaultImage(
+                        controller.croppedImage.value!.path,
                         width: 300.w,
                         height: 350.h,
                       )
                     : (image != null
-                        ? Image.file(
-                            image!,
+                        ? DefaultImage(
+                            image!.path,
                             width: 300.w,
                             height: 350.h,
                           )
                         : AppText(LocalString.noImageSelected));
               }),
-              SizedBox(height: 20.h),
-              Padding(
-                padding: EdgeInsets.all(10.h),
-                child: AppButton(
-                  LocalString.start,
-                  onPressed: () {
-                    Get.to(EditPictureView(
-                      image: File(controller.croppedImage.value != null
-                          ? controller.croppedImage.value!.path
-                          : image!.path),
-                    ));
-                  },
-                ),
+              AppButton(
+                width: Get.width * 0.45,
+                height: Get.height * 0.06,
+                LocalString.start,
+                onPressed: () {
+                  Get.to(EditPictureView(
+                    image: File(controller.croppedImage.value != null
+                        ? controller.croppedImage.value!.path
+                        : image!.path),
+                  ));
+                },
               ),
             ],
           ),

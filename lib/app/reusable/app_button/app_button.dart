@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posteriya/app/core/typography.dart';
 
 import '../../core/colors.dart';
+import '../global_widget.dart';
 
 class AppButton extends StatelessWidget {
   final String title;
@@ -36,19 +38,14 @@ class AppButton extends StatelessWidget {
             width: width ?? 88, // Adjust width as needed
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.appColor.withOpacity(0.3)),
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.appColor,
-                  AppColors.white,
-                ],
-              ),
+              color: AppColors.appColor,
               borderRadius:
                   BorderRadius.circular(radius ?? 20), // Add this line
             ),
             child: Center(
-              child: Text(
+              child: AppText(
                 title,
-                style: TextStyle(color: AppColors.black), // Adjust text color
+                style: ubuntu.white, // Adjust text color
               ),
             ),
           ),

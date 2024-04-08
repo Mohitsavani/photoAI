@@ -7,6 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:posteriya/app/core/local_string.dart';
 
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/images/default_image.dart';
 import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
@@ -94,10 +95,9 @@ class _SuggestViewState extends State<SuggestView> {
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
-                              child: Image.file(
-                                File(imgPath),
+                              child: DefaultImage(
+                                imgPath.toString(),
                                 fit: BoxFit.cover,
-                                filterQuality: FilterQuality.low,
                               ),
                             ),
                           );
