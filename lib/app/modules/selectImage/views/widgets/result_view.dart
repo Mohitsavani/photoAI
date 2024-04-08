@@ -37,18 +37,20 @@ class _ResultViewState extends State<ResultView> {
           style: ubuntu.white,
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.appColor,
-          ),
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             Get.back();
           },
+          child: const Padding(
+            padding: EdgeInsets.all(13.0),
+            child: DefaultImage(
+              AppIcons.backIcon,
+            ),
+          ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(9.0),
             child: GestureDetector(
                 onTap: () {
                   Get.offAllNamed(Routes.DASHBOARD);
@@ -56,8 +58,8 @@ class _ResultViewState extends State<ResultView> {
                 child: DefaultImage(
                   AppIcons.home,
                   color: AppColors.appColor,
-                  height: 22.h,
-                  width: 26.w,
+                  height: 20.h,
+                  width: 24.w,
                 )),
           ),
         ],
@@ -79,8 +81,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.download,
                 color: AppColors.white,
-                height: 25.h,
-                width: 28.w,
+                height: 20.h,
+                width: 22.w,
               ),
             ),
             GestureDetector(
@@ -90,8 +92,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 25.h,
-                width: 27.w,
+                height: 21.h,
+                width: 21.w,
               ),
             ),
           ],

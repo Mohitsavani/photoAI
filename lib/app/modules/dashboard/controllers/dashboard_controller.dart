@@ -1,6 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/assets.dart';
+import 'package:posteriya/app/core/local_string.dart';
+import 'package:posteriya/app/core/typography.dart';
+import 'package:posteriya/app/reusable/app_button/app_button.dart';
 
+import '../../../core/colors.dart';
+import '../../../reusable/global_widget.dart';
 import '../../../routes/app_pages.dart';
 import '../../aiEffect/bindings/ai_effect_binding.dart';
 import '../../aiEffect/views/ai_effect_view.dart';
@@ -9,7 +17,7 @@ import '../../home/views/home_view.dart';
 import '../../vault/bindings/vault_binding.dart';
 import '../../vault/views/vault_view.dart';
 
-class DashBordItem{
+class DashBordItem {
   final String icon;
   final String title;
   DashBordItem({required this.icon, required this.title});
@@ -34,13 +42,10 @@ class DashboardController extends GetxController {
     super.onClose();
   }
 
-
-  List<DashBordItem> dashBordItemList =[
-    DashBordItem(icon: "assets/icons/Effects.png" ,title: "AI Effects"),
-    DashBordItem(icon: "assets/icons/free.png" ,title: "Free"),
-    DashBordItem(icon: "assets/icons/vault.png" ,title: "Vault")
-
-
+  List<DashBordItem> dashBordItemList = [
+    DashBordItem(icon: AppIcons.AIEffects, title: LocalString.aieffect),
+    DashBordItem(icon: AppIcons.free, title: LocalString.free),
+    DashBordItem(icon: AppIcons.vault, title: LocalString.vault)
   ];
 
   List<Widget> screenWidgets = [
@@ -98,4 +103,65 @@ class DashboardController extends GetxController {
   }
 
   List<String> titles = ['AIEffect', 'Home', 'Vault'];
+  Widget buildBottomSheet(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(23.0),
+          child: AppText(
+            LocalString.exitWarning,
+            style: ubuntu.get15.appColor.space02,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            AppButton(
+              width: Get.width * 0.26,
+              height: Get.height * 0.05,
+              LocalString.no,
+              onPressed: () {
+                Get.back();
+              },
+            ),
+            AppButton(
+              width: Get.width * 0.26,
+              height: Get.height * 0.05,
+              LocalString.yes,
+              onPressed: () {
+                Get.back();
+                exit(0);
+              },
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Future<bool> onWillPop(BuildContext context) async {
+    bool? exitResult = await _showExitBottomSheet(context);
+    return exitResult ?? false;
+  }
+
+  Future<bool?> _showExitBottomSheet(BuildContext context) async {
+    return await showModalBottomSheet(
+      backgroundColor: AppColors.trans,
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            color: AppColors.xfff9f5fc,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+          ),
+          child: buildBottomSheet(context),
+        );
+      },
+    );
+  }
 }

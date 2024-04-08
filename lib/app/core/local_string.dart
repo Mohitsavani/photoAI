@@ -17,6 +17,7 @@ class LocalString {
 
   static String aieffect = "AI Effect";
   static String free = "Free";
+  static String vault = "Vault";
   static String privacy = "Privacy";
   static String rateMyApp = "Rate My App";
   static String share = "Share";
@@ -35,4 +36,7 @@ class LocalString {
   static String done = "Done";
   static String noDataFound = "No Data Found";
   static String result = "Result";
+  static String yes = "Yes";
+  static String no = "No";
+  static String exitWarning = "Are You Sure you want close the app?";
 }

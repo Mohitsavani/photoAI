@@ -1,8 +1,10 @@
 class AppIcons {
   static const String home = "assets/icons/home.png";
-  static const String AIEffect = "assets/icons/AI_image.png";
+  static const String AIEffects = "assets/icons/Effects.png";
   static const String profile = "assets/icons/profile.png";
   static const String vault = "assets/icons/vault.png";
+  static const String free = "assets/icons/free.png";
+
   static const String privacy = "assets/icons/privacy.png";
   static const String term = "assets/icons/term.png";
   static const String rateApp = "assets/icons/star.png";

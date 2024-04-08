@@ -31,15 +31,16 @@ class CameraView extends StatelessWidget {
           style: ubuntu.appColor,
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.appColor,
-            weight: 20.w,
-          ),
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             Get.back();
           },
+          child: const Padding(
+            padding: EdgeInsets.all(14.0),
+            child: DefaultImage(
+              AppIcons.backIcon,
+            ),
+          ),
         ),
         actions: [
           Padding(
