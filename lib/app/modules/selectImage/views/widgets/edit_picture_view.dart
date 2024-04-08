@@ -38,7 +38,7 @@ class _EditPictureViewState extends State<EditPictureView> {
             Get.back();
           },
           child: const Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: EdgeInsets.all(8.0),
             child: DefaultImage(
               AppIcons.backIcon,
             ),

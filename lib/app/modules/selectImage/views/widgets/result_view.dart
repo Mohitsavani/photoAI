@@ -12,7 +12,6 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
-import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
@@ -42,8 +41,11 @@ class _ResultViewState extends State<ResultView> {
           onTap: () {
             Get.back();
           },
-          child: const DefaultImage(
-            AppIcons.backIcon,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: const DefaultImage(
+              AppIcons.backIcon,
+            ),
           ),
         ),
         actions: [
@@ -56,7 +58,7 @@ class _ResultViewState extends State<ResultView> {
                 child: DefaultImage(
                   AppIcons.home,
                   color: AppColors.appColor,
-                  height: 20.h,
+                  height: 21.h,
                   width: 24.w,
                 )),
           ),
