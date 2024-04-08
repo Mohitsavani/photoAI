@@ -1,5 +1,3 @@
-import 'package:get/get.dart';
-
 String emptyString = "";
 
 class LocalString {
@@ -36,4 +34,9 @@ class LocalString {
   static String editPicture = "Edit Picture";
   static String done = "Done";
   static String noDataFound = "No Data Found";
+  static String result = "Result";
+  static String confirmDelete = "Confirm Delete";
+  static String deleteMsg = "Are you sure you want to delete this image?";
+  static String no = "No";
+  static String yes = "Yes";
 }

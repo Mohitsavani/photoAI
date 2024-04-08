@@ -7,6 +7,7 @@ import 'package:posteriya/app/core/local_string.dart';
 import 'package:posteriya/app/modules/selectImage/views/widgets/result_view.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
+import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
@@ -32,14 +33,13 @@ class _EditPictureViewState extends State<EditPictureView> {
           style: ubuntu.appColor,
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.appColor,
-          ),
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             Get.back();
           },
+          child: const DefaultImage(
+            AppIcons.backIcon,
+          ),
         ),
       ),
       body: Center(
@@ -53,6 +53,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                 width: 320.w,
                 height: 380.h,
                 fit: BoxFit.contain,
+                borderRadius: BorderRadius.circular(15),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 15.h),

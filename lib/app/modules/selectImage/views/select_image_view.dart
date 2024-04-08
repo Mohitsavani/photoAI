@@ -33,8 +33,13 @@ class SelectImageView extends GetView<SelectImageController> {
             style: ubuntu.appColor,
           ),
           centerTitle: true,
-          leading: DefaultImage(
-            AppIcons.backIcon,
+          leading: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: const DefaultImage(
+              AppIcons.backIcon,
+            ),
           ),
           actions: [
             Padding(
@@ -51,7 +56,7 @@ class SelectImageView extends GetView<SelectImageController> {
                 child: DefaultImage(
                   AppIcons.camera,
                   color: AppColors.appColor,
-                  height: 25.h,
+                  height: 27.h,
                   width: 28.w,
                 ),
               ),

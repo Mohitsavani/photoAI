@@ -15,6 +15,7 @@ class AppIcons {
   static const String download = "assets/icons/download.png";
   static const String backIcon = "assets/icons/back.png";
   static const String forWordIcon = "assets/icons/forword.png";
+  static const String delete = "assets/icons/delete.png";
 }
 
 class AppImages {

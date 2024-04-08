@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
+import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
@@ -32,18 +33,17 @@ class _ResultViewState extends State<ResultView> {
       appBar: AppBar(
         backgroundColor: AppColors.trans,
         title: Text(
-          "Result",
+          LocalString.result,
           style: ubuntu.appColor,
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.appColor,
-          ),
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             Get.back();
           },
+          child: const DefaultImage(
+            AppIcons.backIcon,
+          ),
         ),
         actions: [
           Padding(
@@ -78,8 +78,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.download,
                 color: AppColors.white,
-                height: 25.h,
-                width: 28.w,
+                height: 20.h,
+                width: 24.w,
               ),
             ),
             GestureDetector(
@@ -89,8 +89,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 25.h,
-                width: 27.w,
+                height: 22.h,
+                width: 24.w,
               ),
             ),
           ],
@@ -105,6 +105,7 @@ class _ResultViewState extends State<ResultView> {
               width: 320.w,
               height: 380.h,
               fit: BoxFit.contain,
+              borderRadius: BorderRadius.circular(15),
             ),
           ],
         ),
@@ -121,7 +122,7 @@ class _ResultViewState extends State<ResultView> {
         final newImagePath = '${directory.path}/$imageFileName';
         await file.copy(newImagePath);
 
-        const chatMsg = "Photo AI";
+        const chatMsg = "Posteriya AI Generator";
         Share.shareFiles([newImagePath], text: chatMsg);
       } else {
         showToast("Image file not found");
