@@ -29,6 +29,10 @@ class AiEffectView extends GetView<AiEffectController> {
     );
   }
 
+//==============================================================================
+// ** Helper Widgets **
+//==============================================================================
+
   Widget _buildListItem(BuildContext context) {
     return GestureDetector(
       onTap: () {

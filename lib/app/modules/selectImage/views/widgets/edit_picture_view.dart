@@ -37,8 +37,11 @@ class _EditPictureViewState extends State<EditPictureView> {
           onTap: () {
             Get.back();
           },
-          child: const DefaultImage(
-            AppIcons.backIcon,
+          child: const Padding(
+            padding: EdgeInsets.all(14.0),
+            child: DefaultImage(
+              AppIcons.backIcon,
+            ),
           ),
         ),
       ),
@@ -59,8 +62,8 @@ class _EditPictureViewState extends State<EditPictureView> {
                 padding: EdgeInsets.symmetric(vertical: 15.h),
                 child: AppButton(
                   LocalString.done,
-                  height: 40,
-                  width: 200,
+                  width: Get.width * 0.45,
+                  height: Get.height * 0.06,
                   onPressed: () {
                     Get.to(ResultView(image: File(widget.image.path)));
                   },

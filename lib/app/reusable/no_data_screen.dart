@@ -41,15 +41,15 @@ class NoData extends StatelessWidget {
               opacity: 0.5,
               child: DefaultImage(
                 logo ?? AppIcons.noBox,
-                width: 100.h,
-                height: 100.h,
+                width: 75.h,
+                height: 75.h,
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 2.h, bottom: 2.h),
+              padding: EdgeInsets.only(top: 5.h, bottom: 2.h),
               child: AppText(
                 title ?? LocalString.noBeautificationPictures,
-                style: ubuntu.get20.grey.bold.space09,
+                style: ubuntu.get16.grey.space09,
               ),
             ),
           ],

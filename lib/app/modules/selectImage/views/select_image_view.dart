@@ -37,8 +37,11 @@ class SelectImageView extends GetView<SelectImageController> {
             onTap: () {
               Get.back();
             },
-            child: const DefaultImage(
-              AppIcons.backIcon,
+            child: const Padding(
+              padding: EdgeInsets.all(14.0),
+              child: DefaultImage(
+                AppIcons.backIcon,
+              ),
             ),
           ),
           actions: [
@@ -56,8 +59,8 @@ class SelectImageView extends GetView<SelectImageController> {
                 child: DefaultImage(
                   AppIcons.camera,
                   color: AppColors.appColor,
-                  height: 27.h,
-                  width: 28.w,
+                  height: 19.h,
+                  width: 24.w,
                 ),
               ),
             )

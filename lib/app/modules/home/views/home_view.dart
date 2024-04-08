@@ -29,6 +29,10 @@ class HomeView extends StatelessWidget {
     );
   }
 
+//==============================================================================
+// ** Helper Widgets **
+//==============================================================================
+
   Widget _buildListItem(BuildContext context) {
     return GestureDetector(
       onTap: () {
