@@ -30,22 +30,21 @@ class AppDrawerController extends GetxController {
 
   List<DrawerItem> drawerItem = [
     DrawerItem(title: LocalString.privacy, icon: AppIcons.privacy),
-    DrawerItem(
-        title: LocalString.termsAndConditions, icon: AppIcons.term),
+    DrawerItem(title: LocalString.termsAndConditions, icon: AppIcons.term),
     DrawerItem(title: LocalString.rateMyApp, icon: AppIcons.rateApp),
     DrawerItem(title: LocalString.share, icon: AppIcons.share),
     DrawerItem(title: LocalString.help, icon: AppIcons.help),
   ];
 
   privacy() async {
-    final Uri url = Uri.parse('http://flyer.psktechnology.com/Policy.html');
+    final Uri url = Uri.parse('https://www.google.com/');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
   }
 
   term() async {
-    final Uri url = Uri.parse('http://flyer.psktechnology.com/Terms.html');
+    final Uri url = Uri.parse('https://www.google.com/');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
@@ -58,15 +57,13 @@ class AppDrawerController extends GetxController {
   }
 
   share() {
-
-      Share.share(
-          '🎨 Create Stunning Posters Instantly! 🚀 Unleash your '
-              'creativity with the Fastiva Poster Maker app. Design eye-catching'
-              ' posters effortlessly and share your message in style. Try it now '
-              'and let your imagination soar! ✨ #FastivaPosterMaker #DesignMagic '
-              'https://play.google.com/store/apps/details?id=poster.maker.festiva.app.festiva_poster',
-          subject: 'Look what I made!');
-
+    Share.share(
+        '🎨 Create Stunning Posters Instantly! 🚀 Unleash your '
+        'creativity with the Fastiva Poster Maker app. Design eye-catching'
+        ' posters effortlessly and share your message in style. Try it now '
+        'and let your imagination soar! ✨ #FastivaPosterMaker #DesignMagic '
+        'https://play.google.com/store/apps/details?id=poster.maker.festiva.app.festiva_poster',
+        subject: 'Look what I made!');
   }
 
   void help() async {

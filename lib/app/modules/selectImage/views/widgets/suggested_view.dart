@@ -20,13 +20,17 @@ class SuggestView extends StatefulWidget {
 
 class _SuggestViewState extends State<SuggestView> {
   final Directory photoDirectory = Directory('/storage/emulated/0/DCIM/Camera');
+  final Directory photoDirectoryCamera =
+      Directory('/storage/emulated/0/Pictures/');
   RxList<String> imageList = <String>[].obs;
   var isLoaded = false.obs;
 
   @override
   void initState() {
     super.initState();
-    requestPermission();
+    requestPermission().then((value) {
+      getStatusData();
+    });
   }
 
   Future<int> requestPermission() async {
@@ -35,7 +39,6 @@ class _SuggestViewState extends State<SuggestView> {
       final requestStatusManaged =
           await Permission.manageExternalStorage.request();
       if (requestStatusManaged.isGranted) {
-        await getStatusData();
         return 1;
       } else {
         return 0;
@@ -43,7 +46,6 @@ class _SuggestViewState extends State<SuggestView> {
     } else {
       final requestStatusStorage = await Permission.storage.request();
       if (requestStatusStorage.isGranted) {
-        await getStatusData();
         return 1;
       } else {
         return 0;
@@ -52,20 +54,32 @@ class _SuggestViewState extends State<SuggestView> {
   }
 
   Future<void> getStatusData() async {
-    if (Directory(photoDirectory.path).existsSync()) {
-      isLoaded(false);
-      imageList.value = photoDirectory
+    final List<String> allImagePaths = [];
+
+    if (photoDirectory.existsSync()) {
+      allImagePaths.addAll(photoDirectory
           .listSync()
-          .map((item) => item.path)
-          .where((item) => item.endsWith('.jpg'))
-          .toList(growable: false)
-        ..sort((a, b) => b.compareTo(a)); // Sort in descending order
+          .where((item) => item.path.toLowerCase().endsWith('.jpg'))
+          .map((item) => item.path));
+    }
+
+    if (photoDirectoryCamera.existsSync()) {
+      allImagePaths.addAll(photoDirectoryCamera
+          .listSync()
+          .where((item) => item.path.toLowerCase().endsWith('.jpg'))
+          .map((item) => item.path));
+    }
+
+    if (allImagePaths.isNotEmpty) {
+      isLoaded(false);
+      imageList.assignAll(allImagePaths);
       isLoaded(true);
     }
   }
 
   bool isSuggest() {
-    if (!Directory(photoDirectory.path).existsSync()) {
+    if (!Directory(photoDirectory.path).existsSync() ||
+        !Directory(photoDirectoryCamera.path).existsSync()) {
       return false;
     } else {
       return true;

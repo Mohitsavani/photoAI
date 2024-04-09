@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:before_after/before_after.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class EditPictureView extends StatefulWidget {
 }
 
 class _EditPictureViewState extends State<EditPictureView> {
+  var value = 0.5;
   @override
   Widget build(BuildContext context) {
     return appScaffold(
@@ -38,7 +40,7 @@ class _EditPictureViewState extends State<EditPictureView> {
             Get.back();
           },
           child: const Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: EdgeInsets.all(8.0),
             child: DefaultImage(
               AppIcons.backIcon,
             ),
@@ -46,31 +48,49 @@ class _EditPictureViewState extends State<EditPictureView> {
         ),
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              DefaultImage(
-                widget.image.path,
-                width: 320.w,
-                height: 380.h,
-                fit: BoxFit.contain,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.h),
-                child: AppButton(
-                  LocalString.done,
-                  width: Get.width * 0.45,
-                  height: Get.height * 0.06,
-                  onPressed: () {
-                    Get.to(ResultView(image: File(widget.image.path)));
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Flexible(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: BeforeAfter(
+                  value: value,
+                  before: DefaultImage(
+                    widget.image.path,
+                    width: 300.w,
+                    height: 370.h,
+                    fit: BoxFit.cover,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  after: DefaultImage(
+                    widget.image.path,
+                    width: 300.w,
+                    height: 370.h,
+                    fit: BoxFit.cover,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  thumbColor: AppColors.appColor,
+                  trackColor: AppColors.appColor,
+                  trackWidth: 2,
+                  onValueChanged: (value) {
+                    setState(() => this.value = value);
                   },
                 ),
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.h),
+              child: AppButton(
+                LocalString.done,
+                width: Get.width * 0.45,
+                height: Get.height * 0.06,
+                onPressed: () {
+                  Get.to(ResultView(image: File(widget.image.path)));
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -87,7 +87,7 @@ class AiEffectTabView extends GetView<AiEffectTabController> {
                                           child: DefaultImage(
                                             AppIcons.delete,
                                             color: AppColors.white,
-                                            height: 20.h,
+                                            height: 18.h,
                                             width: 22.w,
                                           ),
                                         ),
@@ -102,8 +102,8 @@ class AiEffectTabView extends GetView<AiEffectTabController> {
                                           child: DefaultImage(
                                             AppIcons.share,
                                             color: AppColors.white,
-                                            height: 20.h,
-                                            width: 22.w,
+                                            height: 19.h,
+                                            width: 21.w,
                                           ),
                                         ),
                                       ),

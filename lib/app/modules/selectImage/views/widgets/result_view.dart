@@ -12,7 +12,6 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
-import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
@@ -43,7 +42,7 @@ class _ResultViewState extends State<ResultView> {
             Get.back();
           },
           child: const Padding(
-            padding: EdgeInsets.all(13.0),
+            padding: EdgeInsets.all(8.0),
             child: DefaultImage(
               AppIcons.backIcon,
             ),
@@ -60,7 +59,7 @@ class _ResultViewState extends State<ResultView> {
                   AppIcons.home,
                   color: AppColors.appColor,
                   height: 20.h,
-                  width: 24.w,
+                  width: 22.w,
                 )),
           ),
         ],
@@ -93,8 +92,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 21.h,
-                width: 21.w,
+                height: 22.h,
+                width: 23.w,
               ),
             ),
           ],

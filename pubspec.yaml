@@ -28,6 +28,7 @@ dependencies:
   cached_network_image: ^3.3.0
   shimmer: ^3.0.0
   device_info_plus: ^9.1.2
+  before_after: ^3.0.0+1
 
 
 
