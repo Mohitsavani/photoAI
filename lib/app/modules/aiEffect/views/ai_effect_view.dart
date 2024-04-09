@@ -79,8 +79,8 @@ class AiEffectView extends GetView<AiEffectController> {
                   child: DefaultImage(
                     AppIcons.forWordIcon,
                     color: AppColors.white,
-                    height: 20.h,
-                    width: 22.w,
+                    height: 15.h,
+                    width: 19.w,
                   )),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/constant.dart';
@@ -17,17 +18,21 @@ class _ExampleViewState extends State<ExampleView> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
+          shrinkWrap: true,
           itemCount: imageUrls.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, // Adjust as needed
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 1.0, // Adjust as needed
+            mainAxisSpacing: 6.5.h,
+            crossAxisSpacing: 6.5.h,
+            childAspectRatio: 9 / 12, // Adjust as needed
           ),
           itemBuilder: (context, index) {
-            return Image.network(
-              imageUrls[index],
-              fit: BoxFit.cover,
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                imageUrls[index],
+                fit: BoxFit.cover,
+              ),
             );
           },
         ),

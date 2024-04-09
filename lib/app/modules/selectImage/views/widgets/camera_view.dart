@@ -81,7 +81,7 @@ class CameraView extends StatelessWidget {
                             image!.path,
                             width: 300.w,
                             height: 350.h,
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(10),
                           )
                         : AppText(LocalString.noImageSelected));
               }),
