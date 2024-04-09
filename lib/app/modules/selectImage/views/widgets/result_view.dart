@@ -50,7 +50,7 @@ class _ResultViewState extends State<ResultView> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(9.0),
+            padding: const EdgeInsets.all(11.0),
             child: GestureDetector(
                 onTap: () {
                   Get.offAllNamed(Routes.DASHBOARD);

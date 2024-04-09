@@ -36,9 +36,9 @@ class LocalString {
   static String done = "Done";
   static String noDataFound = "No Data Found";
   static String result = "Result";
+  static String yes = "Yes";
+  static String no = "No";
+  static String exitWarning = "Are You Sure you want close the app?";
   static String confirmDelete = "Confirm Delete";
   static String deleteMsg = "Are you sure you want to delete this image?";
-  static String no = "No";
-  static String yes = "Yes";
-  static String exitWarning = "Are You Sure you want close the app?";
 }

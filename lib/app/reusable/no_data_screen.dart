@@ -32,7 +32,7 @@ class NoData extends StatelessWidget {
     return appScaffold(
       body: Container(
         width: Get.width,
-        color: AppColors.xfff9f5fc,
+        color: AppColors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

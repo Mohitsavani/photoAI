@@ -4,12 +4,12 @@ import 'package:before_after/before_after.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:posteriya/app/core/local_string.dart';
 import 'package:posteriya/app/modules/selectImage/views/widgets/result_view.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
+import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
 import '../../../../reusable/global_widget.dart';
