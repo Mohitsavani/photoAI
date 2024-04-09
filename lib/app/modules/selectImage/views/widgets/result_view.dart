@@ -32,18 +32,18 @@ class _ResultViewState extends State<ResultView> {
     return appScaffold(
       appBar: AppBar(
         backgroundColor: AppColors.trans,
-        title: AppText(
+        title: Text(
           LocalString.result,
-          style: ubuntu.white,
+          style: ubuntu.appColor,
         ),
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Get.back();
           },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const DefaultImage(
+          child: const Padding(
+            padding: EdgeInsets.all(13.0),
+            child: DefaultImage(
               AppIcons.backIcon,
             ),
           ),
@@ -82,7 +82,7 @@ class _ResultViewState extends State<ResultView> {
                 AppIcons.download,
                 color: AppColors.white,
                 height: 20.h,
-                width: 24.w,
+                width: 22.w,
               ),
             ),
             GestureDetector(
@@ -92,8 +92,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 22.h,
-                width: 24.w,
+                height: 21.h,
+                width: 21.w,
               ),
             ),
           ],
