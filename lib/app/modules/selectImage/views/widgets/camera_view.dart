@@ -18,9 +18,14 @@ import 'edit_picture_view.dart';
 class CameraView extends StatelessWidget {
   final int currentIndex;
   final File? image;
+  final String effectName;
   final SelectImageController controller = Get.put(SelectImageController());
 
-  CameraView({Key? key, this.image, required this.currentIndex})
+  CameraView(
+      {Key? key,
+      this.image,
+      required this.currentIndex,
+      required this.effectName})
       : super(key: key);
 
   @override
@@ -29,7 +34,7 @@ class CameraView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.trans,
         title: AppText(
-          LocalString.imagePreview,
+          effectName,
           style: ubuntu.appColor,
         ),
         centerTitle: true,
@@ -99,6 +104,7 @@ class CameraView extends StatelessWidget {
                         ? controller.croppedImage.value!.path
                         : image!.path),
                     currentIndex: currentIndex,
+                    effectName: effectName,
                   ));
                 },
               ),

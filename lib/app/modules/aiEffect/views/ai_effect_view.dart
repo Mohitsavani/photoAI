@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/core/colors.dart';
 
+import '../../../core/constant.dart';
 import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
@@ -21,9 +22,9 @@ class AiEffectView extends GetView<AiEffectController> {
       body: Padding(
         padding: EdgeInsets.only(bottom: 25.h),
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: aiEffectDataList.length,
           itemBuilder: (context, index) {
-            return _buildListItem(context);
+            return _buildListItem(context, index);
           },
         ),
       ),
@@ -34,10 +35,13 @@ class AiEffectView extends GetView<AiEffectController> {
 // ** Helper Widgets **
 //==============================================================================
 
-  Widget _buildListItem(BuildContext context) {
+  Widget _buildListItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => SelectImageView(currentIndex: currentIndex));
+        Get.to(() => SelectImageView(
+              currentIndex: currentIndex,
+              effectName: aiEffectDataList[index]['name'],
+            ));
       },
       child: SizedBox(
         height: Get.height * 0.26,
@@ -52,8 +56,8 @@ class AiEffectView extends GetView<AiEffectController> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: const NetWorkImage(
-                  'https://images.unsplash.com/photo-1571816119607-57e48af1caa9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                child: NetWorkImage(
+                  aiEffectDataList[index]['Image'] ?? "",
                   fit: BoxFit.cover, // Adjust image fit
                 ),
               ),
@@ -64,7 +68,7 @@ class AiEffectView extends GetView<AiEffectController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppText(
-                      LocalString.title,
+                      aiEffectDataEditList[index]['name'],
                       style: ubuntu.get15.black.bold,
                     ),
                     AppText(

@@ -53,7 +53,10 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SELECT_IMAGE,
-      page: () => const SelectImageView(currentIndex: 0),
+      page: () => const SelectImageView(
+        currentIndex: 0,
+        effectName: '',
+      ),
       binding: SelectImageBinding(),
     ),
     GetPage(

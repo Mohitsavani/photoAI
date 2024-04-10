@@ -13,7 +13,9 @@ import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
   final int currentIndex;
-  const SuggestView({super.key, required this.currentIndex});
+  final String effectName;
+  const SuggestView(
+      {super.key, required this.currentIndex, required this.effectName});
 
   @override
   State<SuggestView> createState() => _SuggestViewState();
@@ -36,7 +38,7 @@ class _SuggestViewState extends State<SuggestView> {
 
   Future<int> requestPermission() async {
     final androidInfo = await DeviceInfoPlugin().androidInfo;
-    if (androidInfo.version.sdkInt >= 30) {
+    if (androidInfo.version.sdkInt >= 34) {
       final requestStatusManaged =
           await Permission.manageExternalStorage.request();
       if (requestStatusManaged.isGranted) {
@@ -115,7 +117,8 @@ class _SuggestViewState extends State<SuggestView> {
                             onTap: () {
                               Get.to(CameraView(
                                   image: File(imgPath),
-                                  currentIndex: widget.currentIndex));
+                                  currentIndex: widget.currentIndex,
+                                  effectName: widget.effectName));
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),

@@ -20,7 +20,9 @@ import '../controllers/select_image_controller.dart';
 
 class SelectImageView extends GetView<SelectImageController> {
   final int currentIndex;
-  const SelectImageView({Key? key, required this.currentIndex})
+  final String effectName;
+  const SelectImageView(
+      {Key? key, required this.currentIndex, required this.effectName})
       : super(key: key);
 
   @override
@@ -39,8 +41,8 @@ class SelectImageView extends GetView<SelectImageController> {
             onTap: () {
               Get.back();
             },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
               child: DefaultImage(
                 AppIcons.backIcon,
               ),
@@ -56,7 +58,9 @@ class SelectImageView extends GetView<SelectImageController> {
                   if (image != null) {
                     await controller.saveImage(image.path);
                     Get.to(CameraView(
-                        image: File(image.path), currentIndex: currentIndex));
+                        image: File(image.path),
+                        currentIndex: currentIndex,
+                        effectName: effectName));
                   }
                 },
                 child: DefaultImage(
@@ -115,9 +119,12 @@ class SelectImageView extends GetView<SelectImageController> {
                   child: TabBarView(
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      SuggestView(currentIndex: currentIndex),
-                      GalleryView(currentIndex: currentIndex),
-                      ExampleView(currentIndex: currentIndex),
+                      SuggestView(
+                          currentIndex: currentIndex, effectName: effectName),
+                      GalleryView(
+                          currentIndex: currentIndex, effectName: effectName),
+                      ExampleView(
+                          currentIndex: currentIndex, effectName: effectName),
                     ],
                   ),
                 ),

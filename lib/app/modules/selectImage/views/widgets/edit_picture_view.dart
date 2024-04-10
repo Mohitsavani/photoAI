@@ -19,8 +19,12 @@ import '../../../../reusable/images/default_image.dart';
 class EditPictureView extends StatefulWidget {
   final int currentIndex;
   final File image;
+  final String effectName;
   const EditPictureView(
-      {Key? key, required this.image, required this.currentIndex})
+      {Key? key,
+      required this.image,
+      required this.currentIndex,
+      required this.effectName})
       : super(key: key);
 
   @override
@@ -35,7 +39,7 @@ class _EditPictureViewState extends State<EditPictureView> {
       appBar: AppBar(
         backgroundColor: AppColors.trans,
         title: AppText(
-          LocalString.editPicture,
+          widget.effectName,
           style: ubuntu.appColor,
         ),
         centerTitle: true,
@@ -93,13 +97,13 @@ class _EditPictureViewState extends State<EditPictureView> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.currentIndex == 0
-                      ? aiEffectDataList.length
-                      : freeDataList.length,
+                      ? aiEffectDataEditList.length
+                      : freeDataEditList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
                         // Handle tap on the list tile
-                        print('Tapped on ${freeDataList[index]['name']}');
+                        print('Tapped on ${freeDataEditList[index]['name']}');
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -116,8 +120,8 @@ class _EditPictureViewState extends State<EditPictureView> {
                                 padding: const EdgeInsets.only(top: 10),
                                 child: DefaultImage(
                                   widget.currentIndex == 0
-                                      ? aiEffectDataList[index]['icon']
-                                      : freeDataList[index]['icon'],
+                                      ? aiEffectDataEditList[index]['icon']
+                                      : freeDataEditList[index]['icon'],
                                   color: AppColors.white,
                                   height: 24,
                                   width: 24,
@@ -127,8 +131,8 @@ class _EditPictureViewState extends State<EditPictureView> {
                                 width: 67.w,
                                 child: Text(
                                   widget.currentIndex == 0
-                                      ? aiEffectDataList[index]['name']
-                                      : freeDataList[index]['name']
+                                      ? aiEffectDataEditList[index]['name']
+                                      : freeDataEditList[index]['name']
                                           .toString(), // Adding the text here
                                   textAlign: TextAlign.center,
                                   style: ubuntu.white.get11.bold.space04,
