@@ -37,16 +37,14 @@ class AppDrawerController extends GetxController {
   ];
 
   privacy() async {
-    final Uri url = Uri.parse(
-        'https://www.freeprivacypolicy.com/live/7cb81cce-6508-4d3a-8487-4ee328acc6d9');
+    final Uri url = Uri.parse('https://www.google.com/');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
   }
 
   term() async {
-    final Uri url = Uri.parse(
-        'https://www.freeprivacypolicy.com/live/0595dd96-b4f1-4c7b-8fca-ae406d063f4d');
+    final Uri url = Uri.parse('https://www.google.com/');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
@@ -61,9 +59,9 @@ class AppDrawerController extends GetxController {
   share() {
     Share.share(
         '🎨 Create Stunning Posters Instantly! 🚀 Unleash your '
-        'creativity with the Posteriya app. Design eye-catching'
-        ' photo effortlessly and share your message in style. Try it now '
-        'and let your imagination soar! ✨ #Posteriya #FaceMagic '
+        'creativity with the Fastiva Poster Maker app. Design eye-catching'
+        ' posters effortlessly and share your message in style. Try it now '
+        'and let your imagination soar! ✨ #FastivaPosterMaker #DesignMagic '
         'https://play.google.com/store/apps/details?id=poster.maker.festiva.app.festiva_poster',
         subject: 'Look what I made!');
   }

@@ -35,9 +35,9 @@ class CameraView extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const DefaultImage(
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: DefaultImage(
               AppIcons.backIcon,
             ),
           ),

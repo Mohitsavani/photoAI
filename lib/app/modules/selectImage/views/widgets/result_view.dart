@@ -42,7 +42,7 @@ class _ResultViewState extends State<ResultView> {
             Get.back();
           },
           child: const Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(8.0),
             child: DefaultImage(
               AppIcons.backIcon,
             ),
@@ -58,8 +58,8 @@ class _ResultViewState extends State<ResultView> {
                 child: DefaultImage(
                   AppIcons.home,
                   color: AppColors.appColor,
-                  height: 23.h,
-                  width: 24.w,
+                  height: 20.h,
+                  width: 22.w,
                 )),
           ),
         ],
@@ -92,8 +92,8 @@ class _ResultViewState extends State<ResultView> {
               child: DefaultImage(
                 AppIcons.share,
                 color: AppColors.white,
-                height: 21.h,
-                width: 21.w,
+                height: 22.h,
+                width: 23.w,
               ),
             ),
           ],
