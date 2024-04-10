@@ -70,9 +70,12 @@ class _EditPictureViewState extends State<EditPictureView> {
                     fit: BoxFit.cover,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  thumbColor: AppColors.appColor,
-                  trackColor: AppColors.appColor,
+                  trackColor: AppColors.white,
                   trackWidth: 2,
+                  thumbDecoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(50)),
                   onValueChanged: (value) {
                     setState(() => this.value = value);
                   },

@@ -58,7 +58,7 @@ class _ResultViewState extends State<ResultView> {
                 child: DefaultImage(
                   AppIcons.home,
                   color: AppColors.appColor,
-                  height: 22.h,
+                  height: 20.h,
                   width: 23.w,
                 )),
           ),

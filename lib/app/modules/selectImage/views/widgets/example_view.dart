@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/constant.dart';
+import '../../../../reusable/images/default_image.dart';
 
 class ExampleView extends StatefulWidget {
   const ExampleView({super.key});
@@ -21,15 +22,15 @@ class _ExampleViewState extends State<ExampleView> {
           shrinkWrap: true,
           itemCount: imageUrls.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // Adjust as needed
+            crossAxisCount: 3,
             mainAxisSpacing: 6.5.h,
             crossAxisSpacing: 6.5.h,
-            childAspectRatio: 9 / 12, // Adjust as needed
+            childAspectRatio: 9 / 12,
           ),
           itemBuilder: (context, index) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.network(
+              child: NetWorkImage(
                 imageUrls[index],
                 fit: BoxFit.cover,
               ),

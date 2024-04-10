@@ -118,7 +118,7 @@ class _SuggestViewState extends State<SuggestView> {
                               borderRadius: BorderRadius.circular(15),
                               child: DefaultImage(
                                 imgPath.toString(),
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                               ),
                             ),
                           );

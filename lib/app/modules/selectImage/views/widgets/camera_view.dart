@@ -74,6 +74,7 @@ class CameraView extends StatelessWidget {
                         controller.croppedImage.value!.path,
                         width: 300.w,
                         height: 350.h,
+                        fit: BoxFit.contain,
                         borderRadius: BorderRadius.circular(15),
                       )
                     : (image != null
@@ -81,6 +82,7 @@ class CameraView extends StatelessWidget {
                             image!.path,
                             width: 300.w,
                             height: 350.h,
+                            fit: BoxFit.contain,
                             borderRadius: BorderRadius.circular(10),
                           )
                         : AppText(LocalString.noImageSelected));
