@@ -41,4 +41,14 @@ class LocalString {
   static String exitWarning = "Are You Sure you want close the app?";
   static String confirmDelete = "Confirm Delete";
   static String deleteMsg = "Are you sure you want to delete this image?";
+  static String imageEnhance = "Image Enhance";
+  static String repair = "Repair";
+  static String baby = "Baby";
+  static String old = "Old";
+  static String portraitBeautification = "Portrait Beautification";
+  static String colorizer = "Colorizer";
+  static String backgroundRemoval = "Background Removal";
+  static String stretchRepair = "Stretch Repair";
+  static String correction = "Correction";
+  static String superHd = "Super HD";
 }
