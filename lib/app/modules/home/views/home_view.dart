@@ -12,7 +12,8 @@ import '../../../reusable/global_widget.dart';
 import '../../../reusable/images/default_image.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  final int currentIndex;
+  const HomeView({Key? key, required this.currentIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class HomeView extends StatelessWidget {
   Widget _buildListItem(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const SelectImageView());
+        Get.to(() => SelectImageView(currentIndex: currentIndex));
       },
       child: SizedBox(
         height: Get.height * 0.26,

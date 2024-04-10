@@ -17,8 +17,11 @@ import '../../../../reusable/global_widget.dart';
 import '../../../../reusable/images/default_image.dart';
 
 class EditPictureView extends StatefulWidget {
+  final int currentIndex;
   final File image;
-  const EditPictureView({Key? key, required this.image}) : super(key: key);
+  const EditPictureView(
+      {Key? key, required this.image, required this.currentIndex})
+      : super(key: key);
 
   @override
   State<EditPictureView> createState() => _EditPictureViewState();
@@ -89,12 +92,14 @@ class _EditPictureViewState extends State<EditPictureView> {
                 height: 75.h, // Adjust height as per your requirement
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: iconsData.length,
+                  itemCount: widget.currentIndex == 0
+                      ? aiEffectDataList.length
+                      : freeDataList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
                         // Handle tap on the list tile
-                        print('Tapped on ${iconsData[index]['name']}');
+                        print('Tapped on ${freeDataList[index]['name']}');
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -110,17 +115,21 @@ class _EditPictureViewState extends State<EditPictureView> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
                                 child: DefaultImage(
-                                  iconsData[index]['icon'],
+                                  widget.currentIndex == 0
+                                      ? aiEffectDataList[index]['icon']
+                                      : freeDataList[index]['icon'],
                                   color: AppColors.white,
                                   height: 24,
                                   width: 24,
                                 ),
                               ),
                               SizedBox(
-                                width: 65.w,
+                                width: 67.w,
                                 child: Text(
-                                  iconsData[index]['name']
-                                      .toString(), // Adding the text here
+                                  widget.currentIndex == 0
+                                      ? aiEffectDataList[index]['name']
+                                      : freeDataList[index]['name']
+                                          .toString(), // Adding the text here
                                   textAlign: TextAlign.center,
                                   style: ubuntu.white.get11.bold.space04,
                                 ),

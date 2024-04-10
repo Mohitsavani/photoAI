@@ -16,10 +16,12 @@ import '../../../../reusable/images/default_image.dart';
 import 'edit_picture_view.dart';
 
 class CameraView extends StatelessWidget {
+  final int currentIndex;
   final File? image;
   final SelectImageController controller = Get.put(SelectImageController());
 
-  CameraView({Key? key, this.image}) : super(key: key);
+  CameraView({Key? key, this.image, required this.currentIndex})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +98,7 @@ class CameraView extends StatelessWidget {
                     image: File(controller.croppedImage.value != null
                         ? controller.croppedImage.value!.path
                         : image!.path),
+                    currentIndex: currentIndex,
                   ));
                 },
               ),

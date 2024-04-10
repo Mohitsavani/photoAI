@@ -113,9 +113,9 @@ class DashboardView extends GetView<DashboardController> {
           pageSnapping: false,
           physics: const NeverScrollableScrollPhysics(),
           controller: controller.pageController,
-          itemCount: controller.screenWidgets.length,
+          itemCount: controller.screenWidgets().length,
           itemBuilder: (context, index) {
-            return controller.screenWidgets[index];
+            return controller.screenWidgets()[index];
           },
         ),
       );

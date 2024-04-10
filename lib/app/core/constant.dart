@@ -8,7 +8,7 @@ List<String> imageUrls = [
   'https://images.unsplash.com/photo-1712041503216-c466cee9c845?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ];
 
-final List<Map<String, dynamic>> iconsData = [
+final List<Map<String, dynamic>> freeDataList = [
   {'icon': AppIcons.imageEnhance, 'name': 'Image Enhance'},
   {'icon': AppIcons.repair, 'name': 'Repair'},
   {'icon': AppIcons.baby, 'name': 'Baby'},
@@ -19,4 +19,16 @@ final List<Map<String, dynamic>> iconsData = [
   {'icon': AppIcons.strechRepair, 'name': 'Stretch Repair'},
   {'icon': AppIcons.correction, 'name': 'Correction'},
   {'icon': AppIcons.superHd, 'name': 'Super HD'},
+];
+
+final List<Map<String, dynamic>> aiEffectDataList = [
+  {'icon': AppIcons.imageEnhance, 'name': '3D Cartoon Avatar'},
+  {'icon': AppIcons.repair, 'name': 'Pixar Effect'},
+  {'icon': AppIcons.baby, 'name': 'Cartoonized'},
+  {'icon': AppIcons.old, 'name': 'Angel'},
+  {'icon': AppIcons.portraitBeautification, 'name': 'Demon'},
+  {'icon': AppIcons.colorizer, 'name': 'Open Eyes'},
+  {'icon': AppIcons.backgroundRemover, 'name': 'Image Flow'},
+  {'icon': AppIcons.strechRepair, 'name': 'Dynamic Zoom'},
+  {'icon': AppIcons.correction, 'name': 'Animate'},
 ];

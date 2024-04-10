@@ -48,53 +48,57 @@ class DashboardController extends GetxController {
     DashBordItem(icon: AppIcons.vault, title: LocalString.vault)
   ];
 
-  List<Widget> screenWidgets = [
-    Navigator(
-      initialRoute: Routes.AI_EFFECT,
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case Routes.AI_EFFECT:
-            return GetPageRoute(
-              routeName: Routes.AI_EFFECT,
-              page: () => const AiEffectView(),
-              binding: AiEffectBinding(),
-            );
-          default:
-            return null;
-        }
-      },
-    ),
-    Navigator(
-      initialRoute: Routes.HOME,
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case Routes.HOME:
-            return GetPageRoute(
-              routeName: Routes.HOME,
-              page: () => const HomeView(),
-              binding: HomeBinding(),
-            );
-          default:
-            return null;
-        }
-      },
-    ),
-    Navigator(
-      initialRoute: Routes.VAULT,
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case Routes.VAULT:
-            return GetPageRoute(
-              routeName: Routes.VAULT,
-              page: () => const VaultView(),
-              binding: VaultBinding(),
-            );
-          default:
-            return null;
-        }
-      },
-    ),
-  ];
+  List<Widget> screenWidgets() {
+    final currentIndexValue = currentIndex.value;
+
+    return [
+      Navigator(
+        initialRoute: Routes.AI_EFFECT,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case Routes.AI_EFFECT:
+              return GetPageRoute(
+                routeName: Routes.AI_EFFECT,
+                page: () => AiEffectView(currentIndex: currentIndexValue),
+                binding: AiEffectBinding(),
+              );
+            default:
+              return null;
+          }
+        },
+      ),
+      Navigator(
+        initialRoute: Routes.HOME,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case Routes.HOME:
+              return GetPageRoute(
+                routeName: Routes.HOME,
+                page: () => HomeView(currentIndex: currentIndexValue),
+                binding: HomeBinding(),
+              );
+            default:
+              return null;
+          }
+        },
+      ),
+      Navigator(
+        initialRoute: Routes.VAULT,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case Routes.VAULT:
+              return GetPageRoute(
+                routeName: Routes.VAULT,
+                page: () => const VaultView(),
+                binding: VaultBinding(),
+              );
+            default:
+              return null;
+          }
+        },
+      ),
+    ];
+  }
 
   Future<void> changePage(int index) async {
     await pageController.animateToPage(index,

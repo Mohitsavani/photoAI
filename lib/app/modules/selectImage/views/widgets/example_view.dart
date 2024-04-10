@@ -6,7 +6,8 @@ import '../../../../core/constant.dart';
 import '../../../../reusable/images/default_image.dart';
 
 class ExampleView extends StatefulWidget {
-  const ExampleView({super.key});
+  final int currentIndex;
+  const ExampleView({super.key, required this.currentIndex});
 
   @override
   State<ExampleView> createState() => _ExampleViewState();

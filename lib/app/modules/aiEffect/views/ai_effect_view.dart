@@ -13,7 +13,8 @@ import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
 
 class AiEffectView extends GetView<AiEffectController> {
-  const AiEffectView({Key? key}) : super(key: key);
+  final int currentIndex;
+  const AiEffectView({Key? key, required this.currentIndex}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return appScaffold(
@@ -36,7 +37,7 @@ class AiEffectView extends GetView<AiEffectController> {
   Widget _buildListItem(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const SelectImageView());
+        Get.to(() => SelectImageView(currentIndex: currentIndex));
       },
       child: SizedBox(
         height: Get.height * 0.26,

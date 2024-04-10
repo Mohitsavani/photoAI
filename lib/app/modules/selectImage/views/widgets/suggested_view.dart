@@ -12,7 +12,8 @@ import '../../../../reusable/images/default_image.dart';
 import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
-  const SuggestView({super.key});
+  final int currentIndex;
+  const SuggestView({super.key, required this.currentIndex});
 
   @override
   State<SuggestView> createState() => _SuggestViewState();
@@ -112,7 +113,9 @@ class _SuggestViewState extends State<SuggestView> {
                           final String imgPath = imageList[index];
                           return GestureDetector(
                             onTap: () {
-                              Get.to(CameraView(image: File(imgPath)));
+                              Get.to(CameraView(
+                                  image: File(imgPath),
+                                  currentIndex: widget.currentIndex));
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),

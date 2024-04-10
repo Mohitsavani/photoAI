@@ -10,7 +10,6 @@ import '../modules/freetab/bindings/freetab_binding.dart';
 import '../modules/freetab/views/freetab_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-
 import '../modules/selectImage/bindings/select_image_binding.dart';
 import '../modules/selectImage/views/select_image_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -33,7 +32,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => const HomeView(currentIndex: 1),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -44,7 +43,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.AI_EFFECT,
-      page: () => const AiEffectView(),
+      page: () => const AiEffectView(currentIndex: 0),
       binding: AiEffectBinding(),
     ),
     GetPage(
@@ -52,10 +51,9 @@ class AppPages {
       page: () => const VaultView(),
       binding: VaultBinding(),
     ),
-
     GetPage(
       name: _Paths.SELECT_IMAGE,
-      page: () => SelectImageView(),
+      page: () => const SelectImageView(currentIndex: 0),
       binding: SelectImageBinding(),
     ),
     GetPage(

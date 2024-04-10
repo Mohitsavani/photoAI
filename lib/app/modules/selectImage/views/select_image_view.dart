@@ -19,7 +19,9 @@ import '../../../reusable/images/default_image.dart';
 import '../controllers/select_image_controller.dart';
 
 class SelectImageView extends GetView<SelectImageController> {
-  const SelectImageView({Key? key}) : super(key: key);
+  final int currentIndex;
+  const SelectImageView({Key? key, required this.currentIndex})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,8 @@ class SelectImageView extends GetView<SelectImageController> {
                       await ImagePicker().pickImage(source: ImageSource.camera);
                   if (image != null) {
                     await controller.saveImage(image.path);
-                    Get.to(CameraView(image: File(image.path)));
+                    Get.to(CameraView(
+                        image: File(image.path), currentIndex: currentIndex));
                   }
                 },
                 child: DefaultImage(
@@ -108,13 +111,13 @@ class SelectImageView extends GetView<SelectImageController> {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: TabBarView(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      SuggestView(),
-                      GalleryView(),
-                      ExampleView(),
+                      SuggestView(currentIndex: currentIndex),
+                      GalleryView(currentIndex: currentIndex),
+                      ExampleView(currentIndex: currentIndex),
                     ],
                   ),
                 ),

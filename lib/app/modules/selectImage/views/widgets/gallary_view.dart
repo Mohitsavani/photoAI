@@ -8,7 +8,8 @@ import '../../../../reusable/global_widget.dart';
 import 'camera_view.dart';
 
 class GalleryView extends StatefulWidget {
-  const GalleryView({super.key});
+  final int currentIndex;
+  const GalleryView({super.key, required this.currentIndex});
 
   @override
   State<GalleryView> createState() => _GalleryViewState();
@@ -35,7 +36,8 @@ class _GalleryViewState extends State<GalleryView> {
       setState(() {
         imageFiles.add(File(pickedFile.path));
       });
-      Get.to(CameraView(image: File(pickedFile.path)));
+      Get.to(CameraView(
+          image: File(pickedFile.path), currentIndex: widget.currentIndex));
     }
   }
 }
