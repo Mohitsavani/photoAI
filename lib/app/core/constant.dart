@@ -22,13 +22,49 @@ final List<Map<String, dynamic>> freeDataList = [
 ];
 
 final List<Map<String, dynamic>> aiEffectDataList = [
-  {'icon': AppIcons.imageEnhance, 'name': '3D Cartoon Avatar'},
-  {'icon': AppIcons.repair, 'name': 'Pixar Effect'},
-  {'icon': AppIcons.baby, 'name': 'Cartoonized'},
-  {'icon': AppIcons.old, 'name': 'Angel'},
-  {'icon': AppIcons.portraitBeautification, 'name': 'Demon'},
-  {'icon': AppIcons.colorizer, 'name': 'Open Eyes'},
-  {'icon': AppIcons.backgroundRemover, 'name': 'Image Flow'},
-  {'icon': AppIcons.strechRepair, 'name': 'Dynamic Zoom'},
-  {'icon': AppIcons.correction, 'name': 'Animate'},
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': '3D Cartoon Avatar'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Pixar Effect'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Cartoonized'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Angel'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Demon'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Open Eyes'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Image Flow'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Dynamic Zoom'
+  },
+  {
+    'icon':
+        'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'name': 'Animate'
+  },
 ];

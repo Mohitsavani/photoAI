@@ -104,7 +104,9 @@ class _EditPictureViewState extends State<EditPictureView> {
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.w),
                         decoration: BoxDecoration(
-                          color: AppColors.appColor,
+                          color: widget.currentIndex == 0
+                              ? AppColors.trans
+                              : AppColors.appColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Padding(
@@ -114,24 +116,48 @@ class _EditPictureViewState extends State<EditPictureView> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: DefaultImage(
-                                  widget.currentIndex == 0
-                                      ? aiEffectDataList[index]['icon']
-                                      : freeDataList[index]['icon'],
-                                  color: AppColors.white,
-                                  height: 24,
-                                  width: 24,
-                                ),
+                                child: widget.currentIndex == 0
+                                    ? ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Container(
+                                          height: 55,
+                                          width: 55,
+                                          decoration: BoxDecoration(
+                                              color: AppColors.appColor),
+                                          child: Image.network(
+                                            aiEffectDataList[index]['icon'],
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      )
+                                    : Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 10.w),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.appColor,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: DefaultImage(
+                                          freeDataList[index]['icon'],
+                                          color: AppColors.white,
+                                          height: 24,
+                                          width: 24,
+                                        ),
+                                      ),
                               ),
                               SizedBox(
-                                width: 67.w,
+                                width: widget.currentIndex == 0 ? 77.w : 67.w,
                                 child: Text(
                                   widget.currentIndex == 0
                                       ? aiEffectDataList[index]['name']
                                       : freeDataList[index]['name']
                                           .toString(), // Adding the text here
                                   textAlign: TextAlign.center,
-                                  style: ubuntu.white.get11.bold.space04,
+                                  maxLines: widget.currentIndex == 0 ? 1 : 2,
+                                  style: widget.currentIndex == 0
+                                      ? ubuntu.black.get12.bold.space04
+                                      : ubuntu.white.get11.bold.space04,
                                 ),
                               ),
                             ],
