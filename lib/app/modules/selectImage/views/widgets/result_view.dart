@@ -50,7 +50,7 @@ class _ResultViewState extends State<ResultView> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(11.0),
+            padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
                 onTap: () {
                   Get.offAllNamed(Routes.DASHBOARD);
@@ -58,8 +58,8 @@ class _ResultViewState extends State<ResultView> {
                 child: DefaultImage(
                   AppIcons.home,
                   color: AppColors.appColor,
-                  height: 20.h,
-                  width: 22.w,
+                  height: 22.h,
+                  width: 23.w,
                 )),
           ),
         ],

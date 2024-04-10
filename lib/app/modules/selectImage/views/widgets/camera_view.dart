@@ -35,9 +35,9 @@ class CameraView extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const DefaultImage(
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: DefaultImage(
               AppIcons.backIcon,
             ),
           ),
@@ -54,7 +54,7 @@ class CameraView extends StatelessWidget {
                 child: DefaultImage(
                   AppIcons.cropIcon,
                   color: AppColors.appColor,
-                  height: 26.h,
+                  height: 22.h,
                   width: 24.w,
                 ),
               ),
