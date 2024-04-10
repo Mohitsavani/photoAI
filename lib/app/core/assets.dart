@@ -18,6 +18,17 @@ class AppIcons {
   static const String backIcon = "assets/icons/back.png";
   static const String forWordIcon = "assets/icons/forword.png";
   static const String delete = "assets/icons/delete.png";
+  static const String imageEnhance = "assets/icons/star.png";
+  static const String repair = "assets/icons/repair.png";
+  static const String baby = "assets/icons/baby.png";
+  static const String old = "assets/icons/old.png";
+  static const String portraitBeautification =
+      "assets/icons/portrait_beautification.png";
+  static const String colorizer = "assets/icons/colorizer.png";
+  static const String backgroundRemover = "assets/icons/background_removal.png";
+  static const String strechRepair = "assets/icons/strech_repair.png";
+  static const String correction = "assets/icons/correction.png";
+  static const String superHd = "assets/icons/superHd.png";
 }
 
 class AppImages {

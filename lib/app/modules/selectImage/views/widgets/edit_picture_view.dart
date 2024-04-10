@@ -9,6 +9,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/assets.dart';
 import '../../../../core/colors.dart';
+import '../../../../core/constant.dart';
 import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
@@ -78,6 +79,57 @@ class _EditPictureViewState extends State<EditPictureView> {
                       borderRadius: BorderRadius.circular(50)),
                   onValueChanged: (value) {
                     setState(() => this.value = value);
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 15.h),
+              child: SizedBox(
+                height: 75.h, // Adjust height as per your requirement
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: iconsData.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle tap on the list tile
+                        print('Tapped on ${iconsData[index]['name']}');
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10.w),
+                        decoration: BoxDecoration(
+                          color: AppColors.appColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: DefaultImage(
+                                  iconsData[index]['icon'],
+                                  color: AppColors.white,
+                                  height: 24,
+                                  width: 24,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 65.w,
+                                child: Text(
+                                  iconsData[index]['name']
+                                      .toString(), // Adding the text here
+                                  textAlign: TextAlign.center,
+                                  style: ubuntu.white.get11.bold.space04,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
