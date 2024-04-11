@@ -120,12 +120,17 @@ class _SuggestViewState extends State<SuggestView> {
                                   currentIndex: widget.currentIndex,
                                   effectName: widget.effectName));
                             },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: DefaultImage(
-                                imgPath.toString(),
-                                fit: BoxFit.contain,
-                              ),
+                            child: Stack(
+                              fit: StackFit.expand,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: DefaultImage(
+                                    imgPath.toString(),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
                             ),
                           );
                         },

@@ -93,7 +93,7 @@ class _EditPictureViewState extends State<EditPictureView> {
             Padding(
               padding: EdgeInsets.only(top: 15.h),
               child: SizedBox(
-                height: widget.currentIndex == 0 ? 90.h : 75.h,
+                height: widget.currentIndex == 0 ? 80.h : 75.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.currentIndex == 0
@@ -101,10 +101,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                       : freeDataEditList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {
-                        // Handle tap on the list tile
-                        print('Tapped on ${freeDataEditList[index]['name']}');
-                      },
+                      onTap: () {},
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.w),
                         decoration: BoxDecoration(
@@ -116,26 +113,28 @@ class _EditPictureViewState extends State<EditPictureView> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: widget.currentIndex == 0
+                                ? MainAxisAlignment.spaceBetween
+                                : MainAxisAlignment.spaceAround,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: widget.currentIndex == 0
-                                    ? ClipRRect(
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: Container(
-                                          height: 55,
-                                          width: 55,
-                                          decoration: const BoxDecoration(
-                                              color: AppColors.appColor),
-                                          child: NetWorkImage(
-                                            aiEffectDataList[index]['Image'] ??
-                                                "",
-                                            fit: BoxFit.cover,
-                                          ),
+                              widget.currentIndex == 0
+                                  ? ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Container(
+                                        height: 55,
+                                        width: 55,
+                                        decoration: const BoxDecoration(
+                                            color: AppColors.appColor),
+                                        child: NetWorkImage(
+                                          aiEffectDataList[index]['Image'] ??
+                                              "",
+                                          fit: BoxFit.cover,
                                         ),
-                                      )
-                                    : Container(
+                                      ),
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: Container(
                                         margin: EdgeInsets.symmetric(
                                             horizontal: 10.w),
                                         decoration: BoxDecoration(
@@ -150,7 +149,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                                           width: 24,
                                         ),
                                       ),
-                              ),
+                                    ),
                               SizedBox(
                                 width: widget.currentIndex == 0 ? 77.w : 67.w,
                                 child: Text(

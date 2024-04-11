@@ -125,29 +125,33 @@ class AiEffectTabController extends GetxController {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Container(
-            decoration: const BoxDecoration(color: AppColors.appColor),
-            width: dialogWidth,
-            height: dialogHeight,
-            child: Column(
-              children: [
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: AppColors.appColor,
+                  borderRadius: BorderRadius.circular(15)),
+              width: dialogWidth,
+              height: dialogHeight,
+              child: Column(children: [
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                    child: Image.file(
-                      File(imagePath),
-                      fit: BoxFit.contain,
-                    ),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.file(
+                          File(imagePath),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        );
+              ]),
+            ));
       },
     );
   }
