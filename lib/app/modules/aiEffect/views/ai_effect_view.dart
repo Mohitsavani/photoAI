@@ -19,14 +19,22 @@ class AiEffectView extends GetView<AiEffectController> {
   @override
   Widget build(BuildContext context) {
     return appScaffold(
-      body: Padding(
-        padding: EdgeInsets.only(bottom: 25.h),
-        child: ListView.builder(
-          itemCount: aiEffectDataList.length,
-          itemBuilder: (context, index) {
-            return _buildListItem(context, index);
-          },
-        ),
+      body: Column(
+        children: [
+          // Include the TopBar widget at the top
+
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 25.h),
+              child: ListView.builder(
+                itemCount: aiEffectDataList.length,
+                itemBuilder: (context, index) {
+                  return _buildListItem(context, index);
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -80,14 +88,15 @@ class AiEffectView extends GetView<AiEffectController> {
                 ),
               ),
               Positioned(
-                  top: 12,
-                  right: 8,
-                  child: DefaultImage(
-                    AppIcons.forWordIcon,
-                    color: AppColors.white,
-                    height: 15.h,
-                    width: 19.w,
-                  )),
+                top: 12,
+                right: 8,
+                child: DefaultImage(
+                  AppIcons.forWordIcon,
+                  color: AppColors.white,
+                  height: 15.h,
+                  width: 19.w,
+                ),
+              ),
             ],
           ),
         ),
