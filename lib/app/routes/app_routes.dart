@@ -16,6 +16,7 @@ abstract class Routes {
   static const AI_EFFECT_TAB = _Paths.AI_EFFECT_TAB;
   static const EDIT_PICTURE = _Paths.EDIT_PICTURE;
   static const PURCHASE = _Paths.PURCHASE;
+  static const VIP_MEMBER = _Paths.VIP_MEMBER;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const AI_EFFECT_TAB = '/ai-effect-tab';
   static const EDIT_PICTURE = '/edit-picture';
   static const PURCHASE = '/purchase';
+  static const VIP_MEMBER = '/vip-member';
 }

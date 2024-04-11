@@ -9,6 +9,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 import 'package:posteriya/app/reusable/global_widget.dart';
 
 import '../../../core/constant.dart';
+import '../../../core/local_string.dart';
 import '../../../reusable/images/default_image.dart';
 import '../controllers/purchase_controller.dart';
 
@@ -17,6 +18,8 @@ class PurchaseView extends GetView<PurchaseController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PurchaseController());
+
     return appScaffold(
       body: Stack(
         children: [
@@ -73,12 +76,13 @@ class PurchaseView extends GetView<PurchaseController> {
                     child: SizedBox(
                       height: 180,
                       child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         itemCount:
                             purchaseList.length, // set the number of features
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            padding: const EdgeInsets.symmetric(horizontal: 13),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -104,6 +108,29 @@ class PurchaseView extends GetView<PurchaseController> {
                           );
                         },
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            controller.privacy();
+                          },
+                          child: AppText(LocalString.privacy,
+                              style: ubuntu.appColor.get15),
+                        ),
+                        AppText(" / "),
+                        GestureDetector(
+                          onTap: () {
+                            controller.term();
+                          },
+                          child: AppText(LocalString.termsAndConditions,
+                              style: ubuntu.appColor.get15),
+                        ),
+                      ],
                     ),
                   ),
                 ],
