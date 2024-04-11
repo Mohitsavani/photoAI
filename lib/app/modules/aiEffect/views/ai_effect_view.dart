@@ -38,7 +38,7 @@ class AiEffectView extends GetView<AiEffectController> {
   Widget _buildListItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        AppDialogs.proDialog(context);
+        AppDialogs.proDialog(context, title: aiEffectDataList[index]['name']);
         // Get.to(() => SelectImageView(
         //       currentIndex: currentIndex,
         //       effectName: aiEffectDataList[index]['name'],

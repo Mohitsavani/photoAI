@@ -9,10 +9,11 @@ import 'package:posteriya/app/reusable/images/default_image.dart';
 import '../../core/assets.dart';
 import '../../core/local_string.dart';
 import '../../modules/purchase/views/purchase_view.dart';
+import '../global_widget.dart';
 
 class AppDialogs {
   static proDialog(BuildContext context,
-      {String? content, Function()? actionTap}) {
+      {String? content, Function()? actionTap, String? title}) {
     return showDialog(
       context: context,
       barrierDismissible: false,
@@ -34,8 +35,8 @@ class AppDialogs {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
+                    const Padding(
+                      padding: EdgeInsets.all(15.0),
                       child: DefaultImage(
                         AppIcons.gems,
                         height: 20,
@@ -46,7 +47,7 @@ class AppDialogs {
                         onPressed: () {
                           Get.back();
                         },
-                        icon: Icon(Icons.close))
+                        icon: const Icon(Icons.close))
                   ],
                 ),
                 Expanded(
@@ -59,26 +60,26 @@ class AppDialogs {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Demon:",
+                      child: AppText(
+                        title.toString(),
                         style: ubuntu.get18.bold.space03,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
+                      child: AppText(
                         "Not enough diamonds to use this feature",
                         style: ubuntu.grey.get13.space03,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.only(top: 30),
                       child: AppButton(
                         width: Get.width * 0.65,
                         height: Get.height * 0.06,
-                        LocalString.buyGems,
+                        LocalString.buyCount,
                         onPressed: () {
-                          Get.to(PurchaseView());
+                          Get.off(const PurchaseView());
                         },
                       ),
                     ),

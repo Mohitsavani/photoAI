@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/assets.dart';
 import 'package:posteriya/app/core/colors.dart';
 import 'package:posteriya/app/core/typography.dart';
 import 'package:posteriya/app/reusable/app_button/app_button.dart';
@@ -30,6 +31,20 @@ class PurchaseView extends GetView<PurchaseController> {
               width: Get.width,
             ),
           ),
+          Positioned(
+              top: 25,
+              left: 10,
+              child: GestureDetector(
+                onTap: () {
+                  Get.back();
+                },
+                child: const DefaultImage(
+                  AppIcons.backIcon,
+                  color: AppColors.appColor,
+                  height: 40,
+                  width: 40,
+                ),
+              )),
           Positioned.fill(
             top: 280,
             child: Container(

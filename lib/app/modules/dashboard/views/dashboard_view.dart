@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/assets.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
@@ -8,6 +9,7 @@ import '../../../reusable/drawer/views/drawer_view.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
 import '../../../reusable/images/default_image.dart';
+import '../../purchase/views/purchase_view.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -27,6 +29,69 @@ class DashboardView extends GetView<DashboardController> {
           ),
           backgroundColor: AppColors.trans,
           centerTitle: true,
+          actions: [
+            Obx(() => controller.titles[controller.currentIndex.value] ==
+                    'AIEffect'
+                ? Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: DefaultImage(AppIcons.question,
+                              height: 20, width: 20, color: AppColors.appColor),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(const PurchaseView());
+                          },
+                          child: Container(
+                            width: 60,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: AppColors.appColor)),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                DefaultImage(
+                                  AppIcons.gems,
+                                  height: 15,
+                                  width: 15,
+                                  color: AppColors.appColor,
+                                ),
+                                AppText("0 +")
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ))
+                : controller.titles[controller.currentIndex.value] == 'Home'
+                    ? Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Container(
+                          width: 60,
+                          height: 25,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(color: AppColors.appColor)),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              DefaultImage(
+                                AppIcons.gems,
+                                height: 15,
+                                width: 15,
+                                color: AppColors.appColor,
+                              ),
+                              AppText("VIP")
+                            ],
+                          ),
+                        ),
+                      )
+                    : const Empty())
+          ],
         ),
         bottomNavigationBar: IntrinsicHeight(
           child: Container(

@@ -30,6 +30,7 @@ class AppIcons {
   static const String correction = "assets/icons/correction.png";
   static const String superHd = "assets/icons/superHd.png";
   static const String gems = "assets/icons/gem.png";
+  static const String question = "assets/icons/question.png";
 }
 
 class AppImages {
