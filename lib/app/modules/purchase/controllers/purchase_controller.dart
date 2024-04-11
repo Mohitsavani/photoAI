@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class PurchaseController extends GetxController {
   //TODO: Implement PurchaseController
 
-  final count = 0.obs;
+  var selectedPlane = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +18,4 @@ class PurchaseController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
