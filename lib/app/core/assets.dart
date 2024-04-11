@@ -29,6 +29,7 @@ class AppIcons {
   static const String strechRepair = "assets/icons/strech_repair.png";
   static const String correction = "assets/icons/correction.png";
   static const String superHd = "assets/icons/superHd.png";
+  static const String gems = "assets/icons/gem.png";
 }
 
 class AppImages {

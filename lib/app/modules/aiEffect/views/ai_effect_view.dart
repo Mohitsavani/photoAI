@@ -7,10 +7,10 @@ import 'package:posteriya/app/core/colors.dart';
 import '../../../core/constant.dart';
 import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
+import '../../../reusable/app_dailogs/app_dailogs.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
 import '../../../reusable/images/default_image.dart';
-import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
 
 class AiEffectView extends GetView<AiEffectController> {
@@ -38,10 +38,11 @@ class AiEffectView extends GetView<AiEffectController> {
   Widget _buildListItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => SelectImageView(
-              currentIndex: currentIndex,
-              effectName: aiEffectDataList[index]['name'],
-            ));
+        AppDialogs.proDialog(context);
+        // Get.to(() => SelectImageView(
+        //       currentIndex: currentIndex,
+        //       effectName: aiEffectDataList[index]['name'],
+        //     ));
       },
       child: SizedBox(
         height: Get.height * 0.26,

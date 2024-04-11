@@ -10,6 +10,8 @@ import '../modules/freetab/bindings/freetab_binding.dart';
 import '../modules/freetab/views/freetab_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/purchase/bindings/purchase_binding.dart';
+import '../modules/purchase/views/purchase_view.dart';
 import '../modules/selectImage/bindings/select_image_binding.dart';
 import '../modules/selectImage/views/select_image_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -68,6 +70,11 @@ class AppPages {
       name: _Paths.AI_EFFECT_TAB,
       page: () => const AiEffectTabView(),
       binding: AiEffectTabBinding(),
+    ),
+    GetPage(
+      name: _Paths.PURCHASE,
+      page: () => const PurchaseView(),
+      binding: PurchaseBinding(),
     ),
   ];
 }
