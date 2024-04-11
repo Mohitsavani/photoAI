@@ -160,7 +160,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                                   textAlign: TextAlign.center,
                                   maxLines: 2,
                                   style: widget.currentIndex == 0
-                                      ? ubuntu.black.get12.bold.space04
+                                      ? ubuntu.black.get10.space04.bold
                                       : ubuntu.white.get11.bold.space04,
                                 ),
                               ),

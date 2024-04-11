@@ -51,4 +51,6 @@ class LocalString {
   static String stretchRepair = "Stretch Repair";
   static String correction = "Correction";
   static String superHd = "Super HD";
+  static String buyGems = "Buy Gems";
+  static String watchTheVideo = "Watch the video";
 }
