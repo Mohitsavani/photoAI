@@ -93,7 +93,7 @@ class _EditPictureViewState extends State<EditPictureView> {
             Padding(
               padding: EdgeInsets.only(top: 15.h),
               child: SizedBox(
-                height: 75.h, // Adjust height as per your requirement
+                height: widget.currentIndex == 0 ? 90.h : 75.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.currentIndex == 0
@@ -126,10 +126,11 @@ class _EditPictureViewState extends State<EditPictureView> {
                                         child: Container(
                                           height: 55,
                                           width: 55,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: AppColors.appColor),
-                                          child: Image.network(
-                                            aiEffectDataList[index]['icon'],
+                                          child: NetWorkImage(
+                                            aiEffectDataList[index]['Image'] ??
+                                                "",
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -143,7 +144,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                                               BorderRadius.circular(10),
                                         ),
                                         child: DefaultImage(
-                                          freeDataList[index]['icon'],
+                                          freeDataEditList[index]['icon'],
                                           color: AppColors.white,
                                           height: 24,
                                           width: 24,
@@ -158,7 +159,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                                       : freeDataEditList[index]['name']
                                           .toString(), // Adding the text here
                                   textAlign: TextAlign.center,
-                                  maxLines: widget.currentIndex == 0 ? 1 : 2,
+                                  maxLines: 2,
                                   style: widget.currentIndex == 0
                                       ? ubuntu.black.get12.bold.space04
                                       : ubuntu.white.get11.bold.space04,
