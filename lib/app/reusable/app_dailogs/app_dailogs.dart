@@ -57,11 +57,20 @@ class AppDialogs {
                         ),
                       ),
                     ),
-                    IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: const Icon(Icons.close))
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 8.0, right: 7),
+                        child: DefaultImage(
+                          AppIcons.close,
+                          height: 24.h,
+                          width: 24.h,
+                          color: AppColors.appColor,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Expanded(
@@ -82,7 +91,7 @@ class AppDialogs {
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: AppText(
-                        "Not enough count to use this feature",
+                        LocalString.notEnoughCount,
                         style: ubuntu.grey.get14.space03,
                       ),
                     ),
@@ -113,7 +122,7 @@ class AppDialogs {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 2),
                       child: AppText(
-                        "Watch incentive video to get count for free",
+                        LocalString.watchVideoGetCount,
                         style: ubuntu.grey.get11.space03,
                       ),
                     ),
@@ -134,8 +143,8 @@ class AppDialogs {
         insetPadding: EdgeInsets.zero,
         backgroundColor: AppColors.trans, // Transparent background
         child: Container(
-            height: 340.h,
-            width: 300.w,
+            height: 320.h,
+            width: 320.w,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: AppColors.white,
@@ -146,11 +155,20 @@ class AppDialogs {
               children: [
                 Align(
                   alignment: Alignment.topRight,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: const Icon(Icons.close)),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0, right: 7),
+                      child: DefaultImage(
+                        AppIcons.close,
+                        height: 24.h,
+                        width: 24.h,
+                        color: AppColors.appColor,
+                      ),
+                    ),
+                  ),
                 ),
                 Expanded(
                     child: Column(
@@ -163,7 +181,7 @@ class AppDialogs {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: AppText(
-                        "Count Rules",
+                        LocalString.countRule,
                         style: ubuntu.get18.bold.space03,
                       ),
                     ),
@@ -172,32 +190,43 @@ class AppDialogs {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 15),
+                          padding: const EdgeInsets.only(left: 15),
                           child: AppText('1.', style: ubuntu.grey.get14),
                         ),
                         Expanded(
-                          child: AppText(
-                            LocalString.rule1,
-                            style: ubuntu.grey.get14.space03,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 5.0),
+                            child: AppText(
+                              maxLines: 2,
+                              LocalString.rule1,
+                              style: ubuntu.grey.get14.space03,
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: AppText('2.', style: ubuntu.grey.get14),
-                        ),
-                        Expanded(
-                          child: AppText(
-                            LocalString.rule2,
-                            style: ubuntu.grey.get14.space03,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 9),
+                            child: AppText('2.', style: ubuntu.grey.get14),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5.0),
+                              child: AppText(
+                                maxLines: 2,
+                                LocalString.rule2,
+                                style: ubuntu.grey.get14.space03,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),

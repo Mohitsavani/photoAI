@@ -31,6 +31,7 @@ class AppIcons {
   static const String superHd = "assets/icons/superHd.png";
   static const String gems = "assets/icons/gem.png";
   static const String question = "assets/icons/question.png";
+  static const String close = "assets/icons/close.png";
 }
 
 class AppImages {

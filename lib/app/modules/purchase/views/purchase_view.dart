@@ -30,13 +30,13 @@ class PurchaseView extends GetView<PurchaseController> {
             child: NetWorkImage(
               'https://images.unsplash.com/photo-1571816119607-57e48af1caa9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               fit: BoxFit.cover,
-              height: 340,
+              height: 300.h,
               width: Get.width,
             ),
           ),
           Positioned(
-            top: 25,
-            left: 10,
+            top: 25.h,
+            left: 10.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -50,7 +50,7 @@ class PurchaseView extends GetView<PurchaseController> {
             ),
           ),
           Positioned.fill(
-            top: 280,
+            top: 255.h,
             child: Container(
               decoration: const BoxDecoration(
                 color: AppColors.white,
@@ -65,17 +65,20 @@ class PurchaseView extends GetView<PurchaseController> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 15.h),
                     child: AppText(
-                      "Photo AI",
+                      LocalString.photoAI,
                       style: ubuntu.appColor.w500.get20,
                     ),
                   ),
-                  _featureView("1. ", " Gems unlock all features."),
-                  _featureView("2. ", " Experience more cool effects."),
-                  _featureView("3. ", " No ads."),
+                  _featureView(
+                    "1. ",
+                    LocalString.purchasePoint1,
+                  ),
+                  _featureView("2. ", LocalString.purchasePoint2),
+                  _featureView("3. ", LocalString.purchasePoint3),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.symmetric(vertical: 15.h),
                     child: SizedBox(
-                      height: 180,
+                      height: 160.h,
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         scrollDirection: Axis.horizontal,
@@ -137,7 +140,7 @@ class PurchaseView extends GetView<PurchaseController> {
                                             purchaseList[index]['Price'] ?? "",
                                             onPressed: () {},
                                             style: ubuntu.get14.white,
-                                            width: 100,
+                                            width: 100.w,
                                           ),
                                         ),
                                       ],
@@ -152,7 +155,7 @@ class PurchaseView extends GetView<PurchaseController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 45),
+                    padding: EdgeInsets.symmetric(vertical: 3.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -191,7 +194,7 @@ class PurchaseView extends GetView<PurchaseController> {
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 90.w, top: 5),
+            padding: EdgeInsets.only(left: 90.w, top: 5.h),
             child: RichText(
               text: TextSpan(
                 text: leading,
