@@ -35,19 +35,20 @@ class PurchaseView extends GetView<PurchaseController> {
             ),
           ),
           Positioned(
-              top: 25,
-              left: 10,
-              child: GestureDetector(
-                onTap: () {
-                  Get.back();
-                },
-                child: const DefaultImage(
-                  AppIcons.backIcon,
-                  color: AppColors.appColor,
-                  height: 40,
-                  width: 40,
-                ),
-              )),
+            top: 25,
+            left: 10,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: const DefaultImage(
+                AppIcons.backIcon,
+                color: AppColors.appColor,
+                height: 40,
+                width: 40,
+              ),
+            ),
+          ),
           Positioned.fill(
             top: 280,
             child: Container(
@@ -72,46 +73,86 @@ class PurchaseView extends GetView<PurchaseController> {
                   _featureView("2. ", " Experience more cool effects."),
                   _featureView("3. ", " No ads."),
                   Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 30),
                     child: SizedBox(
                       height: 180,
                       child: ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        itemCount:
-                            purchaseList.length, // set the number of features
+                        itemCount: purchaseList.length,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 13),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                DefaultImage(
-                                  purchaseList[index]['icon'] ?? "",
-                                  height: 45.h,
-                                  width: 45.w,
-                                  color: AppColors.appColor,
+                          return Obx(() {
+                            final isSelected =
+                                index == controller.selectedIndex.value;
+                            final borderColor = isSelected
+                                ? AppColors.appColor
+                                : AppColors.grey;
+
+                            return GestureDetector(
+                              onTap: () {
+                                controller.selectIndex(index);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 20,
+                                  left: 11,
+                                  right:
+                                      index == purchaseList.length - 1 ? 13 : 0,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: AppText(
-                                    purchaseList[index]['name'],
-                                    style: ubuntu.appColor.get15,
+                                child: SizedBox(
+                                  width: 105.w,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: borderColor,
+                                          width: isSelected ? 2.w : 1.w),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 10),
+                                          child: DefaultImage(
+                                            purchaseList[index]['icon'] ?? "",
+                                            height: 45.h,
+                                            width: 45.w,
+                                            color: AppColors.appColor,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 5),
+                                          child: AppText(
+                                            purchaseList[index]['name'],
+                                            style: ubuntu.appColor.get15,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10),
+                                          child: AppButton(
+                                            purchaseList[index]['Price'] ?? "",
+                                            onPressed: () {},
+                                            style: ubuntu.get14.white,
+                                            width: 100,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                AppButton(
-                                  purchaseList[index]['Price'] ?? "",
-                                  onPressed: () {},
-                                ),
-                              ],
-                            ),
-                          );
+                              ),
+                            );
+                          });
                         },
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25),
+                    padding: const EdgeInsets.only(top: 45),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -120,15 +161,17 @@ class PurchaseView extends GetView<PurchaseController> {
                             controller.privacy();
                           },
                           child: AppText(LocalString.privacy,
-                              style: ubuntu.appColor.get15),
+                              style: ubuntu.get12.grey),
                         ),
-                        AppText(" / "),
+                        AppText(" / ", style: ubuntu.get12.grey),
                         GestureDetector(
                           onTap: () {
                             controller.term();
                           },
-                          child: AppText(LocalString.termsAndConditions,
-                              style: ubuntu.appColor.get15),
+                          child: AppText(
+                            LocalString.termsAndConditions,
+                            style: ubuntu.get12.grey,
+                          ),
                         ),
                       ],
                     ),

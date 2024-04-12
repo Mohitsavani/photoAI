@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:posteriya/app/core/assets.dart';
+import 'package:posteriya/app/reusable/app_dailogs/app_dailogs.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
@@ -37,7 +38,9 @@ class DashboardView extends GetView<DashboardController> {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            AppDialogs.ruleDialog(context);
+                          },
                           child: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: DefaultImage(AppIcons.question,
@@ -48,21 +51,21 @@ class DashboardView extends GetView<DashboardController> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.to(const PurchaseView());
+                            Get.to(PurchaseView());
                           },
                           child: Container(
-                            width: 60,
-                            height: 25,
+                            width: 60.w,
+                            height: 25.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 border: Border.all(color: AppColors.appColor)),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 DefaultImage(
                                   AppIcons.gems,
-                                  height: 15,
-                                  width: 15,
+                                  height: 15.h,
+                                  width: 15.w,
                                   color: AppColors.appColor,
                                 ),
                                 AppText("0 +")
