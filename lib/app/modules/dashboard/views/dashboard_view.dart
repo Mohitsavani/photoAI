@@ -36,10 +36,15 @@ class DashboardView extends GetView<DashboardController> {
                     padding: const EdgeInsets.only(right: 20),
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: DefaultImage(AppIcons.question,
-                              height: 20, width: 20, color: AppColors.appColor),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: DefaultImage(AppIcons.question,
+                                height: 20,
+                                width: 20,
+                                color: AppColors.appColor),
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {

@@ -107,7 +107,7 @@ class _EditPictureViewState extends State<EditPictureView> {
                         decoration: BoxDecoration(
                           color: widget.currentIndex == 0
                               ? AppColors.trans
-                              : AppColors.appColor,
+                              : AppColors.trans,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Padding(
@@ -138,13 +138,17 @@ class _EditPictureViewState extends State<EditPictureView> {
                                         margin: EdgeInsets.symmetric(
                                             horizontal: 10.w),
                                         decoration: BoxDecoration(
-                                          color: AppColors.appColor,
+                                          color: AppColors.white,
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
                                         child: DefaultImage(
                                           freeDataEditList[index]['icon'],
-                                          color: AppColors.white,
+                                          color: widget.effectName ==
+                                                  freeDataEditList[index]
+                                                      ['name']
+                                              ? AppColors.grey
+                                              : AppColors.appColor,
                                           height: 24,
                                           width: 24,
                                         ),
@@ -156,12 +160,15 @@ class _EditPictureViewState extends State<EditPictureView> {
                                   widget.currentIndex == 0
                                       ? aiEffectDataEditList[index]['name']
                                       : freeDataEditList[index]['name']
-                                          .toString(), // Adding the text here
+                                          .toString(),
                                   textAlign: TextAlign.center,
                                   maxLines: 2,
                                   style: widget.currentIndex == 0
                                       ? ubuntu.black.get10.space04.bold
-                                      : ubuntu.white.get11.bold.space04,
+                                      : widget.effectName ==
+                                              freeDataEditList[index]['name']
+                                          ? ubuntu.grey.get11.bold.space04
+                                          : ubuntu.appColor.get11.bold.space04,
                                 ),
                               ),
                             ],
