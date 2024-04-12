@@ -53,4 +53,9 @@ class LocalString {
   static String superHd = "Super HD";
   static String buyCount = "Buy Count";
   static String watchTheVideo = "Watch the video";
+  static String confirm = "Confirm";
+  static String rule1 =
+      "Using the feature will consume a specific number of count each time";
+  static String rule2 =
+      "Once the app is uninstalled, the count will be completely reset";
 }

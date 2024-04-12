@@ -5,6 +5,12 @@ class PurchaseController extends GetxController {
   //TODO: Implement PurchaseController
 
   var selectedPlane = 0.obs;
+  var selectedIndex = 0.obs;
+
+  void selectIndex(int index) {
+    selectedIndex.value = index;
+  }
+
   @override
   void onInit() {
     super.onInit();

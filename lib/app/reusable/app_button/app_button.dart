@@ -11,6 +11,7 @@ class AppButton extends StatelessWidget {
   final double? height;
   final double? width;
   final double? radius;
+  final TextStyle? style;
   final bool? loader;
   final Color? backGroundColor;
 
@@ -23,6 +24,7 @@ class AppButton extends StatelessWidget {
     this.width,
     this.loader = false,
     this.backGroundColor,
+    this.style,
   }) : super(key: key);
 
   @override
@@ -45,7 +47,7 @@ class AppButton extends StatelessWidget {
             child: Center(
               child: AppText(
                 title,
-                style: ubuntu.white, // Adjust text color
+                style: style ?? ubuntu.white, // Adjust text color
               ),
             ),
           ),
