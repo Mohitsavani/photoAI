@@ -25,7 +25,7 @@ class DashboardView extends GetView<DashboardController> {
           title: Obx(
             () => Text(
               controller.titles[controller.currentIndex.value],
-              style: ubuntu.thin.appColor,
+              style: ubuntu.w300.appColor.space03,
             ),
           ),
           backgroundColor: AppColors.trans,

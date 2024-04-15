@@ -83,7 +83,8 @@ class DrawerView extends StatelessWidget {
                               ),
                               Divider(
                                 height: 20.h,
-                                endIndent: 30.w,
+
+                                // endIndent: 5.w,
                                 color: AppColors.xfff9f5fc,
                               )
                             ],

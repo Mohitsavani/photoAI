@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -36,8 +38,8 @@ class _ExampleViewState extends State<ExampleView> {
             return GestureDetector(
               onTap: () {
                 Get.to(CameraView(
-                    image: exampleData[index]['Image'],
-                    currentIndex: 0,
+                    image: File(exampleData[index]['Image']),
+                    currentIndex: widget.currentIndex,
                     effectName: ''));
               },
               child: ClipRRect(

@@ -102,9 +102,9 @@ final List<Map<String, dynamic>> aiEffectDataEditList = [
 ];
 
 final List<Map<String, dynamic>> purchaseList = [
-  {'icon': AppIcons.gems, 'name': '280 gems', 'Price': 'INR 270.00'},
-  {'icon': AppIcons.gems, 'name': '580 gems', 'Price': 'INR 520.00'},
-  {'icon': AppIcons.gems, 'name': '980 Gems', 'Price': 'INR 800.00'},
+  {'icon': AppIcons.gems, 'name': '280 Images', 'Price': 'INR 270.00'},
+  {'icon': AppIcons.gems, 'name': '580 Images', 'Price': 'INR 520.00'},
+  {'icon': AppIcons.gems, 'name': '980 Images', 'Price': 'INR 800.00'},
 ];
 
 final List<Map<String, dynamic>> aiEffectDataList = [

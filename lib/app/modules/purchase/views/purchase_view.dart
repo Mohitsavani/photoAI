@@ -21,6 +21,8 @@ class PurchaseView extends GetView<PurchaseController> {
     Get.put(PurchaseController());
 
     return appScaffold(
+      statusColor: AppColors.trans,
+      topSafe: false,
       body: Stack(
         children: [
           Positioned(
@@ -41,22 +43,22 @@ class PurchaseView extends GetView<PurchaseController> {
               onTap: () {
                 Get.back();
               },
-              child: const DefaultImage(
+              child: DefaultImage(
                 AppIcons.backIcon,
                 color: AppColors.appColor,
-                height: 40,
-                width: 40,
+                height: 40.h,
+                width: 40.w,
               ),
             ),
           ),
           Positioned.fill(
-            top: 255.h,
+            top: 275.h,
             child: Container(
               decoration: const BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
                 ),
               ),
               child: Column(
@@ -65,7 +67,7 @@ class PurchaseView extends GetView<PurchaseController> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 15.h),
                     child: AppText(
-                      LocalString.photoAI,
+                      LocalString.title,
                       style: ubuntu.appColor.w500.get20,
                     ),
                   ),
@@ -130,7 +132,9 @@ class PurchaseView extends GetView<PurchaseController> {
                                               const EdgeInsets.only(top: 5),
                                           child: AppText(
                                             purchaseList[index]['name'],
-                                            style: ubuntu.appColor.get15,
+                                            style: isSelected
+                                                ? ubuntu.appColor.get13.bold
+                                                : ubuntu.appColor.get13,
                                           ),
                                         ),
                                         Padding(
@@ -140,6 +144,7 @@ class PurchaseView extends GetView<PurchaseController> {
                                             purchaseList[index]['Price'] ?? "",
                                             onPressed: () {},
                                             style: ubuntu.get14.white,
+                                            radius: 10,
                                             width: 100.w,
                                           ),
                                         ),
@@ -155,27 +160,46 @@ class PurchaseView extends GetView<PurchaseController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 3.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            controller.privacy();
-                          },
-                          child: AppText(LocalString.privacy,
-                              style: ubuntu.get12.grey),
-                        ),
-                        AppText(" / ", style: ubuntu.get12.grey),
-                        GestureDetector(
-                          onTap: () {
-                            controller.term();
-                          },
-                          child: AppText(
-                            LocalString.termsAndConditions,
-                            style: ubuntu.get12.grey,
-                          ),
-                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    controller.privacy();
+                                  },
+                                  child: AppText(
+                                    LocalString.privacy,
+                                    style: ubuntu.get11.grey,
+                                  ),
+                                ),
+                                AppText("+", style: ubuntu.get11.grey),
+                                GestureDetector(
+                                  onTap: () {
+                                    controller.term();
+                                  },
+                                  child: AppText(
+                                    LocalString.termsAndConditions,
+                                    style: ubuntu.get11.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: AppText(
+                                LocalString.restorePurchase,
+                                style: ubuntu.get11.grey,
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
