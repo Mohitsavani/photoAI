@@ -29,7 +29,12 @@ dependencies:
   shimmer: ^3.0.0
   device_info_plus: ^9.1.2
   before_after: ^3.0.0+1
-
+  in_app_purchase: ^3.1.13
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  android_id: ^0.3.6
+  shared_preferences: ^2.2.2
+  dio: ^5.4.1
 
 
 dev_dependencies:
