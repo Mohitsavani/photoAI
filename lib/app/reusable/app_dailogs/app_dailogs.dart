@@ -12,9 +12,6 @@ import '../../modules/purchase/views/purchase_view.dart';
 import '../global_widget.dart';
 
 class AppDialogs {
-//==============================================================================
-// ** Purchase Dialog **
-//==============================================================================
   static proDialog(BuildContext context,
       {String? content, Function()? actionTap, String? title}) {
     return showDialog(
@@ -22,7 +19,7 @@ class AppDialogs {
       barrierDismissible: false,
       builder: (context) => Dialog(
         insetPadding: EdgeInsets.zero,
-        backgroundColor: AppColors.trans,
+        backgroundColor: AppColors.trans, // Transparent background
         child: Container(
             height: 340.h,
             width: 300.w,
@@ -136,10 +133,6 @@ class AppDialogs {
       ),
     );
   }
-
-//==============================================================================
-// ** Count Rules Dialog **
-//==============================================================================
 
   static ruleDialog(BuildContext context,
       {String? content, Function()? actionTap, String? title}) {

@@ -2,11 +2,11 @@ import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/modules/dashboard/bindings/dashboard_binding.dart';
 
 import 'app/core/material_theme.dart';
 import 'app/reusable/connectivity_wrapper.dart';
 import 'app/routes/app_pages.dart';
-import 'app/uttils/initial/initial_bindings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           theme: customTheme,
-          initialBinding: InitialBinding(),
+          initialBinding: DashboardBinding(),
         ),
       ),
     );

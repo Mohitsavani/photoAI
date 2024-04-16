@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:posteriya/app/reusable/drawer/views/drawer_view.dart';
 
+import '../core/assets.dart';
 import '../core/colors.dart';
 
 //============================================================
@@ -44,44 +45,37 @@ Widget appScaffold({
   return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarIconBrightness: statusBarIconBrightness ?? Brightness.dark,
-        statusBarColor: statusColor ?? AppColors.trans,
+        statusBarColor: statusColor ?? AppColors.white,
       ),
-      child: Container(
-        width: Get.width,
-        height: Get.height,
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-        ),
-        child: SafeArea(
-          top: topSafe,
-          bottom: false,
-          child: Scaffold(
-            key: key,
-            appBar: appBar,
-            body: body,
-            floatingActionButton: floatingActionButton,
-            floatingActionButtonLocation: floatingActionButtonLocation,
-            floatingActionButtonAnimator: floatingActionButtonAnimator,
-            persistentFooterButtons: persistentFooterButtons,
-            persistentFooterAlignment: persistentFooterAlignment,
-            drawer: drawer ?? appDrawer(),
-            onDrawerChanged: onDrawerChanged,
-            endDrawer: endDrawer,
-            onEndDrawerChanged: onEndDrawerChanged,
-            bottomNavigationBar: bottomNavigationBar,
-            bottomSheet: bottomSheet,
-            backgroundColor: Colors.white,
-            resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-            primary: primary,
-            drawerDragStartBehavior: drawerDragStartBehavior,
-            extendBody: extendBody,
-            extendBodyBehindAppBar: extendBodyBehindAppBar,
-            drawerScrimColor: drawerScrimColor,
-            drawerEdgeDragWidth: drawerEdgeDragWidth,
-            drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
-            endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
-            restorationId: restorationId,
-          ),
+      child: SafeArea(
+        top: topSafe,
+        bottom: false,
+        child: Scaffold(
+          key: key,
+          appBar: appBar,
+          body: body,
+          floatingActionButton: floatingActionButton,
+          floatingActionButtonLocation: floatingActionButtonLocation,
+          floatingActionButtonAnimator: floatingActionButtonAnimator,
+          persistentFooterButtons: persistentFooterButtons,
+          persistentFooterAlignment: persistentFooterAlignment,
+          drawer: drawer ?? appDrawer(),
+          onDrawerChanged: onDrawerChanged,
+          endDrawer: endDrawer,
+          onEndDrawerChanged: onEndDrawerChanged,
+          bottomNavigationBar: bottomNavigationBar,
+          bottomSheet: bottomSheet,
+          backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+          primary: primary,
+          drawerDragStartBehavior: drawerDragStartBehavior,
+          extendBody: extendBody,
+          extendBodyBehindAppBar: extendBodyBehindAppBar,
+          drawerScrimColor: drawerScrimColor,
+          drawerEdgeDragWidth: drawerEdgeDragWidth,
+          drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
+          endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
+          restorationId: restorationId,
         ),
       ));
 }
