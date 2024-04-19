@@ -1,6 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Pref {
+  static String firstLunch = 'first_lunch';
   static String isPro = 'isPro';
   static String firstLaunch = 'firstLaunch';
   static String appData = 'appData';

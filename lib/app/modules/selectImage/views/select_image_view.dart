@@ -16,6 +16,7 @@ import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
 import '../../../reusable/images/default_image.dart';
+import '../../../uttils/globle_uttils.dart';
 import '../controllers/select_image_controller.dart';
 
 class SelectImageView extends GetView<SelectImageController> {
@@ -53,15 +54,17 @@ class SelectImageView extends GetView<SelectImageController> {
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 onTap: () async {
-                  final XFile? image =
-                      await ImagePicker().pickImage(source: ImageSource.camera);
-                  if (image != null) {
-                    await controller.saveImage(image.path);
-                    Get.to(CameraView(
-                        image: File(image.path),
-                        currentIndex: currentIndex,
-                        effectName: effectName));
-                  }
+                  showInter(callBack: () async {
+                    final XFile? image = await ImagePicker()
+                        .pickImage(source: ImageSource.camera);
+                    if (image != null) {
+                      await controller.saveImage(image.path);
+                      Get.to(CameraView(
+                          image: File(image.path),
+                          currentIndex: currentIndex,
+                          effectName: effectName));
+                    }
+                  });
                 },
                 child: DefaultImage(
                   AppIcons.camera,

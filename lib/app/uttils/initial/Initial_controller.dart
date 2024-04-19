@@ -4,6 +4,7 @@ import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:posteriya/app/uttils/analytic_service/analytics_service.dart';
 
 import '../../model/style_data_model.dart';
 import '../../modules/dashboard/views/dashboard_view.dart';
@@ -27,7 +28,7 @@ class InitialController extends GetxController {
       return await redirect();
     });
     // razorPayInit();
-    // AnalyticsService.instance.sendAnalyticsEvent(eventName: 'OPEN bobbly APP');
+    AnalyticsService.instance.sendAnalyticsEvent(eventName: 'Posteriya AI');
   }
 
   // getMetaAnonymousId() async {

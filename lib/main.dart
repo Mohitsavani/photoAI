@@ -1,14 +1,24 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'app/core/material_theme.dart';
 import 'app/reusable/connectivity_wrapper.dart';
 import 'app/routes/app_pages.dart';
 import 'app/uttils/initial/initial_bindings.dart';
+import 'app/uttils/local_store/prefrances.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  MobileAds.instance.initialize();
+  await PreferenceHelper.instance.createSharedPref();
   runApp(const MyApp());
 }
 

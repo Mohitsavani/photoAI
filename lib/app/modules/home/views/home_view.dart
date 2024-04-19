@@ -10,7 +10,9 @@ import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
+import '../../../reusable/google_add/google_advertise_repo/advertise_repo.dart';
 import '../../../reusable/images/default_image.dart';
+import '../../../uttils/globle_uttils.dart';
 
 class HomeView extends StatelessWidget {
   final int currentIndex;
@@ -19,14 +21,21 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return appScaffold(
-      body: Padding(
-        padding: EdgeInsets.only(bottom: 25.h),
-        child: ListView.builder(
-          itemCount: freeDataList.length,
-          itemBuilder: (context, index) {
-            return _buildListItem(context, index);
-          },
-        ),
+      body: Column(
+        children: [
+          GoogleAdd.getInstance().showNative(isSmall: true),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 25.h),
+              child: ListView.builder(
+                itemCount: freeDataList.length,
+                itemBuilder: (context, index) {
+                  return _buildListItem(context, index);
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -38,10 +47,12 @@ class HomeView extends StatelessWidget {
   Widget _buildListItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => SelectImageView(
-              currentIndex: currentIndex,
-              effectName: freeDataList[index]['name'],
-            ));
+        showInter(callBack: () {
+          Get.to(() => SelectImageView(
+                currentIndex: currentIndex,
+                effectName: freeDataList[index]['name'],
+              ));
+        });
       },
       child: SizedBox(
         height: Get.height * 0.26,

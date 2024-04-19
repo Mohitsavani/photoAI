@@ -10,6 +10,7 @@ import '../../../core/typography.dart';
 import '../../../reusable/app_dailogs/app_dailogs.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
+import '../../../reusable/google_add/google_advertise_repo/advertise_repo.dart';
 import '../../../reusable/images/default_image.dart';
 import '../controllers/ai_effect_controller.dart';
 
@@ -21,8 +22,7 @@ class AiEffectView extends GetView<AiEffectController> {
     return appScaffold(
       body: Column(
         children: [
-          // Include the TopBar widget at the top
-
+          GoogleAdd.getInstance().showNative(isSmall: true),
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(bottom: 25.h),

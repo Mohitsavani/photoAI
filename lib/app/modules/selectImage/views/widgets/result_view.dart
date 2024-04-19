@@ -17,6 +17,7 @@ import '../../../../reusable/generated_scaffold.dart';
 import '../../../../reusable/global_widget.dart';
 import '../../../../reusable/images/default_image.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../uttils/globle_uttils.dart';
 
 class ResultView extends StatefulWidget {
   final File? image;
@@ -76,7 +77,9 @@ class _ResultViewState extends State<ResultView> {
           children: [
             GestureDetector(
               onTap: () {
-                downloadImage(widget.image!.path, context);
+                showInter(callBack: () {
+                  downloadImage(widget.image!.path, context);
+                });
               },
               child: DefaultImage(
                 AppIcons.download,

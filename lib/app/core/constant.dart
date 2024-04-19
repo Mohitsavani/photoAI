@@ -1,5 +1,29 @@
 import 'assets.dart';
 
+const String baseurl = "https://lezzel.psktechnology.com";
+
+class Constants {
+  static String dbname = "festiva.db";
+  static String playStoreUrl =
+      'https://play.google.com/store/apps/details?id=poster.maker.festiva.app.festiva_poster&hl=en-IN';
+  static String nativeFrameSmall = 'listTile';
+  static String nativeFrameMedium = 'listTileMedium';
+
+  //Android
+  static String nativeAdUnitId = 'ca-app-pub-3940256099942544/2247696110';
+  static String appOpenAdUnitId = 'ca-app-pub-3940256099942544/9257395921';
+  static String bannerUnitId = 'ca-app-pub-3940256099942544/6300978111';
+  static String interstitialUnitId = 'ca-app-pub-3940256099942544/1033173712';
+  static String rewardedUnitId = 'ca-app-pub-3940256099942544/1033173712';
+
+  //Ios
+  static String iosNativeId = 'ca-app-pub-3940256099942544/3986624511';
+  static String iosAppOpenId = 'ca-app-pub-3940256099942544/5575463023';
+  static String iosBannerId = 'ca-app-pub-3940256099942544/2934735716';
+  static String iosInterId = 'ca-app-pub-3940256099942544/4411468910';
+  static String iosRewardedId = 'ca-app-pub-3940256099942544/1712485313';
+}
+
 final List<Map<String, dynamic>> exampleData = [
   {
     'Image':

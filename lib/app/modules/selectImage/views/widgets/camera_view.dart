@@ -13,6 +13,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 import '../../../../core/local_string.dart';
 import '../../../../reusable/global_widget.dart';
 import '../../../../reusable/images/default_image.dart';
+import '../../../../uttils/globle_uttils.dart';
 import '../../../purchase/views/purchase_view.dart';
 import 'edit_picture_view.dart';
 
@@ -55,7 +56,9 @@ class CameraView extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(const PurchaseView());
+                  showInter(callBack: () {
+                    Get.to(const PurchaseView());
+                  });
                 },
                 child: Container(
                   width: 60,
@@ -81,7 +84,9 @@ class CameraView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
-                    controller.cropImage(image);
+                    showInter(callBack: () {
+                      controller.cropImage(image);
+                    });
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
@@ -128,13 +133,15 @@ class CameraView extends StatelessWidget {
                 height: Get.height * 0.06,
                 LocalString.start,
                 onPressed: () {
-                  Get.to(EditPictureView(
-                    image: File(controller.croppedImage.value != null
-                        ? controller.croppedImage.value!.path
-                        : image!.path),
-                    currentIndex: currentIndex,
-                    effectName: effectName,
-                  ));
+                  showInter(callBack: () {
+                    Get.to(EditPictureView(
+                      image: File(controller.croppedImage.value != null
+                          ? controller.croppedImage.value!.path
+                          : image!.path),
+                      currentIndex: currentIndex,
+                      effectName: effectName,
+                    ));
+                  });
                 },
               ),
             ],

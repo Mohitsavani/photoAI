@@ -15,6 +15,7 @@ import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
 import '../../../../reusable/global_widget.dart';
 import '../../../../reusable/images/default_image.dart';
+import '../../../../uttils/globle_uttils.dart';
 
 class EditPictureView extends StatefulWidget {
   final int currentIndex;
@@ -187,7 +188,9 @@ class _EditPictureViewState extends State<EditPictureView> {
                 width: Get.width * 0.45,
                 height: Get.height * 0.06,
                 onPressed: () {
-                  Get.to(ResultView(image: File(widget.image.path)));
+                  showInter(callBack: () {
+                    Get.to(ResultView(image: File(widget.image.path)));
+                  });
                 },
               ),
             ),

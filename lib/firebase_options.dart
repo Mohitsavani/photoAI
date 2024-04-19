@@ -57,6 +57,7 @@ class DefaultFirebaseOptions {
     appId: '1:729055523373:android:6095a76eee443255debea4',
     messagingSenderId: '729055523373',
     projectId: 'posteriya-ai',
+    databaseURL: 'https://posteriya-ai-default-rtdb.firebaseio.com',
     storageBucket: 'posteriya-ai.appspot.com',
   );
 }

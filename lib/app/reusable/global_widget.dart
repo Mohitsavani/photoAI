@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:posteriya/app/core/typography.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../core/colors.dart';
@@ -133,5 +134,56 @@ class SimmerLoader extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class LoadingDots extends StatefulWidget {
+  const LoadingDots({super.key});
+
+  @override
+  State<LoadingDots> createState() => _LoadingDotsState();
+}
+
+class _LoadingDotsState extends State<LoadingDots>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 2),
+          child: Text('Loading', style: ubuntu.get10),
+        ),
+        SizedBox(
+          width: 20,
+          child: AnimatedBuilder(
+            animation: _controller,
+            builder: (context, child) {
+              return Text('.' * (_controller.value * 4).floor(),
+                  maxLines: 1, style: ubuntu.get10);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

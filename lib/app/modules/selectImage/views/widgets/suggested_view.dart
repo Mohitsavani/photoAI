@@ -8,7 +8,9 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:posteriya/app/core/local_string.dart';
 
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/google_add/google_advertise_repo/advertise_repo.dart';
 import '../../../../reusable/images/default_image.dart';
+import '../../../../uttils/globle_uttils.dart';
 import 'camera_view.dart';
 
 class SuggestView extends StatefulWidget {
@@ -99,6 +101,7 @@ class _SuggestViewState extends State<SuggestView> {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
+                  GoogleAdd.getInstance().showNative(),
                   Container(
                       margin: EdgeInsets.symmetric(
                           horizontal: 10.h, vertical: 10.h),
@@ -115,10 +118,12 @@ class _SuggestViewState extends State<SuggestView> {
                           final String imgPath = imageList[index];
                           return GestureDetector(
                             onTap: () {
-                              Get.to(CameraView(
-                                  image: File(imgPath),
-                                  currentIndex: widget.currentIndex,
-                                  effectName: widget.effectName));
+                              showInter(callBack: () {
+                                Get.to(CameraView(
+                                    image: File(imgPath),
+                                    currentIndex: widget.currentIndex,
+                                    effectName: widget.effectName));
+                              });
                             },
                             child: Stack(
                               fit: StackFit.expand,
