@@ -1,7 +1,7 @@
 String emptyString = "";
 
 class LocalString {
-  static String title = "Photo AI";
+  static String title = "Posteriya";
   static String subtitle = "Sub Title";
   static String start = "Start";
   static String home = "Home";
@@ -58,7 +58,6 @@ class LocalString {
       "Using the feature will consume a specific number of count each time";
   static String rule2 =
       "Once the app is uninstalled, the count will be completely reset";
-  static String photoAI = "Photo AI";
   static String purchasePoint1 = "Gems unlock all features.";
   static String purchasePoint2 = "Experience more cool effects.";
   static String purchasePoint3 = "No ads.";
@@ -66,4 +65,5 @@ class LocalString {
   static String watchVideoGetCount =
       "Watch incentive video to get count for free";
   static String countRule = "Count Rules";
+  static String restorePurchase = "Restore Purchase";
 }

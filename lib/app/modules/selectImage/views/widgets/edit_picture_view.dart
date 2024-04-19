@@ -62,7 +62,7 @@ class _EditPictureViewState extends State<EditPictureView> {
           children: [
             Flexible(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
                 child: BeforeAfter(
                   value: value,
                   before: DefaultImage(
