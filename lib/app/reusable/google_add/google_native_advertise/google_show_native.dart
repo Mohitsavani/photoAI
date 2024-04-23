@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../core/colors.dart';
 import '../../global_widget.dart';
 import '../google_add_config_controller.dart';
 import 'google_load_native.dart';
@@ -56,6 +57,9 @@ class _GoogleNativeLargeState extends State<GoogleNativeLarge> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: AppColors.appColor, width: 0.2)),
         padding: EdgeInsets.zero,
         margin: EdgeInsets.only(top: 1.h, left: 4.w, right: 4.w),
         child: LoadLargeNative.instance.nativeObjectLarge.isNotEmpty
@@ -102,12 +106,19 @@ class _GoogleNativeSmallState extends State<GoogleNativeSmall> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.zero,
-        margin: EdgeInsets.only(top: 1.h, left: 1.w, right: 1.w),
-        child: LoadSmallNative.instance.nativeObjectSmall.isNotEmpty
-            ? adView()
-            : const SizedBox.shrink());
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15.h),
+      child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: AppColors.appColor, width: 0.2),
+          ),
+          padding: EdgeInsets.zero,
+          margin: EdgeInsets.only(top: 1.h, left: 1.w, right: 1.w),
+          child: LoadSmallNative.instance.nativeObjectSmall.isNotEmpty
+              ? adView()
+              : const SizedBox.shrink()),
+    );
   }
 
   Widget adView() {

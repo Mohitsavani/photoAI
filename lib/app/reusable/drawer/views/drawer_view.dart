@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/typography.dart';
+import '../../../uttils/globle_uttils.dart';
 import '../../global_widget.dart';
 import '../../images/default_image.dart';
 import '../controllers/drawer_controller.dart';
@@ -42,15 +43,25 @@ class DrawerView extends StatelessWidget {
                       (index) => InkWell(
                         onTap: () {
                           if (index == 0) {
-                            controller.privacy();
+                            showInter(callBack: () {
+                              controller.privacy();
+                            });
                           } else if (index == 1) {
-                            controller.term();
+                            showInter(callBack: () {
+                              controller.term();
+                            });
                           } else if (index == 2) {
-                            controller.rate();
+                            showInter(callBack: () {
+                              controller.rate();
+                            });
                           } else if (index == 3) {
-                            controller.share();
+                            showInter(callBack: () {
+                              controller.share();
+                            });
                           } else if (index == 4) {
-                            controller.help();
+                            showInter(callBack: () {
+                              controller.help();
+                            });
                           }
                         },
                         splashColor: AppColors.trans,

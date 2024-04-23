@@ -14,7 +14,6 @@ import '../../../../core/local_string.dart';
 import '../../../../reusable/global_widget.dart';
 import '../../../../reusable/images/default_image.dart';
 import '../../../../uttils/globle_uttils.dart';
-import '../../../purchase/views/purchase_view.dart';
 import 'edit_picture_view.dart';
 
 class CameraView extends StatelessWidget {
@@ -42,7 +41,9 @@ class CameraView extends StatelessWidget {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            Get.back();
+            showInter(callBack: () {
+              Get.back();
+            });
           },
           child: const Padding(
             padding: EdgeInsets.all(8.0),
@@ -52,54 +53,24 @@ class CameraView extends StatelessWidget {
           ),
         ),
         actions: [
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  showInter(callBack: () {
-                    Get.to(const PurchaseView());
-                  });
-                },
-                child: Container(
-                  width: 60,
-                  height: 25,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(color: AppColors.appColor)),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      DefaultImage(
-                        AppIcons.gems,
-                        height: 15,
-                        width: 15,
-                        color: AppColors.appColor,
-                      ),
-                      AppText("0 +")
-                    ],
-                  ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                showInter(callBack: () {
+                  controller.cropImage(image);
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: DefaultImage(
+                  AppIcons.cropIcon,
+                  color: AppColors.appColor,
+                  height: 22.h,
+                  width: 24.w,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: () {
-                    showInter(callBack: () {
-                      controller.cropImage(image);
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: DefaultImage(
-                      AppIcons.cropIcon,
-                      color: AppColors.appColor,
-                      height: 22.h,
-                      width: 24.w,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),

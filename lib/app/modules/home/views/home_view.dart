@@ -21,21 +21,23 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return appScaffold(
-      body: Column(
-        children: [
-          GoogleAdd.getInstance().showNative(isSmall: true),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GoogleAdd.getInstance().showNative(isSmall: true),
+            Padding(
               padding: EdgeInsets.only(bottom: 25.h),
               child: ListView.builder(
+                shrinkWrap: true, // Add this line
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: freeDataList.length,
                 itemBuilder: (context, index) {
                   return _buildListItem(context, index);
                 },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

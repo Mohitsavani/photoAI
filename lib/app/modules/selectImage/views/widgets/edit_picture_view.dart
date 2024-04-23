@@ -46,7 +46,9 @@ class _EditPictureViewState extends State<EditPictureView> {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            Get.back();
+            showInter(callBack: () {
+              Get.back();
+            });
           },
           child: const Padding(
             padding: EdgeInsets.all(8.0),

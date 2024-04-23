@@ -7,50 +7,53 @@ import 'package:posteriya/app/core/colors.dart';
 import '../../../core/constant.dart';
 import '../../../core/local_string.dart';
 import '../../../core/typography.dart';
-import '../../../reusable/app_dailogs/app_dailogs.dart';
 import '../../../reusable/generated_scaffold.dart';
 import '../../../reusable/global_widget.dart';
 import '../../../reusable/google_add/google_advertise_repo/advertise_repo.dart';
 import '../../../reusable/images/default_image.dart';
+import '../../selectImage/views/select_image_view.dart';
 import '../controllers/ai_effect_controller.dart';
 
 class AiEffectView extends GetView<AiEffectController> {
   final int currentIndex;
   const AiEffectView({Key? key, required this.currentIndex}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return appScaffold(
-      body: Column(
-        children: [
-          GoogleAdd.getInstance().showNative(isSmall: true),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            GoogleAdd.getInstance().showNative(isSmall: true),
+            Padding(
               padding: EdgeInsets.only(bottom: 25.h),
               child: ListView.builder(
+                shrinkWrap: true, // Add this line
+                physics: const NeverScrollableScrollPhysics(), // Add this line
                 itemCount: aiEffectDataList.length,
                 itemBuilder: (context, index) {
                   return _buildListItem(context, index);
                 },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-//==============================================================================
-// ** Helper Widgets **
-//==============================================================================
+  //==============================================================================
+  // ** Helper Widgets **
+  //==============================================================================
 
   Widget _buildListItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        AppDialogs.proDialog(context, title: aiEffectDataList[index]['name']);
-        // Get.to(() => SelectImageView(
-        //       currentIndex: currentIndex,
-        //       effectName: aiEffectDataList[index]['name'],
-        //     ));
+        Get.to(() => SelectImageView(
+              currentIndex: currentIndex,
+              effectName: aiEffectDataList[index]['name'],
+            ));
       },
       child: SizedBox(
         height: Get.height * 0.26,

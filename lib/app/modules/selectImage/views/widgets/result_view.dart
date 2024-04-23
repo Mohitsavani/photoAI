@@ -40,7 +40,9 @@ class _ResultViewState extends State<ResultView> {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            Get.back();
+            showInter(callBack: () {
+              Get.back();
+            });
           },
           child: const Padding(
             padding: EdgeInsets.all(8.0),
@@ -54,7 +56,9 @@ class _ResultViewState extends State<ResultView> {
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
                 onTap: () {
-                  Get.offAllNamed(Routes.DASHBOARD);
+                  showInter(callBack: () {
+                    Get.offAllNamed(Routes.DASHBOARD);
+                  });
                 },
                 child: DefaultImage(
                   AppIcons.home,
@@ -90,7 +94,9 @@ class _ResultViewState extends State<ResultView> {
             ),
             GestureDetector(
               onTap: () {
-                shareOn(widget.image!.path);
+                showInter(callBack: () {
+                  shareOn(widget.image!.path);
+                });
               },
               child: DefaultImage(
                 AppIcons.share,
