@@ -12,6 +12,7 @@ import 'package:posteriya/app/reusable/generated_scaffold.dart';
 
 import '../../../../core/local_string.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/google_add/google_rewarded_interstitial/google_rewarded_advertise.dart';
 import '../../../../reusable/images/default_image.dart';
 import '../../../../uttils/globle_uttils.dart';
 import 'edit_picture_view.dart';
@@ -99,22 +100,27 @@ class CameraView extends StatelessWidget {
                           )
                         : AppText(LocalString.noImageSelected));
               }),
-              AppButton(
-                width: Get.width * 0.45,
-                height: Get.height * 0.06,
-                LocalString.start,
-                onPressed: () {
-                  showInter(callBack: () {
-                    Get.to(EditPictureView(
-                      image: File(controller.croppedImage.value != null
-                          ? controller.croppedImage.value!.path
-                          : image!.path),
-                      currentIndex: currentIndex,
-                      effectName: effectName,
-                    ));
-                  });
-                },
-              ),
+              Obx(() => AppButton(
+                    width: Get.width * 0.45,
+                    height: Get.height * 0.06,
+                    LocalString.start,
+                    loader:
+                        GoogleRewardsAdvertise.instance.isRewardAdLoaded.isTrue
+                            ? true
+                            : false,
+                    onPressed: () {
+                      GoogleRewardsAdvertise.instance.loadRewardedAd(
+                          callback: () {
+                        Get.to(EditPictureView(
+                          image: File(controller.croppedImage.value != null
+                              ? controller.croppedImage.value!.path
+                              : image!.path),
+                          currentIndex: currentIndex,
+                          effectName: effectName,
+                        ));
+                      });
+                    },
+                  ))
             ],
           ),
         ),

@@ -34,7 +34,7 @@ class GoogleAddRepoImpl extends GoogleAddRepo {
   }
 
   @override
-  void loadGoogleInterstitialAdd() {
+  Future<void> loadGoogleInterstitialAdd() {
     return GoogleInterstitialAdvertise.instance.load();
   }
 

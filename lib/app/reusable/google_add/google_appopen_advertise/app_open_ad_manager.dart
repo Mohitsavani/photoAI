@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../uttils/globle_uttils.dart';
 import '../google_add_config_controller.dart';
 
 /// Utility class that manages loading and showing app open ads.
@@ -109,7 +110,7 @@ class AppOpenOnStart {
   /// Load an [AppOpenAd].
   Future<void> loadAd() async {
     _timer = Timer.periodic(const Duration(seconds: 15), (Timer t) async {
-      // await reDirect();
+      await redirect();
     });
     adUnitId = Get.find<GoogleAddConfigController>().config.value.appOpenId ??
         "ca-app-pub-3940256099942544/9257395921";
@@ -127,7 +128,7 @@ class AppOpenOnStart {
             showAdIfAvailable();
           },
           onAdFailedToLoad: (error) async {
-            // await reDirect();
+            await redirect();
 
             print('AppOpenAd failed to load: $error');
           },
@@ -135,10 +136,10 @@ class AppOpenOnStart {
       );
     } on PlatformException catch (e) {
       _timer.cancel();
-      // await reDirect();
+      await redirect();
     } catch (error) {
       _timer.cancel();
-      // await reDirect();
+      await redirect();
     }
   }
 
@@ -185,7 +186,7 @@ class AppOpenOnStart {
         _isShowingAd = false;
         ad.dispose();
         _appOpenAd = null;
-        // await reDirect();
+        await redirect();
       },
     );
     _appOpenAd!.show();

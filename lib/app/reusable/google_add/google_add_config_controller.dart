@@ -5,7 +5,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 
 import '../../model/config_model.dart';
-import '../../routes/app_pages.dart';
+import '../../uttils/analytic_service/analytics_service.dart';
+import '../../uttils/globle_uttils.dart';
 import '../../uttils/local_store/prefrances.dart';
 import 'google_advertise_repo/advertise_repo.dart';
 import 'google_app_ids.dart';
@@ -20,7 +21,8 @@ class GoogleAddConfigController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    listenToFirebaseChanges();
+    AnalyticsService.instance.sendAnalyticsEvent(eventName: 'Posteriya App');
+    fetchDataFromFirebase();
   }
 
   var object = {
@@ -60,42 +62,58 @@ class GoogleAddConfigController extends GetxController {
     "isPro": true
   };
 
-  Future<void> listenToFirebaseChanges() async {
+  Future<void> fetchDataFromFirebase() async {
     if (await ConnectivityWrapper.instance.isConnected) {
-      DatabaseReference ref =
-          FirebaseDatabase.instance.ref().child("app_config");
-      ref.onValue.listen((event) {
-        DataSnapshot snapshot = event.snapshot;
+      try {
+        DatabaseReference ref =
+            FirebaseDatabase.instance.ref().child("app_config");
+        DataSnapshot snapshot = await ref.get();
         Object? data = snapshot.value;
 
         if (data != null) {
-          config.value = configDataFromJson(jsonEncode(data));
-          if (config.value.showAd == true) {
-            GoogleAdd.getInstance().loadLargeNative();
-            GoogleAdd.getInstance().loadSmallNative();
-            GoogleAppIds();
-            AppOpenOnStart().loadAd();
-            GoogleAdd.getInstance().googleOpenAppAdd();
-            GoogleAdd.getInstance().loadGoogleInterstitialAdd();
-          }
-          Future.delayed(const Duration(seconds: 2)).then((_) async {
-            if (navigated.isFalse) {
-              firstLunch =
-                  await PreferenceHelper.instance.getData(Pref.firstLunch);
-
-              firstLunch == null
-                  ? Get.offAllNamed(Routes.DASHBOARD)
-                  : Get.offAllNamed(Routes.DASHBOARD);
-
-              navigated(true);
-            }
+          PreferenceHelper.instance.setData(Pref.appData, json.encode(data));
+          await getLocalData().then((value) async {
+            await loadAds();
           });
-          update();
+        } else {
+          await getLocalData().then((value) async {
+            await loadAds();
+          });
         }
-      });
+      } catch (e) {
+        await getLocalData().then((value) async {
+          await redirect();
+        });
+      }
     } else {
-      Future.delayed(const Duration(seconds: 2))
-          .then((value) => Get.offAllNamed(Routes.DASHBOARD));
+      await getLocalData().then((value) async {
+        await redirect();
+      });
     }
+  }
+
+  loadAds() async {
+    if (config.value.showAd == true) {
+      await GoogleAdd.getInstance().loadLargeNative();
+      await GoogleAdd.getInstance().loadSmallNative();
+      await GoogleAdd.getInstance().googleOpenAppAdd();
+      await GoogleAdd.getInstance().loadGoogleInterstitialAdd();
+      await GoogleAdd.getInstance().googleOpenAppAddWithOutLoad();
+      await AppOpenOnStart().loadAd();
+    } else {
+      await redirect();
+    }
+  }
+
+  Future<void> getLocalData() async {
+    String? appdata;
+    appdata = await PreferenceHelper.instance.getData(Pref.appData);
+    if (appdata == null) {
+      config.value = configDataFromJson(json.encode(object));
+    } else {
+      config.value = configDataFromJson(appdata);
+      // config.value = configDataFromJson(json.encode(localData));
+    }
+    GoogleAppIds.instance.setPlateFormIds(config.value);
   }
 }

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,13 +19,16 @@ import 'app/uttils/notification_service/firebase_notification.dart';
 Future<void> backgroundHandler(RemoteMessage message) async {}
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await FirebaseNotification.instance.initializeApp();
-  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
-  MobileAds.instance.initialize();
-  await PreferenceHelper.instance.createSharedPref();
-  runApp(const MyApp());
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    await FirebaseNotification.instance.initializeApp();
+    FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+    MobileAds.instance.initialize();
+    await PreferenceHelper.instance.createSharedPref();
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    runApp(const MyApp());
+  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 }
 
 class MyApp extends StatelessWidget {

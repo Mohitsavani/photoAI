@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../../../uttils/globle_uttils.dart';
-import '../google_app_ids.dart';
+import '../google_add_config_controller.dart';
 import 'app_open_ad_manager.dart';
 
 class GoogleOpenAppAdvertise {
@@ -45,13 +44,12 @@ class AppLifecycleReactor {
   }
 
   void _onAppStateChanged(AppState appState) {
-    appPrint('New AppState state: $appState');
-    if (GoogleAppIds.instance.showOpenApp.isTrue &&
-        GoogleAppIds.instance.showAd.isTrue) {
-      if (GoogleAppIds.instance.isQureka.isFalse) {
-        if (appState == AppState.foreground) {
-          appOpenAdManager.showAdIfAvailable();
-        }
+    print('New AppState state: $appState');
+    if (Get.find<GoogleAddConfigController>().config.value.showOpenApp ==
+            true &&
+        Get.find<GoogleAddConfigController>().config.value.showAd == true) {
+      if (appState == AppState.foreground) {
+        appOpenAdManager.showAdIfAvailable();
       }
     }
   }

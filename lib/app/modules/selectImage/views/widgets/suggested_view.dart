@@ -33,28 +33,38 @@ class _SuggestViewState extends State<SuggestView> {
   @override
   void initState() {
     super.initState();
-    requestPermission().then((value) {
+    _checkStoragePermission().then((value) {
       getStatusData();
     });
   }
 
-  Future<int> requestPermission() async {
-    final androidInfo = await DeviceInfoPlugin().androidInfo;
-    if (androidInfo.version.sdkInt >= 34) {
-      final requestStatusManaged =
-          await Permission.manageExternalStorage.request();
-      if (requestStatusManaged.isGranted) {
-        return 1;
+  _checkStoragePermission() async {
+    PermissionStatus status;
+    if (Platform.isAndroid) {
+      final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+      final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
+      if ((info.version.sdkInt) >= 34) {
+        status = await Permission.manageExternalStorage.request();
       } else {
-        return 0;
+        status = await Permission.storage.request();
       }
     } else {
-      final requestStatusStorage = await Permission.storage.request();
-      if (requestStatusStorage.isGranted) {
-        return 1;
-      } else {
-        return 0;
-      }
+      status = await Permission.storage.request();
+    }
+
+    switch (status) {
+      case PermissionStatus.denied:
+        return false;
+      case PermissionStatus.granted:
+        return true;
+      case PermissionStatus.restricted:
+        return false;
+      case PermissionStatus.limited:
+        return true;
+      case PermissionStatus.permanentlyDenied:
+        return false;
+      case PermissionStatus.provisional:
+      // TODO: Handle this case.
     }
   }
 

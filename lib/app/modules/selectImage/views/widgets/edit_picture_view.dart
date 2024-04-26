@@ -14,6 +14,7 @@ import '../../../../core/local_string.dart';
 import '../../../../core/typography.dart';
 import '../../../../reusable/app_button/app_button.dart';
 import '../../../../reusable/global_widget.dart';
+import '../../../../reusable/google_add/google_rewarded_interstitial/google_rewarded_advertise.dart';
 import '../../../../reusable/images/default_image.dart';
 import '../../../../uttils/globle_uttils.dart';
 
@@ -184,18 +185,22 @@ class _EditPictureViewState extends State<EditPictureView> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h),
-              child: AppButton(
-                LocalString.done,
-                width: Get.width * 0.45,
-                height: Get.height * 0.06,
-                onPressed: () {
-                  showInter(callBack: () {
-                    Get.to(ResultView(image: File(widget.image.path)));
-                  });
-                },
-              ),
-            ),
+                padding: EdgeInsets.symmetric(vertical: 15.h),
+                child: Obx(() => AppButton(
+                      LocalString.done,
+                      width: Get.width * 0.45,
+                      height: Get.height * 0.06,
+                      loader: GoogleRewardsAdvertise
+                              .instance.isRewardAdLoaded.isTrue
+                          ? true
+                          : false,
+                      onPressed: () {
+                        GoogleRewardsAdvertise.instance.loadRewardedAd(
+                            callback: () {
+                          Get.to(ResultView(image: File(widget.image.path)));
+                        });
+                      },
+                    ))),
           ],
         ),
       ),

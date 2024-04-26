@@ -19,11 +19,11 @@ class GoogleInterstitialAdvertise {
   bool _isInterstitialAdLoaded = false;
   var counter = 0.obs;
 
-  void load() {
+  Future<void> load() async {
     try {
       _isInterstitialAdLoaded = false;
-      InterstitialAd.load(
-        adUnitId: "ca-app-pub-3940256099942544/1033173712",
+      await InterstitialAd.load(
+        adUnitId: GoogleAppIds.instance.interId,
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
@@ -41,24 +41,6 @@ class GoogleInterstitialAdvertise {
       _interstitialAd?.dispose();
     }
   }
-
-/*  void navigate(
-    String path, {
-    dynamic arguments,
-    bool? emptyRoutes = false,
-    bool? isBack = false,
-    bool? removePrevious = false,
-  }) {
-    if (emptyRoutes == true) {
-      Get.offAllNamed(path, arguments: arguments);
-    } else if (isBack == true || isBack != null) {
-      Get.back();
-    } else if (removePrevious == true || removePrevious != null) {
-      Get.offAndToNamed(path, arguments: arguments);
-    } else {
-      Get.toNamed(path, arguments: arguments);
-    }
-  }*/
 
   void showAndNavigate({required void Function() callBack}) {
     if (GoogleAppIds.instance.showInterstitial.isTrue &&

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 
 import '../../core/constant.dart';
+import '../../model/config_model.dart';
 import 'google_add_config_controller.dart';
 
 class GoogleAppIds {
@@ -11,9 +12,7 @@ class GoogleAppIds {
   factory GoogleAppIds() {
     return instance;
   }
-  GoogleAppIds._internal() {
-    setPlateFormIds();
-  }
+  GoogleAppIds._internal();
 
   String appOpenId = Constants.appOpenAdUnitId;
   String bannerId = Constants.bannerUnitId;
@@ -30,7 +29,7 @@ class GoogleAppIds {
   var isPro = true.obs;
   var interCounter = 0.obs;
 
-  setPlateFormIds() {
+  setPlateFormIds(ConfigData appIds) {
     var appIds = Get.find<GoogleAddConfigController>().config.value;
     if (Platform.isAndroid) {
       appOpenId = appIds.appOpenId ?? Constants.appOpenAdUnitId;

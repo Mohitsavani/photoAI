@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:posteriya/app/modules/dashboard/views/dashboard_view.dart';
 
 class FadeWidget extends StatefulWidget {
   final Widget child;
@@ -26,7 +24,7 @@ class _FadeWidgetState extends State<FadeWidget> with TickerProviderStateMixin {
       controller: _controller,
       delayEnd: delay,
     );
-    _controller.forward().whenComplete(() => Get.to(const DashboardView()));
+    _controller.forward();
   }
 
   @override

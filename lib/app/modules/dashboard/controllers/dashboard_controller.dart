@@ -10,6 +10,7 @@ import 'package:posteriya/app/reusable/app_button/app_button.dart';
 import '../../../core/colors.dart';
 import '../../../reusable/global_widget.dart';
 import '../../../routes/app_pages.dart';
+import '../../../uttils/local_store/prefrances.dart';
 import '../../aiEffect/bindings/ai_effect_binding.dart';
 import '../../aiEffect/views/ai_effect_view.dart';
 import '../../home/bindings/home_binding.dart';
@@ -28,7 +29,8 @@ class DashboardController extends GetxController {
   late PageController pageController = PageController();
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
+    await PreferenceHelper.instance.setData(Pref.firstLunch, false);
     super.onInit();
   }
 
